@@ -16,13 +16,13 @@ final class Reports {
                     "audience-overview",
                     Arrays.asList(),
                     Arrays.asList(
-                            AnalMetrics.USERS__USERS,
-                            AnalMetrics.USERS__NEW_USERS,
-                            AnalMetrics.SESSIONS__SESSIONS,
-                            AnalMetrics.PAGE_TRACKING__PAGE_VIEWS,
-                            AnalMetrics.PAGE_TRACKING__PAGE_VIEWS_PER_SESSION,
-                            AnalMetrics.SESSIONS__AVG_SESSION_DURATION,
-                            AnalMetrics.SESSIONS__BOUNCE_RATE
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGEVIEWS.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric()
                     )
             )
     );
