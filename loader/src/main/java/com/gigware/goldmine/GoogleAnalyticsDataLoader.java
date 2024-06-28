@@ -13,10 +13,8 @@ import com.google.api.client.util.Lists;
 import com.google.api.services.analyticsreporting.v4.AnalyticsReporting;
 import com.google.api.services.analyticsreporting.v4.AnalyticsReportingScopes;
 import com.google.api.services.analyticsreporting.v4.model.DateRange;
-import com.google.api.services.analyticsreporting.v4.model.Dimension;
 import com.google.api.services.analyticsreporting.v4.model.GetReportsRequest;
 import com.google.api.services.analyticsreporting.v4.model.GetReportsResponse;
-import com.google.api.services.analyticsreporting.v4.model.Metric;
 import com.google.api.services.analyticsreporting.v4.model.Report;
 import com.google.api.services.analyticsreporting.v4.model.ReportRequest;
 import com.google.api.services.storage.Storage;
@@ -37,23 +35,6 @@ import java.util.List;
 import java.util.Optional;
 
 public final class GoogleAnalyticsDataLoader {
-
-    private static final List<AnalyticsReport> PROCESS_REPORTS = Arrays.asList(
-            new AnalyticsReport(
-                    "Audience -> Overview",
-                    "audience-overview",
-                    Arrays.asList(),
-                    Arrays.asList(
-                            AnalMetrics.USERS__USERS,
-                            AnalMetrics.USERS__NEW_USERS,
-                            AnalMetrics.SESSIONS__SESSIONS,
-                            AnalMetrics.PAGE_TRACKING__PAGE_VIEWS,
-                            AnalMetrics.PAGE_TRACKING__PAGE_VIEWS_PER_SESSION,
-                            AnalMetrics.SESSIONS__AVG_SESSION_DURATION,
-                            AnalMetrics.SESSIONS__BOUNCE_RATE
-                    )
-            )
-    );
 
     private static final List<String> PROCESS_VIEW_ID = Arrays.asList(
             // PRODUCT__ALL_WEBSITE_DATA_VIEW_ID
@@ -102,7 +83,7 @@ public final class GoogleAnalyticsDataLoader {
         for (final String viewId : PROCESS_VIEW_ID) {
             System.out.println("===============================================================================");
             System.out.println("Processing of view with id: " + viewId);
-            for (final AnalyticsReport report : PROCESS_REPORTS) {
+            for (final AnalyticsReport report : Reports.PROCESS_REPORTS) {
                 try {
                     processReport(viewId, report);
                 } catch (Exception e) {
@@ -329,49 +310,6 @@ public final class GoogleAnalyticsDataLoader {
             nextToken = workingObjects.getNextPageToken();
         } while (nextToken != null);
         return listing;
-    }
-
-    private static final class AnalDimensions {
-        public static final Dimension USERS__USER_TYPE = new Dimension().setName("ga:userType");
-        public static final Dimension USERS__COUNT_OF_SESSIONS = new Dimension().setName("ga:sessionCount");
-        public static final Dimension USERS__DAYS_SINCE_LAST_SESSIONS = new Dimension().setName("ga:daysSinceLastSession");
-
-        public static final Dimension SYSTEM__LANGUAGE = new Dimension().setName("ga:language");
-
-        public static final Dimension SESSION__SESSION_DURATION = new Dimension().setName("ga:sessionDurationBucket");
-
-        public static final Dimension PAGE_TRACKING__HOSTNAME = new Dimension().setName("ga:hostname");
-        public static final Dimension PAGE_TRACKING__PAGE_PATH = new Dimension().setName("ga:pagePath");
-        public static final Dimension PAGE_TRACKING__PAGE_PATH_LVL_1 = new Dimension().setName("ga:pagePathLevel1");
-        public static final Dimension PAGE_TRACKING__PAGE_PATH_LVL_2 = new Dimension().setName("ga:pagePathLevel2");
-        public static final Dimension PAGE_TRACKING__PAGE_PATH_LVL_3 = new Dimension().setName("ga:pagePathLevel3");
-        public static final Dimension PAGE_TRACKING__PAGE_PATH_LVL_4 = new Dimension().setName("ga:pagePathLevel4");
-        public static final Dimension PAGE_TRACKING__PAGE_TITLE = new Dimension().setName("ga:pageTitle");
-        public static final Dimension PAGE_TRACKING__LANDING_PATE = new Dimension().setName("ga:landingPagePath");
-        public static final Dimension PAGE_TRACKING__SECOND_PAGE = new Dimension().setName("ga:secondPagePath");
-
-    }
-
-    private static final class AnalMetrics {
-        public static final Metric USERS__USERS = new Metric().setExpression("ga:users").setAlias("users");
-        public static final Metric USERS__NEW_USERS = new Metric().setExpression("ga:newUsers").setAlias("newUsers");
-
-        public static final Metric SESSIONS__SESSIONS = new Metric().setExpression("ga:sessions").setAlias("sessions");
-        public static final Metric SESSIONS__BOUNCES = new Metric().setExpression("ga:bounces").setAlias("bounces");
-        public static final Metric SESSIONS__BOUNCE_RATE = new Metric().setExpression("ga:bounceRate").setAlias("bounceRate");
-        public static final Metric SESSIONS__SESSION_DURATION = new Metric().setExpression("ga:sessionDuration").setAlias("sessionDuration");
-        public static final Metric SESSIONS__AVG_SESSION_DURATION = new Metric().setExpression("ga:avgSessionDuration").setAlias("avgSessionDuration");
-
-        public static final Metric PAGE_TRACKING__PAGE_VALUE = new Metric().setExpression("ga:pageValue").setAlias("pageValue");
-        public static final Metric PAGE_TRACKING__ENTRANCES = new Metric().setExpression("ga:entrances").setAlias("entrances");
-        public static final Metric PAGE_TRACKING__ENTRANCES_PAGEVIEWS = new Metric().setExpression("ga:entranceRate").setAlias("entranceRate");
-        public static final Metric PAGE_TRACKING__PAGE_VIEWS = new Metric().setExpression("ga:pageviews").setAlias("pageViews");
-        public static final Metric PAGE_TRACKING__PAGE_VIEWS_PER_SESSION = new Metric().setExpression("ga:pageviewsPerSession").setAlias("pageViewsPerSession");
-        public static final Metric PAGE_TRACKING__UNIQUE_PAGE_VIEWS = new Metric().setExpression("ga:uniquePageviews").setAlias("uniquePageViews");
-        public static final Metric PAGE_TRACKING__TIME_ON_PAGE = new Metric().setExpression("ga:timeOnPage").setAlias("timeOnPage");
-        public static final Metric PAGE_TRACKING__AVG_TIME_ON_PAGE = new Metric().setExpression("ga:avgTimeOnPage").setAlias("avgTimeOnPage");
-        public static final Metric PAGE_TRACKING__EXISTS = new Metric().setExpression("ga:exits").setAlias("exits");
-        public static final Metric PAGE_TRACKING__EXIT_RATE = new Metric().setExpression("ga:exitRate").setAlias("exitRate");
     }
 
 }
