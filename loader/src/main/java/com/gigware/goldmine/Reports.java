@@ -99,6 +99,76 @@ final class Reports {
             )
     );
 
+    private static final List<AnalyticsReport> AUDIENCE_GEO_LANGUAGE_REPORT = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Geo Location",
+                    "audience-geoLocation",
+                    Arrays.asList(
+                            EnumDimensions.GEO_NETWORK__COUNTRY.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
+    private static final List<AnalyticsReport> AUDIENCE_BEHAVIOR_NEW_VS_RETURNING = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Behavior New vs Returning",
+                    "audience-behavior-new-vs-returning",
+                    Arrays.asList(
+                            EnumDimensions.USER__USER_TYPE.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
+    private static final List<AnalyticsReport> AUDIENCE_BEHAVIOR_FREQUENCY_AND_RECENCY= Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Behavior Frequency & Recency",
+                    "audience-behavior-frequency-and-recency",
+                    Arrays.asList(
+                            EnumDimensions.USER__COUNT_OF_SESSIONS.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGEVIEWS.getMetric()
+                    )
+            )
+    );
+
+    public static final List<AnalyticsReport> AUDIENCE_BEHAVIOR_ENGAGEMENT = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Behavior Engagement",
+                    "audience-behavior-engagement",
+                    Arrays.asList(
+                            EnumDimensions.SESSION__SESSION_DURATION.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGEVIEWS.getMetric()
+                    )
+            )
+    );
+
     static {
         PROCESS_REPORTS.addAll(BEHAVIOR_REPORTS);
         PROCESS_REPORTS.addAll(AUDIENCE_REPORTS);
