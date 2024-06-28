@@ -269,7 +269,8 @@ enum EnumDimensions {
     USER__USER_BUCKET("ga:userBucket"),
     USER__USER_DEFINED_VALUE("ga:userDefinedValue"),
     USER__USER_TYPE("ga:userType"),
-    CLIENT_ID("ga:clientId");
+    CLIENT_ID("ga:clientId"),
+    CUSTOM_VAR_NAME_1("ga:customVarName1");
 
     private final Dimension dimension;
 

@@ -141,7 +141,7 @@ final class Reports {
             )
     );
 
-    private static final List<AnalyticsReport> AUDIENCE_BEHAVIOR_FREQUENCY_AND_RECENCY= Arrays.asList(
+    private static final List<AnalyticsReport> AUDIENCE_BEHAVIOR_FREQUENCY_AND_RECENCY = Arrays.asList(
             new AnalyticsReport(
                     "Audience -> Behavior Frequency & Recency",
                     "audience-behavior-frequency-and-recency",
@@ -168,6 +168,185 @@ final class Reports {
                     )
             )
     );
+
+    public static final List<AnalyticsReport> AUDIENCE_TECHNOLOGY_BROWSER_AND_OS = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Technology Browsers and OS",
+                    "audience-technology-browsers-and-os",
+                    Arrays.asList(
+                            EnumDimensions.PLATFORM_OR_DEVICE__BROWSER.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
+    public static final List<AnalyticsReport> AUDIENCE_TECHNOLOGY_NETWORK = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Technology Network",
+                    "audience-technology-network",
+                    Arrays.asList(
+                            EnumDimensions.GEO_NETWORK__SERVICE_PROVIDER.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+
+                    )
+            )
+    );
+
+    public static final List<AnalyticsReport> AUDIENCE_MOBILE_OVERVIEW = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Mobile Overview",
+                    "audience-mobile-overview",
+                    Arrays.asList(
+                            EnumDimensions.PLATFORM_OR_DEVICE__DEVICE_CATEGORY.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
+    public static final List<AnalyticsReport> AUDIENCE_MOBILE_DEVICES = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Mobile Devices",
+                    "audience-mobile-devices",
+                    Arrays.asList(
+                            EnumDimensions.PLATFORM_OR_DEVICE__MOBILE_DEVICE_INFO.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
+    public static final List<AnalyticsReport> AUDIENCE_CUSTOM_CUSTOM_VARIABLES = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Custom Custom Variables",
+                    "audience-custom-custom-variables",
+                    Arrays.asList(
+                            EnumDimensions.CUSTOM_VAR_NAME_1.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.USER__PERCENT_NEW_SESSIONS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
+    public static final List<AnalyticsReport> AUDIENCE_CUSTOM_USER_DEFINED = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Custom User Defined",
+                    "audience-custom-user-defined",
+                    Arrays.asList(
+                            EnumDimensions.USER__USER_DEFINED_VALUE.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.USER__PERCENT_NEW_SESSIONS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
+    // todo метрики вроде как есть, но экстерал неймов нету
+    public static final List<AnalyticsReport> AUDIENCE_BENCHMARKING_CHANNELS = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Benchmarking Channels",
+                    "audience-benchmarking-channels",
+                    Arrays.asList(
+                            EnumDimensions.CHANNEL_GROUPING__DEFAULT_CHANNEL_GROUPING.getDimension()
+                    ),
+                    Arrays.asList(
+                    )
+            )
+    );
+
+    // todo метрики вроде как есть, но экстерал неймов нету
+    public static final List<AnalyticsReport> AUDIENCE_BENCHMARKING_LOCATION = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Benchmarking Location",
+                    "audience-benchmarking-location",
+                    Arrays.asList(
+                            EnumDimensions.GEO_NETWORK__COUNTRY.getDimension()
+                    ),
+                    Arrays.asList(
+                    )
+            )
+    );
+
+    // todo метрики вроде как есть, но экстерал неймов нету
+    public static final List<AnalyticsReport> AUDIENCE_BENCHMARKING_DEVICES = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Benchmarking Devices",
+                    "audience-benchmarking-devices",
+                    Arrays.asList(
+                            EnumDimensions.PLATFORM_OR_DEVICE__DEVICE_CATEGORY.getDimension()
+                    ),
+                    Arrays.asList(
+                    )
+            )
+    );
+
+    // todo нету ничего с префиксом ga:
+    public static final List<AnalyticsReport> AUDIENCE_USERS_FLOW = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Users Flow",
+                    "audience-users-flow",
+                    Arrays.asList(
+                    ),
+                    Arrays.asList(
+                    )
+            )
+    );
+
 
     static {
         PROCESS_REPORTS.addAll(BEHAVIOR_REPORTS);
