@@ -4,19 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 enum EnumGroup {
-    ADSENSE(Arrays.asList(
-    ), Arrays.asList(
-            EnumMetrics.ADSENSE__ADSENSE_AD_UNITS_VIEWED,
-            EnumMetrics.ADSENSE__ADSENSE_REVENUE,
-            EnumMetrics.ADSENSE__ADSENSE_ADS_CLICKED,
-            EnumMetrics.ADSENSE__ADSENSE_COVERAGE,
-            EnumMetrics.ADSENSE__ADSENSE_PAGE_IMPRESSIONS,
-            EnumMetrics.ADSENSE__ADSENSE_VIEWABLE_IMPRESSION_PERCENT,
-            EnumMetrics.ADSENSE__ADSENSE_IMPRESSIONS,
-            EnumMetrics.ADSENSE__ADSENSE_CTR,
-            EnumMetrics.ADSENSE__ADSENSE_ECPM,
-            EnumMetrics.ADSENSE__ADSENSE_EXITS
-    )),
     ADWORDS(Arrays.asList(
             EnumDimensions.ADWORDS__TRUEVIEW_VIDEO_AD,
             EnumDimensions.ADWORDS__GOOGLE_ADS_AD_GROUP_ID,
@@ -79,13 +66,6 @@ enum EnumGroup {
             EnumDimensions.CHANNEL_GROUPING__DEFAULT_CHANNEL_GROUPING
     ), Arrays.asList(
     )),
-    CONTENT_EXPERIMENTS(Arrays.asList(
-            EnumDimensions.CONTENT_EXPERIMENTS__EXPERIMENT_NAME,
-            EnumDimensions.CONTENT_EXPERIMENTS__EXPERIMENT_ID_WITH_VARIANT,
-            EnumDimensions.CONTENT_EXPERIMENTS__EXPERIMENT_ID,
-            EnumDimensions.CONTENT_EXPERIMENTS__VARIANT
-    ), Arrays.asList(
-    )),
     CONTENT_GROUPING(Arrays.asList(
             EnumDimensions.CONTENT_GROUPING__PAGE_GROUP_XX,
             EnumDimensions.CONTENT_GROUPING__PREVIOUS_PAGE_GROUP_XX,
@@ -100,73 +80,6 @@ enum EnumGroup {
     ), Arrays.asList(
             EnumMetrics.CUSTOM_VARIABLES_OR_COLUMNS__CALCULATED_METRIC,
             EnumMetrics.CUSTOM_VARIABLES_OR_COLUMNS__CUSTOM_METRIC_XX_VALUE
-    )),
-    ECOMMERCE(Arrays.asList(
-            EnumDimensions.ECOMMERCE__INTERNAL_PROMOTION_CREATIVE,
-            EnumDimensions.ECOMMERCE__CHECKOUT_OPTIONS,
-            EnumDimensions.ECOMMERCE__PRODUCT,
-            EnumDimensions.ECOMMERCE__PRODUCT_SKU,
-            EnumDimensions.ECOMMERCE__PRODUCT_LIST_NAME,
-            EnumDimensions.ECOMMERCE__INTERNAL_PROMOTION_NAME,
-            EnumDimensions.ECOMMERCE__INTERNAL_PROMOTION_POSITION,
-            EnumDimensions.ECOMMERCE__PRODUCT_VARIANT,
-            EnumDimensions.ECOMMERCE__PRODUCT_LIST_POSITION,
-            EnumDimensions.ECOMMERCE__PRODUCT_COUPON_CODE,
-            EnumDimensions.ECOMMERCE__DAYS_TO_TRANSACTION,
-            EnumDimensions.ECOMMERCE__PRODUCT_CATEGORY,
-            EnumDimensions.ECOMMERCE__SESSIONS_TO_TRANSACTION,
-            EnumDimensions.ECOMMERCE__SHOPPING_STAGE,
-            EnumDimensions.ECOMMERCE__CURRENCY_CODE,
-            EnumDimensions.ECOMMERCE__INTERNAL_PROMOTION_ID,
-            EnumDimensions.ECOMMERCE__PRODUCT_BRAND,
-            EnumDimensions.ECOMMERCE__PRODUCT_CATEGORY_LEVEL_XX,
-            EnumDimensions.ECOMMERCE__TRANSACTION_ID,
-            EnumDimensions.ECOMMERCE__ORDER_COUPON_CODE,
-            EnumDimensions.ECOMMERCE__PRODUCT_CATEGORY_ENHANCED_ECOMMERCE,
-            EnumDimensions.ECOMMERCE__AFFILIATION
-    ), Arrays.asList(
-            EnumMetrics.ECOMMERCE__REFUNDS,
-            EnumMetrics.ECOMMERCE__AVG_QTY,
-            EnumMetrics.ECOMMERCE__PRODUCT_DETAIL_VIEWS,
-            EnumMetrics.ECOMMERCE__QUANTITY_REFUNDED,
-            EnumMetrics.ECOMMERCE__TAX,
-            EnumMetrics.ECOMMERCE__TRANSACTIONS,
-            EnumMetrics.ECOMMERCE__SHIPPING,
-            EnumMetrics.ECOMMERCE__AVG_PRICE,
-            EnumMetrics.ECOMMERCE__INTERNAL_PROMOTION_VIEWS,
-            EnumMetrics.ECOMMERCE__TOTAL_VALUE,
-            EnumMetrics.ECOMMERCE__CARTTODETAIL_RATE,
-            EnumMetrics.ECOMMERCE__PRODUCT_REFUNDS,
-            EnumMetrics.ECOMMERCE__QUANTITY_CHECKED_OUT,
-            EnumMetrics.ECOMMERCE__LOCAL_TAX,
-            EnumMetrics.ECOMMERCE__ECOMMERCE_CONVERSION_RATE,
-            EnumMetrics.ECOMMERCE__INTERNAL_PROMOTION_CTR,
-            EnumMetrics.ECOMMERCE__LOCAL_SHIPPING,
-            EnumMetrics.ECOMMERCE__PER_SESSION_VALUE,
-            EnumMetrics.ECOMMERCE__LOCAL_PRODUCT_REFUND_AMOUNT,
-            EnumMetrics.ECOMMERCE__PRODUCT_ADDS_TO_CART,
-            EnumMetrics.ECOMMERCE__PRODUCT_LIST_VIEWS,
-            EnumMetrics.ECOMMERCE__TRANSACTIONS_PER_USER,
-            EnumMetrics.ECOMMERCE__PRODUCT_REVENUE_PER_PURCHASE,
-            EnumMetrics.ECOMMERCE__PRODUCT_REFUND_AMOUNT,
-            EnumMetrics.ECOMMERCE__PRODUCT_CHECKOUTS,
-            EnumMetrics.ECOMMERCE__PRODUCT_REVENUE,
-            EnumMetrics.ECOMMERCE__UNIQUE_PURCHASES,
-            EnumMetrics.ECOMMERCE__PRODUCT_LIST_CLICKS,
-            EnumMetrics.ECOMMERCE__QUANTITY_ADDED_TO_CART,
-            EnumMetrics.ECOMMERCE__REFUND_AMOUNT,
-            EnumMetrics.ECOMMERCE__REVENUE,
-            EnumMetrics.ECOMMERCE__LOCAL_PRODUCT_REVENUE,
-            EnumMetrics.ECOMMERCE__QUANTITY,
-            EnumMetrics.ECOMMERCE__PRODUCT_REMOVES_FROM_CART,
-            EnumMetrics.ECOMMERCE__REVENUE_PER_USER,
-            EnumMetrics.ECOMMERCE__QUANTITY_REMOVED_FROM_CART,
-            EnumMetrics.ECOMMERCE__PRODUCT_LIST_CTR,
-            EnumMetrics.ECOMMERCE__INTERNAL_PROMOTION_CLICKS,
-            EnumMetrics.ECOMMERCE__BUYTODETAIL_RATE,
-            EnumMetrics.ECOMMERCE__LOCAL_REFUND_AMOUNT,
-            EnumMetrics.ECOMMERCE__AVG_ORDER_VALUE,
-            EnumMetrics.ECOMMERCE__LOCAL_REVENUE
     )),
     EVENT_TRACKING(Arrays.asList(
             EnumDimensions.EVENT_TRACKING__EVENT_CATEGORY,
@@ -374,30 +287,30 @@ enum EnumGroup {
             EnumDimensions.SYSTEM__SOURCE_PROPERTY_DISPLAY_NAME
     ), Arrays.asList(
     )),
-    TIME(Arrays.asList(
-            EnumDimensions.TIME__HOUR_INDEX,
-            EnumDimensions.TIME__MONTH_OF_THE_YEAR,
-            EnumDimensions.TIME__DAY_INDEX,
-            EnumDimensions.TIME__MINUTE,
-            EnumDimensions.TIME__MONTH_INDEX,
-            EnumDimensions.TIME__MINUTE_INDEX,
-            EnumDimensions.TIME__ISO_YEAR,
-            EnumDimensions.TIME__DAY_OF_THE_MONTH,
-            EnumDimensions.TIME__WEEK_INDEX,
-            EnumDimensions.TIME__WEEK_OF_YEAR,
-            EnumDimensions.TIME__YEAR,
-            EnumDimensions.TIME__HOUR,
-            EnumDimensions.TIME__MONTH_OF_YEAR,
-            EnumDimensions.TIME__DATE_HOUR_AND_MINUTE,
-            EnumDimensions.TIME__DAY_OF_WEEK,
-            EnumDimensions.TIME__DATE,
-            EnumDimensions.TIME__ISO_WEEK_OF_ISO_YEAR,
-            EnumDimensions.TIME__HOUR_OF_DAY,
-            EnumDimensions.TIME__WEEK_OF_THE_YEAR,
-            EnumDimensions.TIME__DAY_OF_WEEK_NAME,
-            EnumDimensions.TIME__ISO_WEEK_OF_THE_YEAR
-    ), Arrays.asList(
-    )),
+//    TIME(Arrays.asList(
+//            EnumDimensions.TIME__HOUR_INDEX,
+//            EnumDimensions.TIME__MONTH_OF_THE_YEAR,
+//            EnumDimensions.TIME__DAY_INDEX,
+//            EnumDimensions.TIME__MINUTE,
+//            EnumDimensions.TIME__MONTH_INDEX,
+//            EnumDimensions.TIME__MINUTE_INDEX,
+//            EnumDimensions.TIME__ISO_YEAR,
+//            EnumDimensions.TIME__DAY_OF_THE_MONTH,
+//            EnumDimensions.TIME__WEEK_INDEX,
+//            EnumDimensions.TIME__WEEK_OF_YEAR,
+//            EnumDimensions.TIME__YEAR,
+//            EnumDimensions.TIME__HOUR,
+//            EnumDimensions.TIME__MONTH_OF_YEAR,
+//            EnumDimensions.TIME__DATE_HOUR_AND_MINUTE,
+//            EnumDimensions.TIME__DAY_OF_WEEK,
+//            EnumDimensions.TIME__DATE,
+//            EnumDimensions.TIME__ISO_WEEK_OF_ISO_YEAR,
+//            EnumDimensions.TIME__HOUR_OF_DAY,
+//            EnumDimensions.TIME__WEEK_OF_THE_YEAR,
+//            EnumDimensions.TIME__DAY_OF_WEEK_NAME,
+//            EnumDimensions.TIME__ISO_WEEK_OF_THE_YEAR
+//    ), Arrays.asList(
+//    )),
     TRAFFIC_SOURCES(Arrays.asList(
             EnumDimensions.TRAFFIC_SOURCES__SOCIAL_NETWORK,
             EnumDimensions.TRAFFIC_SOURCES__AD_CONTENT,
