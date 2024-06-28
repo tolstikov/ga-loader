@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gigware.goldmine.pojo.GoogleAnalyticItem;
 import com.gigware.goldmine.pojo.GoogleAnalyticItems;
+import com.google.api.client.util.Lists;
+import com.google.api.client.util.Sets;
 import com.google.api.services.analyticsreporting.v4.model.Dimension;
 import com.google.api.services.analyticsreporting.v4.model.Metric;
 import com.google.common.collect.Maps;
@@ -15,6 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MetricDimensionParser {
@@ -23,7 +26,7 @@ public class MetricDimensionParser {
 
     private static final ObjectMapper MAPPER = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    private static final String METRIC_DIMENSION_JSON_PATH = "";
+    private static final String METRIC_DIMENSION_JSON_PATH = "C:\\Users\\NSvetlakov\\Desktop\\Info\\GA_DIMENSION_METRIC.json";
 
     public static void main(String[] args) {
         try {
@@ -51,21 +54,54 @@ public class MetricDimensionParser {
         final List<String> metricNames = new ArrayList<>(metrics.keySet()).stream().sorted().collect(Collectors.toList());
         final List<String> dimensionNames = new ArrayList<>(dimensions.keySet()).stream().sorted().collect(Collectors.toList());
 
-        System.out.println("METRICS:\n");
-        for (final String metricName : metricNames) {
-            Metric metric = metrics.get(metricName);
-            System.out.println("    " + metricName
-                    + "(\"" + metric.getExpression() + "\", "
-                    + "\"" + metric.getAlias() + "\"),"
-            );
+        //METRICS ENUM
+//        System.out.println("METRICS:\n");
+//        for (final String metricName : metricNames) {
+//            Metric metric = metrics.get(metricName);
+//            System.out.println("    " + metricName
+//                    + "(\"" + metric.getExpression() + "\", "
+//                    + "\"" + metric.getAlias() + "\"),"
+//            );
+//        }
+
+        //DIMENSIONS ENUM
+//        System.out.println("\n");
+//        System.out.println("DIMENSIONS:\n");
+//        for (final String dimensionName : dimensionNames) {
+//            Dimension dimension = dimensions.get(dimensionName);
+//            System.out.println("    " + dimensionName
+//                    + "(\"" + dimension.getName() + "\"),"
+//            );
+//        }
+
+        //GROUPS ENUM
+        final List<String> commonList = Lists.newArrayList();
+        commonList.addAll(metricNames);
+        commonList.addAll(dimensionNames);
+
+        final Set<String> groups = Sets.newHashSet();
+        for (String name : commonList) {
+            groups.add(name.split("__")[0]);
         }
 
-        System.out.println("\n");
-        System.out.println("DIMENSIONS:\n");
-        for (final String dimensionName : dimensionNames) {
-            Dimension dimension = dimensions.get(dimensionName);
-            System.out.println("    " + dimensionName
-                    + "(\"" + dimension.getName() + "\"),"
+        final List<String> sortedGroup = new ArrayList<>(groups).stream().sorted().collect(Collectors.toList());
+
+        Set<Map.Entry<String, Dimension>> entrySetDimensions = dimensions.entrySet();
+        Set<Map.Entry<String, Metric>> entrySetMetrics = metrics.entrySet();
+        for (final String group : sortedGroup) {
+            final List<String> groupDimensions = entrySetDimensions.stream()
+                    .filter(it -> it.getKey().startsWith(group))
+                    .map(it -> "            EnumDimensions." + it.getKey())
+                    .collect(Collectors.toList());
+            final List<String> groupMetrics = entrySetMetrics.stream()
+                    .filter(it -> it.getKey().startsWith(group))
+                    .map(it -> "            EnumMetrics." + it.getKey())
+                    .collect(Collectors.toList());
+            System.out.println(group + "(Arrays.asList(\n"
+                    + String.join(",\n", groupDimensions) + "\n"
+                    + "    ), Arrays.asList(\n"
+                    + String.join(",\n", groupMetrics) + "\n"
+                    + "    )),"
             );
         }
     }

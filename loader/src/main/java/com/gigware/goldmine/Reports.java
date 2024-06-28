@@ -32,7 +32,13 @@ final class Reports {
                     "Behavior -> Overview",
                     "behavior-overview",
                     Arrays.asList(),
-                    Arrays.asList()
+                    Arrays.asList(
+                            EnumMetrics.PAGE_TRACKING__PAGEVIEWS.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__UNIQUE_PAGEVIEWS.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__AVG_TIME_ON_PAGE.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PERCENT_EXIT.getMetric()
+                    )
             )
     );
 
