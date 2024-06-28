@@ -244,7 +244,10 @@ enum EnumMetrics {
     USER__NEW_USERS("ga:newUsers", "newUsers"),
     USER__NUMBER_OF_SESSIONS_PER_USER("ga:sessionsPerUser", "sessionsPerUser"),
     USER__PERCENT_NEW_SESSIONS("ga:percentNewSessions", "percentNewSessions"),
-    USER__USERS("ga:users", "users");
+    USER__USERS("ga:users", "users"),
+    UNKNOWN__GOAL_1_CONVERSION_RATE("ga:goal1ConversionRate", "goal1ConversionRate"),
+    UNKNOWN__GOAL_1_COMPLETION("ga:goal1Completions", "goal1Completions"),
+    UNKNOWN__GOAL_1_VALUE("ga:goal1Value", "goal1Value");
 
     private final Metric metric;
 

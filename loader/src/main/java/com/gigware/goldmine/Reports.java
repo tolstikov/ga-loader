@@ -60,6 +60,45 @@ final class Reports {
             )
     );
 
+    private static final List<AnalyticsReport> AUDIENCE_ACTIVE_USER_REPORTS = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> User explorer",
+                    "audience-userExplorer",
+                    Arrays.asList(
+                            EnumDimensions.CLIENT_ID.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.ECOMMERCE__REVENUE.getMetric(),
+                            EnumMetrics.ECOMMERCE__TRANSACTIONS.getMetric(),
+                            EnumMetrics.GOAL_CONVERSIONS__GOAL_CONVERSION_RATE.getMetric()
+                    )
+            )
+    );
+
+    private static final List<AnalyticsReport> AUDIENCE_GEO_LANGUAGE_REPORTS = Arrays.asList(
+            new AnalyticsReport(
+                    "Audience -> Geo Language",
+                    "audience-geoLanguage",
+                    Arrays.asList(
+                            EnumDimensions.SYSTEM__LANGUAGE.getDimension()
+                    ),
+                    Arrays.asList(
+                            EnumMetrics.USER__USERS.getMetric(),
+                            EnumMetrics.USER__NEW_USERS.getMetric(),
+                            EnumMetrics.SESSION__SESSIONS.getMetric(),
+                            EnumMetrics.SESSION__BOUNCE_RATE.getMetric(),
+                            EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION.getMetric(),
+                            EnumMetrics.SESSION__AVG_SESSION_DURATION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_CONVERSION_RATE.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_COMPLETION.getMetric(),
+                            EnumMetrics.UNKNOWN__GOAL_1_VALUE.getMetric()
+                    )
+            )
+    );
+
     static {
         PROCESS_REPORTS.addAll(BEHAVIOR_REPORTS);
         PROCESS_REPORTS.addAll(AUDIENCE_REPORTS);

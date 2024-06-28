@@ -268,7 +268,8 @@ enum EnumDimensions {
     USER__DAYS_SINCE_LAST_SESSION("ga:daysSinceLastSession"),
     USER__USER_BUCKET("ga:userBucket"),
     USER__USER_DEFINED_VALUE("ga:userDefinedValue"),
-    USER__USER_TYPE("ga:userType");
+    USER__USER_TYPE("ga:userType"),
+    CLIENT_ID("ga:clientId");
 
     private final Dimension dimension;
 
