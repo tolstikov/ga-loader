@@ -1,20 +1,34 @@
 package com.gigware.goldmine.pojo;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.services.analyticsreporting.v4.model.Dimension;
 import com.google.api.services.analyticsreporting.v4.model.Metric;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.Spliterators;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public final class AnalyticsReport {
+
     private String label;
     private String uniqueName;
     private List<Dimension> dimensions;
     private List<Metric> metrics;
 
-    public AnalyticsReport() {
+    public AnalyticsReport(final File file) {
+
     }
 
-    public AnalyticsReport(final String label, final String uniqueName, final List<Dimension> dimensions, final List<Metric> metrics) {
+    public AnalyticsReport(
+            final String label,
+            final String uniqueName,
+            final List<Dimension> dimensions,
+            final List<Metric> metrics
+    ) {
         this.label = label;
         this.uniqueName = uniqueName;
         this.dimensions = dimensions;

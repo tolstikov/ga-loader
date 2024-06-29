@@ -100,26 +100,32 @@ public final class GoogleAnalyticsDataLoader {
      * audience -> user explorer(данные по тому где шлюхались в ланчере и продукте пользаки) Алка очень просила, но надо ли
      */
     public static void main(final String[] args) throws IOException {
+
+        final ReportsConverter reportsConverter = new ReportsConverter();
+        final List<AnalyticsReport> analyticsReports = reportsConverter.readReports();
+        for (AnalyticsReport analyticsReport : analyticsReports){
+            downloadSingle("67352952", analyticsReport.getDimensions(), analyticsReport.getMetrics(), "2013-10-01","2013-10-31", analyticsReport.getUniqueName());
+        }
 //        testDate();
 //        try {
 
-        downloadSingle("67352952",
+//        downloadSingle("67352952",
+////                Stream.of(
+////                        EnumDimensions.TIME__DATE
+////                ).map(EnumDimensions::getDimension).collect(Collectors.toList()),
 //                Stream.of(
-//                        EnumDimensions.TIME__DATE
-//                ).map(EnumDimensions::getDimension).collect(Collectors.toList()),
-                Stream.of(
-                        "ga:date"
-                ).map(d->new Dimension().setName(d)).collect(Collectors.toList()),
-                Stream.of(
-//                        EnumMetrics.SESSION__SESSIONS,
-//                        EnumMetrics.SESSION__BOUNCES,
-//                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
-//                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
-                        EnumMetrics.USER__14_DAY_ACTIVE_USERS
-                ).map(EnumMetrics::getMetric).collect(Collectors.toList()),
-                "2013-10-01",
-                "2013-10-31",
-                "test_ug");
+//                        "ga:date"
+//                ).map(d->new Dimension().setName(d)).collect(Collectors.toList()),
+//                Stream.of(
+////                        EnumMetrics.SESSION__SESSIONS,
+////                        EnumMetrics.SESSION__BOUNCES,
+////                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
+////                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
+//                        EnumMetrics.USER__14_DAY_ACTIVE_USERS
+//                ).map(EnumMetrics::getMetric).collect(Collectors.toList()),
+//                "2013-10-01",
+//                "2013-10-31",
+//                "test_ug");
 //        for (final String viewId : PROCESS_VIEW_ID) {
 //            System.out.println("===============================================================================");
 //            System.out.println("Processing of view with id: " + viewId);
