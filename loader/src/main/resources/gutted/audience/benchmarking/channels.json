@@ -1,0 +1,66 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.trafficChannel",
+      "displayName": "Default Channel Grouping",
+      "enumValues": [],
+      "externalName": "ga:channelGrouping"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.benchmarkVisitsDelta",
+      "displayName": "Sessions Benchmark Delta",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 6077360
+    },
+    {
+      "conceptName": "analytics.percentBenchmarkNewVisitsDelta",
+      "displayName": "% New Sessions Benchmark Delta",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 6077346
+    },
+    {
+      "conceptName": "analytics.benchmarkNewVisitsDelta",
+      "displayName": "New Users Benchmark Delta",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 6077362
+    },
+    {
+      "conceptName": "analytics.avgBenchmarkPageviewsDelta",
+      "displayName": "Pages / Session Benchmark Delta",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 6077361
+    },
+    {
+      "conceptName": "analytics.avgBenchmarkSessionTimeDelta",
+      "displayName": "Avg. Session Duration Benchmark Delta",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 6077353
+    },
+    {
+      "conceptName": "analytics.benchmarkBounceRateDelta",
+      "displayName": "Bounce Rate Benchmark Delta",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 6077351
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.medium",
+    "analytics.source",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.eventAction",
+    "analytics.eventLabel",
+    "analytics.eventCategory",
+    "analytics.landingPagePath",
+    "analytics.pagePath"
+  ]
+}
