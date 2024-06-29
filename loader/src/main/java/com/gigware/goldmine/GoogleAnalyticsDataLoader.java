@@ -36,6 +36,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public final class GoogleAnalyticsDataLoader {
 
@@ -103,30 +104,22 @@ public final class GoogleAnalyticsDataLoader {
 //        try {
 
         downloadSingle("67352952",
-                List.of(
-                        EnumDimensions.SYSTEM__LANGUAGE,
-                        EnumDimensions.PLATFORM_OR_DEVICE__DEVICE_CATEGORY,
-                        EnumDimensions.TRAFFIC_SOURCES__MEDIUM,
-                        EnumDimensions.TRAFFIC_SOURCES__SOURCE,
-                        EnumDimensions.TRAFFIC_SOURCES__SOURCE_PER_MEDIUM,
-                        EnumDimensions.TRAFFIC_SOURCES__CAMPAIGN,
-                        EnumDimensions.PAGE_TRACKING__LANDING_PAGE,
-                        EnumDimensions.TIME__DATE
-                ),
-                List.of(
-                        EnumMetrics.USER__USERS,
-                        EnumMetrics.USER__NEW_USERS,
-                        EnumMetrics.SESSION__SESSIONS,
-                        EnumMetrics.SESSION__BOUNCE_RATE,
-                        EnumMetrics.PAGE_TRACKING__PAGES_PER_SESSION,
-                        EnumMetrics.SESSION__AVG_SESSION_DURATION,
-                        EnumMetrics.GOAL_CONVERSIONS__GOAL_CONVERSION_RATE,
-                        EnumMetrics.GOAL_CONVERSIONS__GOAL_COMPLETIONS,
-                        EnumMetrics.GOAL_CONVERSIONS__GOAL_VALUE
-                ),
-                "2012-01-01",
-                "2024-06-30",
-                "test_user_audience");
+//                Stream.of(
+//                        EnumDimensions.TIME__DATE
+//                ).map(EnumDimensions::getDimension).collect(Collectors.toList()),
+                Stream.of(
+                        "ga:date"
+                ).map(d->new Dimension().setName(d)).collect(Collectors.toList()),
+                Stream.of(
+//                        EnumMetrics.SESSION__SESSIONS,
+//                        EnumMetrics.SESSION__BOUNCES,
+//                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
+//                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
+                        EnumMetrics.USER__14_DAY_ACTIVE_USERS
+                ).map(EnumMetrics::getMetric).collect(Collectors.toList()),
+                "2013-10-01",
+                "2013-10-31",
+                "test_ug");
 //        for (final String viewId : PROCESS_VIEW_ID) {
 //            System.out.println("===============================================================================");
 //            System.out.println("Processing of view with id: " + viewId);
@@ -291,11 +284,10 @@ public final class GoogleAnalyticsDataLoader {
         System.out.println();
     }
 
-    private static void downloadSingle(final String viewId, final List<EnumDimensions> dimensionsIn, final List<EnumMetrics> metricsIn, final String startDate,
+    private static void downloadSingle(final String viewId, final List<Dimension> dimensions, final List<Metric> metrics, final String startDate,
                                        final String endDate, final String name) {
         final AnalyticsReporting client = getAnalyticsReporting();
-        final List<Dimension> dimensions = dimensionsIn.stream().map(EnumDimensions::getDimension).collect(Collectors.toList());
-//            dimensions.add(EnumDimensions.TIME__DATE.getDimension());
+        //            dimensions.add(EnumDimensions.TIME__DATE.getDimension());
         final ReportRequest request = new ReportRequest()
                 .setViewId(viewId)
                 .setDateRanges(
@@ -303,7 +295,7 @@ public final class GoogleAnalyticsDataLoader {
                                 new DateRange().setStartDate(startDate).setEndDate(endDate)
                         )
                 )
-                .setMetrics(metricsIn.stream().map(EnumMetrics::getMetric).collect(Collectors.toList()))
+                .setMetrics(metrics)
                 .setDimensions(dimensions)
                 .setPageSize(PAGE_SIZE);
         try {
@@ -363,7 +355,7 @@ public final class GoogleAnalyticsDataLoader {
             }
             final List<Dimension> dimensions = dimensionsIn.stream().map(EnumDimensions::getDimension).collect(Collectors.toList());
 //            dimensions.add(EnumDimensions.TIME__DATE.getDimension());
-            downloadSingle(viewId, dimensionsIn, metricsIn, rangeStartDate, rangeEndDate, name);
+            downloadSingle(viewId, dimensionsIn.stream().map(EnumDimensions::getDimension).toList(), metricsIn.stream().map(EnumMetrics::getMetric).toList(), rangeStartDate, rangeEndDate, name);
         }
         System.out.println();
     }
@@ -663,6 +655,7 @@ public final class GoogleAnalyticsDataLoader {
         if (CREDENTIALS == null) {
             try {
                 CREDENTIALS = GoogleCredential.fromStream(GoogleAnalyticsDataLoader.class.getResourceAsStream("/ca-keys.json"));
+//                CREDENTIALS = GoogleCredential.getApplicationDefault().createScoped(AnalyticsReportingScopes.all());
             } catch (IOException e) {
                 e.printStackTrace();
             }
