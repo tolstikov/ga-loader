@@ -1,10 +1,11 @@
 {
   "dimension": [
     {
-      "conceptName": "analytics.campaignCampaignId",
+      "conceptName": "ga:adwordsCampaignID",
       "displayName": "Campaign / Campaign ID",
       "enumValues": [],
-      "helpTopicId": 7628569
+      "helpTopicId": 7628569,
+      "externalName": "ga:adwordsCampaignID"
     }
   ],
   "metric": [

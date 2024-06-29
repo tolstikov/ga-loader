@@ -5,7 +5,7 @@
       "displayName": "Final URL",
       "enumValues": [],
       "helpTopicId": 6322257,
-      "externalName": "ga:adFinalUrl"
+      "externalName": "ga:adDestinationUrl"
     }
   ],
   "metric": [
