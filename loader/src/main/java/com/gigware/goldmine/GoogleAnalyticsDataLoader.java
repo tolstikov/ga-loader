@@ -100,7 +100,7 @@ public final class GoogleAnalyticsDataLoader {
      */
     public static void main(final String[] args) throws IOException {
 
-        final ReportsConverter reportsConverter = new ReportsConverter("gutted");
+        final ReportsConverter reportsConverter = new ReportsConverter("errors");
         final List<AnalyticsReport> analyticsReports = reportsConverter.readReports();
         for (AnalyticsReport analyticsReport : analyticsReports) {
             System.out.println("Process: " + analyticsReport.getUniqueName());
@@ -320,7 +320,11 @@ public final class GoogleAnalyticsDataLoader {
             do {
                 response = client.reports().batchGet(
                         new GetReportsRequest()
-                                .setReportRequests(ImmutableList.of(request))
+                                .setReportRequests(
+                                        ImmutableList.of(
+                                                request.setPageToken(nextPageToken)
+                                        )
+                                )
                 ).execute();
                 if (response == null || response.getReports() == null || response.getReports().isEmpty()) {
                     throw new IllegalArgumentException("No data in response");
