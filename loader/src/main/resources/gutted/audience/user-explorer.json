@@ -1,0 +1,73 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.originalVisitorId",
+      "displayName": "Client Id",
+      "enumValues": [],
+      "helpTopicId": 6339661,
+      "externalName": "ga:clientId"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.visits",
+      "displayName": "Sessions",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2631008,
+      "externalName": "ga:sessions"
+    },
+    {
+      "conceptName": "analytics.avgSessionTime",
+      "displayName": "Avg. Session Duration",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2632799,
+      "externalName": "ga:avgSessionDuration"
+    },
+    {
+      "conceptName": "analytics.bounceRate",
+      "displayName": "Bounce Rate",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 1006257,
+      "externalName": "ga:bounceRate"
+    },
+    {
+      "conceptName": "analytics.transactionRevenue",
+      "displayName": "Revenue",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2631072,
+      "externalName": "ga:transactionRevenue"
+    },
+    {
+      "conceptName": "analytics.transactions",
+      "displayName": "Transactions",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006277,
+      "externalName": "ga:transactions"
+    },
+    {
+      "conceptName": "analytics.goalConversionRate",
+      "displayName": "Goal Conversion Rate",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1708791,
+      "externalName": "ga:goalConversionRateAll"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.medium",
+    "analytics.source",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.eventAction",
+    "analytics.eventLabel",
+    "analytics.eventCategory",
+    "analytics.landingPagePath",
+    "analytics.pagePath"
+  ]
+}
