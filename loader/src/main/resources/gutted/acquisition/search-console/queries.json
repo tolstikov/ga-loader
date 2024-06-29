@@ -1,0 +1,47 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.query",
+      "displayName": "Search Query",
+      "enumValues": [],
+      "helpTopicId": 1047307,
+      "externalName": "ga:adMatchedQuery"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.wmxSiteClicks",
+      "displayName": "Clicks",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1301209
+    },
+    {
+      "conceptName": "analytics.wmxSiteImpressions",
+      "displayName": "Impressions",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1301207
+    },
+    {
+      "conceptName": "analytics.wmxSiteCTR",
+      "displayName": "CTR",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1301213
+    },
+    {
+      "conceptName": "analytics.wmxSiteAverageTopPosition",
+      "displayName": "Average Position",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 1301215
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.sourceMedium",
+    "analytics.source",
+    "analytics.medium"
+  ]
+}
