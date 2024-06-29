@@ -41,12 +41,12 @@ public final class ReportsConverter {
         try {
             ClassLoader classLoader = ReportsConverter.class.getClassLoader();
             URL resource = classLoader.getResource("gutted"); // todo check if all
+            Path path = Paths.get(resource.toURI());
             assert resource != null;
-            return Files.walk(Paths.get(resource.toURI()))
+            return Files.walk(path)
                     .filter(Files::isRegularFile)
-                    .map(Path::toFile)
-                    .filter(f -> f.getName().endsWith(".json"))
-                    .map(this::readReport)
+                    .filter(f -> f.toAbsolutePath().toString().endsWith(".json"))
+                    .map(f -> readReport(f, path))
                     .toList();
 
         } catch (IOException | URISyntaxException e) {
@@ -54,9 +54,10 @@ public final class ReportsConverter {
         }
     }
 
-    public AnalyticsReport readReport(final File file) {
+    public AnalyticsReport readReport(final Path file, final Path rootPath) {
         try {
-            final JsonNode jsonNode = MAPPER.readTree(file);
+            final JsonNode jsonNode = MAPPER.readTree(file.toFile());
+            final String uniqueName = rootPath.relativize(file).toString().replaceAll("\\\\", "/");
 
             final List<Dimension> secondary = StreamSupport
                     .stream(jsonNode.withArrayProperty("secondaryDimensions").spliterator(), false)
@@ -67,8 +68,8 @@ public final class ReportsConverter {
                     .toList();
 
             return new AnalyticsReport(
-                    file.getName(),
-                    file.getName(),
+                    uniqueName,
+                    uniqueName,
                     StreamSupport
                             .stream(jsonNode.withArrayProperty("dimension").spliterator(), false)
                             .map(jn -> extractName(jn))
@@ -86,14 +87,14 @@ public final class ReportsConverter {
         }
     }
 
-    public String extractName(final JsonNode jsonNode){
-        if (!jsonNode.has("externalName")){
+    public String extractName(final JsonNode jsonNode) {
+        if (!jsonNode.has("externalName")) {
             return nameFromAnalytics(jsonNode.get("conceptName").asText());
         }
         return jsonNode.get("externalName").asText();
     }
 
-    public String nameFromAnalytics(final String analyticsName){
-        return "ga:"+analyticsName.split("\\.")[1];
+    public String nameFromAnalytics(final String analyticsName) {
+        return "ga:" + analyticsName.split("\\.")[1];
     }
 }

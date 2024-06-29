@@ -103,10 +103,18 @@ public final class GoogleAnalyticsDataLoader {
         final ReportsConverter reportsConverter = new ReportsConverter();
         final List<AnalyticsReport> analyticsReports = reportsConverter.readReports();
         for (AnalyticsReport analyticsReport : analyticsReports) {
+            System.out.println("Process: " + analyticsReport.getUniqueName());
             final List<Dimension> dimensions = Lists.newArrayList(analyticsReport.getDimensions());
-            dimensions.add(new Dimension().setName("ga:date"));
-            dimensions.addAll(analyticsReport.getSecondaryDimensions());
-            downloadSingle("67352952", dimensions, analyticsReport.getMetrics(), "2013-10-01", "2013-10-31", analyticsReport.getUniqueName());
+            if (!analyticsReport.getSecondaryDimensions().isEmpty()) {
+                dimensions.add(new Dimension().setName("ga:date"));
+                for (final Dimension secondary : analyticsReport.getSecondaryDimensions()) {
+                    List<Dimension> requestDimensions = Lists.newArrayList(dimensions);
+                    requestDimensions.add(secondary);
+                    downloadSingle("67352952", requestDimensions, analyticsReport.getMetrics(), "2013-10-01", "2013-10-31", analyticsReport.getUniqueName() + "/" + secondary.getName());
+                }
+            } else {
+                downloadSingle("67352952", dimensions, analyticsReport.getMetrics(), "2013-10-01", "2013-10-31", analyticsReport.getUniqueName());
+            }
         }
 //        testDate();
 //        try {
@@ -307,29 +315,12 @@ public final class GoogleAnalyticsDataLoader {
                 .setDimensions(dimensions)
                 .setPageSize(PAGE_SIZE);
         try {
-            GetReportsResponse response = client.reports().batchGet(
-                    new GetReportsRequest()
-                            .setReportRequests(ImmutableList.of(request))
-            ).execute();
-            if (response == null || response.getReports() == null || response.getReports().isEmpty()) {
-                throw new IllegalArgumentException("No data in response");
-            }
-            if (response.getReports().size() > 1) {
-                throw new IllegalArgumentException("More than 1 report in response");
-            }
-            Report responseReport = response.getReports().get(0);
-            String reportContent = MAPPER.writeValueAsString(responseReport);
-//                save(viewId + "/" + group.name().toLowerCase() + "_deprecated/" + rangeStartDate + "__" + rangeEndDate + ".json", reportContent);
-            save(viewId + "/" + name.toLowerCase() + "/" + startDate + "__" + endDate + ".json", reportContent);
-            // todo logging
-            while (responseReport.getNextPageToken() != null) {
+            String nextPageToken = null;
+            GetReportsResponse response;
+            do {
                 response = client.reports().batchGet(
                         new GetReportsRequest()
-                                .setReportRequests(
-                                        ImmutableList.of(
-                                                request.setPageToken(responseReport.getNextPageToken())
-                                        )
-                                )
+                                .setReportRequests(ImmutableList.of(request))
                 ).execute();
                 if (response == null || response.getReports() == null || response.getReports().isEmpty()) {
                     throw new IllegalArgumentException("No data in response");
@@ -337,10 +328,13 @@ public final class GoogleAnalyticsDataLoader {
                 if (response.getReports().size() > 1) {
                     throw new IllegalArgumentException("More than 1 report in response");
                 }
-                responseReport = response.getReports().get(0);
-                save(viewId + "/" + name.toLowerCase() + "/" + startDate + "__" + endDate + "_" + responseReport.getNextPageToken() + ".json", reportContent);
-                // todo logging
-            }
+                Report responseReport = response.getReports().get(0);
+                String reportContent = MAPPER.writeValueAsString(responseReport);
+//                save(viewId + "/" + group.name().toLowerCase() + "_deprecated/" + rangeStartDate + "__" + rangeEndDate + ".json", reportContent);
+                save(viewId + "/" + name.toLowerCase() + "/" + startDate + "__" + endDate + "_" + nextPageToken + ".json", reportContent);
+                nextPageToken = responseReport.getNextPageToken();
+            } while (nextPageToken != null);
+
         } catch (IOException e) {
             // todo retry logic
             e.printStackTrace();
@@ -566,7 +560,6 @@ public final class GoogleAnalyticsDataLoader {
 
     private static void save(final String path, final String content) throws IOException {
         final Storage storage = getStorage();
-        System.out.println("====Saving report: " + path);
         final StorageObject object = storage.objects().insert(
                 OUTPUT_BUCKET_NAME,
                 new StorageObject()
