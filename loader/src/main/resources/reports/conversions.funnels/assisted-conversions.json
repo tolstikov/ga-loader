@@ -1,195 +1,111 @@
 {
-  "type": "StandardReport",
-  "title": "Overview",
-  "helpTopicId": "1006206",
+  "type": "BigFunnelsOverviewReport",
+  "title": "Multi-Channel Funnels Overview",
+  "helpTopicId": "1188899",
   "components": [
     {
       "id": "reportHeader",
-      "type": "ReportHeader",
-      "reportToolbar": {
-        "id": "reportHeader-reportToolbar",
-        "type": "ReportToolbar",
-        "addToDashboardEnabled": true,
-        "saveReportName": "Overview",
-        "createSavedReport": true,
-        "emailControl": {
-          "id": "reportHeader-reportToolbar-emailControl",
-          "type": "EmailControl",
-          "sender": "tolstikov@cloudaware.com",
-          "reportTitle": "Overview",
-          "reportId": "content-overview",
-          "dailyEmail": [],
-          "weeklyEmail": [],
-          "monthlyEmail": [],
-          "quarterlyEmail": [],
-          "availableFormat": [
-            "CSV",
-            "TSV",
-            "CSV_FOR_EXCEL",
-            "XLSX",
-            "PDF"
-          ],
-          "body": "",
-          "hasAdvancedOptions": true,
-          "allowSendToday": false,
-          "isDashboard": false,
-          "isChromed": true,
-          "showCancel": true,
-          "isBodyReadonly": false
-        },
-        "exportControl": {
-          "id": "reportHeader-reportToolbar-exportControl",
-          "type": "ExportControl",
-          "availableFormat": [
-            "CSV",
-            "TSV",
-            "CSV_FOR_EXCEL",
-            "XLSX",
-            "TRIX",
-            "PDF"
-          ],
-          "externalApiRequest": [],
-          "enableFormatingOptions": true,
-          "availableUnsampledFormats": [
-            "CSV",
-            "TSV",
-            "CSV_FOR_EXCEL"
-          ],
-          "enableEmailRequestedOption": true,
-          "disallowedMetric": [],
-          "enableMetadataStoring": true,
-          "isMagnumOpusEnabled": false,
-          "opusShouldDisplayQuota": true
-        },
-        "customizationControl": {
-          "id": "reportHeader-reportToolbar-customizationControl",
-          "type": "CustomizationControl",
-          "isCustom": false,
-          "isCustomizable": false,
-          "isAnalyzable": false
-        },
-        "title": {
-          "id": "reportHeader-reportToolbar-title",
-          "type": "Title",
-          "primary": "Overview",
-          "detail": [],
-          "primaryRequiresBidiRendering": false,
-          "subtitleRequiresBidiRendering": false
-        },
-        "sensitiveDataMessage": {
-          "id": "reportHeader-reportToolbar-sensitiveDataMessage",
-          "type": "SensitiveDataMessage",
-          "componentSensitive": [
+      "type": "BigFunnelsReportHeader",
+      "overviewEducation": {
+        "id": "reportHeader-overviewEducation",
+        "type": "OverviewEducation"
+      },
+      "bfReportToolbar": {
+        "id": "reportHeader-bfReportToolbar",
+        "type": "BfReportToolbar",
+        "property": [
+          {
+            "key": "savedReportName",
+            "value": "Multi-Channel Funnels Overview"
+          },
+          {
+            "key": "createSavedReport",
+            "value": "true"
+          }
+        ],
+        "pathSegmentSelector": {
+          "id": "reportHeader-bfReportToolbar-pathSegmentSelector",
+          "type": "PathSegmentSelector",
+          "presetSegment": [
             {
-              "componentId": "reportHeader-reportToolbar-samplingControl",
-              "containsSensitiveData": false
+              "id": "presetall",
+              "name": "All Conversions",
+              "selected": false
             },
             {
-              "componentId": "reportHeader-segmentHeader",
-              "containsSensitiveData": false
+              "id": "preset1",
+              "name": "Time Lag > 1 day",
+              "selected": false
             },
             {
-              "componentId": "overview-graph-lineChart",
-              "containsSensitiveData": false
+              "id": "preset9",
+              "name": "Path Length > 1",
+              "selected": false
             },
             {
-              "componentId": "overview-sparkline",
-              "containsSensitiveData": false
+              "id": "preset2",
+              "name": "Any interaction is Referral",
+              "selected": false
             },
             {
-              "componentId": "overview-dimensionSummary",
-              "containsSensitiveData": false
+              "id": "preset3",
+              "name": "First interaction is Paid Advertising",
+              "selected": false
+            },
+            {
+              "id": "preset4",
+              "name": "Last interaction is Paid Advertising",
+              "selected": false
+            },
+            {
+              "id": "preset5",
+              "name": "First interaction is Direct",
+              "selected": false
+            },
+            {
+              "id": "preset6",
+              "name": "Last interaction is Direct",
+              "selected": false
+            },
+            {
+              "id": "preset7",
+              "name": "First interaction is Organic Search",
+              "selected": false
+            },
+            {
+              "id": "preset8",
+              "name": "Last interaction is Organic Search",
+              "selected": false
             }
-          ]
-        },
-        "rollUpMessageBanner": {
-          "id": "reportHeader-reportToolbar-rollUpMessageBanner",
-          "type": "RollUpMessageBanner",
-          "showRollUpMessage": false
+          ],
+          "userSegment": [],
+          "selectedSegmentId": [],
+          "allowCreateSegment": true
         },
         "samplingControl": {
-          "id": "reportHeader-reportToolbar-samplingControl",
+          "id": "reportHeader-bfReportToolbar-samplingControl",
           "type": "SamplingControl",
-          "sampleSize": 500000,
-          "maxSampleSize": 500000,
-          "minSampleSize": 250000,
+          "sampleSize": 1000000,
+          "maxSampleSize": 1000000,
+          "minSampleSize": 1000,
           "showBestEffort": false,
-          "enableSimplifiedSamplingTool": true,
-          "simplifiedSamplingToolSelector": {
-            "options": [
-              {
-                "id": "faster",
-                "name": "Faster response",
-                "separator": false,
-                "enableChangeSelectedId": true,
-                "disabled": false
-              },
-              {
-                "id": "moreprecision",
-                "name": "Greater precision",
-                "separator": false,
-                "enableChangeSelectedId": true,
-                "disabled": false
-              }
-            ],
-            "selectedId": "moreprecision"
-          },
-          "totalVisits": 27,
+          "enableSimplifiedSamplingTool": false,
           "enableOffline": true
         }
       },
       "title": {
         "id": "reportHeader-title",
         "type": "Title",
-        "primary": "Overview",
+        "primary": "Multi-Channel Funnels Overview",
         "detail": [],
         "primaryRequiresBidiRendering": false,
         "subtitleRequiresBidiRendering": false
       },
-      "sensitiveDataMessage": {
-        "id": "reportHeader-sensitiveDataMessage",
-        "type": "SensitiveDataMessage",
-        "componentSensitive": [
-          {
-            "componentId": "reportHeader-reportToolbar-samplingControl",
-            "containsSensitiveData": false
-          },
-          {
-            "componentId": "reportHeader-segmentHeader",
-            "containsSensitiveData": false
-          },
-          {
-            "componentId": "overview-graph-lineChart",
-            "containsSensitiveData": false
-          },
-          {
-            "componentId": "overview-sparkline",
-            "containsSensitiveData": false
-          },
-          {
-            "componentId": "overview-dimensionSummary",
-            "containsSensitiveData": false
-          }
-        ]
-      },
-      "rollUpMessageBanner": {
-        "id": "reportHeader-rollUpMessageBanner",
-        "type": "RollUpMessageBanner",
-        "showRollUpMessage": false
-      },
-      "usersCalcMessage": {
-        "id": "reportHeader-usersCalcMessage",
-        "type": "UsersCalcMessage",
-        "showMessage": false
-      },
-      "reportHeaderCustomMessage": {
-        "id": "reportHeader-reportHeaderCustomMessage",
-        "type": "ReportHeaderCustomMessage"
-      },
-      "reportHeaderDismissibleBar": {
-        "id": "reportHeader-reportHeaderDismissibleBar",
-        "type": "ReportHeaderDismissibleBar",
-        "dismissibleMessage": []
+      "headerInfo": {
+        "id": "reportHeader-headerInfo",
+        "type": "GaHeaderInfo",
+        "profileHasHarmfulFilter": true,
+        "notification": []
       },
       "breadcrumb": {
         "id": "reportHeader-breadcrumb",
@@ -210,1946 +126,78 @@
         "serverDate": 20240629,
         "firstDayOfWeek": 6
       },
-      "reportNotificationBar": {
-        "id": "reportHeader-reportNotificationBar",
-        "type": "ReportNotificationBar",
-        "notification": []
-      },
-      "segmentHeader": {
-        "id": "reportHeader-segmentHeader",
-        "type": "SegmentHeader",
+      "dataViewContext": {
+        "id": "reportHeader-dataViewContext",
+        "type": "DataViewContext",
         "subClusterKey": [],
-        "segmentHeaderData": [
+        "dataView": [
           {
             "id": [],
             "displayName": "",
+            "percent": 0.0,
+            "contextText": "% of conversions",
             "contextDetail": [
               {
                 "title": "Jan 1, 2012 - Dec 31, 2012",
-                "primaryMetricData": {
-                  "displayName": "Pageviews",
-                  "formattedPercent": "100.00%",
-                  "formattedTotal": "44",
-                  "formattedValue": "44",
-                  "percent": 100.0
-                }
+                "detail": "0.00% (0 of 0)"
               }
             ],
+            "contextValue": "0.00%",
             "comparisonMode": false,
             "isInactive": false,
             "isInvalid": false
           }
         ],
-        "segmentStateKey": "useg",
+        "segmentStateKey": "bfSegment",
         "useCommonColorScheme": false,
-        "isReadOnly": false,
-        "isDateControlHidden": false,
-        "isSegmentDataHidden": false,
-        "displayFormat": "DEFAULT"
+        "isReadOnly": false
       },
-      "segmentPicker": {
-        "id": "reportHeader-segmentPicker",
-        "type": "SegmentPicker",
-        "segment": [
+      "conversionTypeSelector": {
+        "id": "reportHeader-conversionTypeSelector",
+        "type": "ConversionTypeSelector",
+        "richSelector": {
+          "singleSelectModeEnabled": false,
+          "group": [],
+          "optionCount": 0,
+          "showSelectOptions": true,
+          "showDisplayOptions": true,
+          "showFilter": true,
+          "applyTopLevelStyle": true,
+          "isReadOnly": false
+        }
+      },
+      "lookbackWindowControl": {
+        "id": "reportHeader-lookbackWindowControl",
+        "type": "LookbackWindowControl",
+        "lookbackWindowOption": {
+          "lookbackWindow": {
+            "value": 30,
+            "enabled": true
+          },
+          "maxLookbackWindow": "NINETY_DAYS",
+          "popupSlider": true
+        },
+        "tooltipId": 2877688,
+        "isReadOnly": false
+      },
+      "dataSetSelector": {
+        "id": "reportHeader-dataSetSelector",
+        "type": "BigFunnelsDataSetSelector",
+        "options": [
           {
-            "id": "builtin1",
-            "name": "All Users",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
+            "id": "ALL",
+            "name": "All",
             "selected": true,
-            "starred": false,
-            "valid": true,
-            "shared": false
+            "disabled": false
           },
           {
-            "id": "builtin27",
-            "name": "Bounced Sessions",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.bounces",
-                                  "matchType": "GT",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISIT",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
+            "id": "ADWORDS",
+            "name": "Google Ads",
             "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin102",
-            "name": "Converters",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISITOR",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.goal_completions",
-                                  "matchType": "GT",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISITOR",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                },
-                                {
-                                  "conceptName": "analytics.transactions",
-                                  "matchType": "GT",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISITOR",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin7",
-            "name": "Direct Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.medium",
-                                  "matchType": "EQ",
-                                  "expression": "(none)",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin104",
-            "name": "Made a Purchase",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISITOR",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.transactions",
-                                  "matchType": "GT",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISITOR",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin11",
-            "name": "Mobile and Tablet Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.device_category",
-                                  "matchType": "EQ",
-                                  "expression": "mobile",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                },
-                                {
-                                  "conceptName": "analytics.device_category",
-                                  "matchType": "EQ",
-                                  "expression": "tablet",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin28",
-            "name": "Mobile Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.device_category",
-                                  "matchType": "EQ",
-                                  "expression": "mobile",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin101",
-            "name": "Multi-session Users",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISITOR",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.visits",
-                                  "matchType": "GT",
-                                  "expression": "1",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISITOR",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin2",
-            "name": "New Users",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.visitor_type",
-                                  "matchType": "EQ",
-                                  "expression": "New Visitor",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin12",
-            "name": "Non-bounce Sessions",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.bounces",
-                                  "matchType": "EQ",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISIT",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin103",
-            "name": "Non-Converters",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISITOR",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.goal_completions",
-                                  "matchType": "EQ",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISITOR",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            },
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.transactions",
-                                  "matchType": "EQ",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISITOR",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin5",
-            "name": "Organic Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.medium",
-                                  "matchType": "EQ",
-                                  "expression": "organic",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin4",
-            "name": "Paid Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.medium",
-                                  "matchType": "RE",
-                                  "expression": "^(cpc|ppc|cpa|cpm|cpv|cpp)$",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin105",
-            "name": "Performed Site Search",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISITOR",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [
-                            {
-                              "conditionGroup": [
-                                {
-                                  "condition": [
-                                    {
-                                      "conceptName": "analytics.internal_search_keyword",
-                                      "matchType": "RE",
-                                      "expression": "^$|^\\(not set\\)$",
-                                      "complement": true,
-                                      "type": "DIMENSION",
-                                      "multipleExpression": [],
-                                      "schemaDeprecationUiEnabled": false,
-                                      "allowedUnavailableConcepts": []
-                                    }
-                                  ]
-                                }
-                              ],
-                              "matchType": "PRECEDES"
-                            }
-                          ],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin8",
-            "name": "Referral Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.medium",
-                                  "matchType": "EQ",
-                                  "expression": "referral",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin3",
-            "name": "Returning Users",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.visitor_type",
-                                  "matchType": "EQ",
-                                  "expression": "Returning Visitor",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin6",
-            "name": "Search Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.medium",
-                                  "matchType": "RE",
-                                  "expression": "^(cpc|ppc|cpa|cpm|cpv|cpp|organic)$",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin9",
-            "name": "Sessions with Conversions",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.goal_completions",
-                                  "matchType": "GT",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISIT",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin10",
-            "name": "Sessions with Transactions",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.transactions",
-                                  "matchType": "GT",
-                                  "expression": "0",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISIT",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin100",
-            "name": "Single Session Users",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISITOR",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.visits",
-                                  "matchType": "EQ",
-                                  "expression": "1",
-                                  "complement": false,
-                                  "type": "METRIC",
-                                  "scope": "VISITOR",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin29",
-            "name": "Tablet and Desktop Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.device_category",
-                                  "matchType": "EQ",
-                                  "expression": "tablet",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                },
-                                {
-                                  "conceptName": "analytics.device_category",
-                                  "matchType": "EQ",
-                                  "expression": "desktop",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
-          },
-          {
-            "id": "builtin26",
-            "name": "Tablet Traffic",
-            "custom": false,
-            "segmentDefinition": {
-              "template": [
-                {
-                  "templateId": "CONDITION",
-                  "displayName": "Conditions",
-                  "description": "Segment your users and/or their sessions according to single or multi-session conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "CONDITION",
-                      "id": "condition0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "condition": {
-                          "conditionGroup": [
-                            {
-                              "condition": [
-                                {
-                                  "conceptName": "analytics.device_category",
-                                  "matchType": "EQ",
-                                  "expression": "tablet",
-                                  "complement": false,
-                                  "type": "DIMENSION",
-                                  "multipleExpression": [],
-                                  "schemaDeprecationUiEnabled": false,
-                                  "allowedUnavailableConcepts": []
-                                }
-                              ]
-                            }
-                          ],
-                          "enableMultipleConditions": true,
-                          "showDefaultIfEmpty": false,
-                          "autocompleteMetric": "analytics.pageviews"
-                        }
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                },
-                {
-                  "templateId": "SEQUENCE",
-                  "displayName": "Sequences",
-                  "description": "Segment your users and/or their sessions according to sequential conditions.",
-                  "advanced": true,
-                  "criteria": [
-                    {
-                      "type": "SEQUENCE",
-                      "id": "sequence0",
-                      "selectType": "VISIT",
-                      "enableSelectTypeSwitch": false,
-                      "criteria": {
-                        "sequence": {
-                          "step": [],
-                          "maxSteps": 10,
-                          "conditionDataTemplate": {
-                            "conditionGroup": [],
-                            "enableMultipleConditions": false,
-                            "showDefaultIfEmpty": false,
-                            "autocompleteMetric": "analytics.visits"
-                          }
-                        },
-                        "stepMatch": "ANY"
-                      }
-                    }
-                  ],
-                  "excludeFiltersDisabled": false
-                }
-              ]
-            },
-            "selected": false,
-            "starred": false,
-            "valid": true,
-            "shared": false
+            "disabled": false
           }
         ],
-        "selectedSegmentId": [
-          "builtin1"
-        ],
-        "segmentStateKey": "cusegid",
-        "enabledForRemarketing": true,
-        "remarketingUiForEmbedEnabled": true,
-        "conceptPicker": {
-          "group": [],
-          "concept": [
-            {
-              "conceptName": "analytics.device_category",
-              "displayName": "Device Category",
-              "type": "DIMENSION",
-              "enumValues": [],
-              "tooltipId": 2980153,
-              "scope": [],
-              "family": "STRING",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.medium",
-              "displayName": "Medium",
-              "type": "DIMENSION",
-              "enumValues": [],
-              "tooltipId": 1032755,
-              "scope": [],
-              "family": "STRING",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.internal_search_keyword",
-              "displayName": "Search Term",
-              "type": "DIMENSION",
-              "enumValues": [],
-              "tooltipId": 1032763,
-              "scope": [],
-              "family": "STRING",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.visitor_type",
-              "displayName": "User Type",
-              "type": "DIMENSION",
-              "enumValues": [],
-              "tooltipId": 2630897,
-              "scope": [],
-              "family": "STRING",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.bounces",
-              "displayName": "Bounces",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1032927,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.goal_completions",
-              "displayName": "Goal Completions",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006273,
-              "scope": [
-                "VISITOR",
-                "VISIT",
-                "HIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.visits",
-              "displayName": "Sessions",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 2631008,
-              "scope": [
-                "VISITOR"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.transactions",
-              "displayName": "Transactions",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006277,
-              "scope": [
-                "VISITOR",
-                "VISIT",
-                "HIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            }
-          ],
-          "groupView": false,
-          "hideGroupViewSwitch": true,
-          "hideSearchBox": false
-        }
+        "isReadOnly": false
       }
     },
     {
@@ -2166,136 +214,44 @@
     },
     {
       "id": "overview",
-      "type": "OverviewTab",
+      "type": "BfOverviewTab",
       "role": "tab",
       "graphOptions": {
         "id": "overview-graphOptions",
         "type": "GraphOptions",
-        "timeDimensionSelector": {
-          "mode": [
-            {
-              "id": "NTHHOUR",
-              "dimension": "analytics.nthHour",
-              "displayName": "Hourly",
-              "selected": false,
-              "disabled": false
-            },
-            {
-              "id": "NTHDAY",
-              "dimension": "analytics.nthDay",
-              "displayName": "Day",
-              "selected": true,
-              "disabled": false
-            },
-            {
-              "id": "NTHWEEK",
-              "dimension": "analytics.nthWeek",
-              "displayName": "Week",
-              "selected": false,
-              "disabled": false
-            },
-            {
-              "id": "NTHMONTH",
-              "dimension": "analytics.nthMonth",
-              "displayName": "Month",
-              "selected": false,
-              "disabled": false
-            }
-          ]
-        },
-        "primaryConcept": "analytics.pageviews",
-        "primaryConceptDisplayName": "Pageviews",
+        "primaryConcept": "bigfunnels.conversions",
+        "primaryConceptDisplayName": "Conversions",
         "primaryConceptPicker": {
           "group": [
             {
               "type": "METRIC",
-              "label": "Commonly used",
-              "conceptRef": [
-                "analytics.bounceRate"
-              ],
-              "shouldHighlight": true
-            },
-            {
-              "type": "METRIC",
               "label": "",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
-                "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "bigfunnels.assisted_conversions",
+                "bigfunnels.conversions"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "bigfunnels.assisted_conversions",
+              "displayName": "Assisted Conversions",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
+              "tooltipId": 1188857,
+              "scope": [],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "bigfunnels.conversions",
+              "displayName": "Conversions",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006257,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006243,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006271,
-              "scope": [
-                "VISITOR",
-                "VISIT",
-                "HIT"
-              ],
+              "tooltipId": 2430031,
+              "scope": [],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
@@ -2303,99 +259,39 @@
           ],
           "groupView": false,
           "hideGroupViewSwitch": true,
-          "hideSearchBox": false
+          "hideSearchBox": true
         },
         "compareConceptPicker": {
           "group": [
             {
               "type": "METRIC",
-              "label": "Commonly used",
-              "conceptRef": [
-                "analytics.bounceRate"
-              ],
-              "shouldHighlight": true
-            },
-            {
-              "type": "METRIC",
               "label": "",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
-                "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "bigfunnels.assisted_conversions",
+                "bigfunnels.conversions"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "bigfunnels.assisted_conversions",
+              "displayName": "Assisted Conversions",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
+              "tooltipId": 1188857,
+              "scope": [],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "bigfunnels.conversions",
+              "displayName": "Conversions",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006257,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006243,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006271,
-              "scope": [
-                "VISITOR",
-                "VISIT",
-                "HIT"
-              ],
+              "tooltipId": 2430031,
+              "scope": [],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
@@ -2403,11 +299,11 @@
           ],
           "groupView": false,
           "hideGroupViewSwitch": true,
-          "hideSearchBox": false
+          "hideSearchBox": true
         },
         "primaryConceptEnabled": true,
         "compareConceptEnabled": true,
-        "timeSelectorEnabled": true,
+        "timeSelectorEnabled": false,
         "conceptMode": "METRIC"
       },
       "graph": {
@@ -2425,8 +321,8 @@
               },
               {
                 "type": "number",
-                "label": "Pageviews",
-                "id": "primary$analytics.pageviews$[date_range-0:DateRange{20120101-20121231}]$",
+                "label": "Conversions",
+                "id": "primary$bigfunnels.conversions$[date_range-0:DateRange{20120101-20121231}]$",
                 "styleName": "primary0",
                 "dateRange": "Jan 1, 2012 - Dec 31, 2012",
                 "isTotal": true,
@@ -6749,8 +4645,8 @@
                     "f": "Tuesday, December 25, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6761,8 +4657,8 @@
                     "f": "Wednesday, December 26, 2012"
                   },
                   {
-                    "v": 6.0,
-                    "f": "6"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6773,8 +4669,8 @@
                     "f": "Thursday, December 27, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6785,8 +4681,8 @@
                     "f": "Friday, December 28, 2012"
                   },
                   {
-                    "v": 13.0,
-                    "f": "13"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6797,8 +4693,8 @@
                     "f": "Saturday, December 29, 2012"
                   },
                   {
-                    "v": 7.0,
-                    "f": "7"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -7208,13 +5104,13 @@
           },
           "primarySeriesType": "integer",
           "timeDimension": {
-            "conceptName": "analytics.nthDay",
+            "conceptName": "bigfunnels.nthDay",
             "displayName": "Day Index",
             "enumValues": []
           },
           "primaryMetric": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
+            "conceptName": "bigfunnels.conversions",
+            "displayName": "Conversions",
             "enumValues": []
           },
           "dimensionFilterGroup": [],
@@ -7233,12 +5129,12 @@
       },
       "sparkline": {
         "id": "overview-sparkline",
-        "type": "HorizontalSparkline",
+        "type": "Sparkline",
         "metricGroup": [
           {
             "metric": {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "bigfunnels.conversions",
+              "displayName": "Conversions",
               "enumValues": []
             },
             "groupName": [
@@ -7246,7 +5142,7 @@
             ],
             "group": [
               {
-                "displayName": "Pageviews",
+                "displayName": "Conversions",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -7610,26 +5506,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      9.0,
-                      6.0,
-                      9.0,
-                      13.0,
-                      7.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "44",
+                    "value": "0",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006243
+            "helpId": 2430031
           },
           {
             "metric": {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
+              "conceptName": "bigfunnels.assisted_conversions",
+              "displayName": "Assisted Conversions",
               "enumValues": []
             },
             "groupName": [
@@ -7637,7 +5533,7 @@
             ],
             "group": [
               {
-                "displayName": "Unique Pageviews",
+                "displayName": "Assisted Conversions",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -8001,1357 +5897,42 @@
                       0.0,
                       0.0,
                       0.0,
-                      5.0,
-                      5.0,
-                      8.0,
-                      5.0,
-                      4.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "27",
+                    "value": "0",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006271
-          },
-          {
-            "metric": {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "Avg. Time on Page",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      14.75,
-                      3.0,
-                      0.0,
-                      52.625,
-                      262.3333333333333,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "00:01:15",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006285
-          },
-          {
-            "metric": {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "Bounce Rate",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.4,
-                      0.8,
-                      0.875,
-                      0.4,
-                      0.75,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "66.67%",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006257
-          },
-          {
-            "metric": {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "% Exit",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.5555555555555556,
-                      0.8333333333333334,
-                      0.8888888888888888,
-                      0.38461538461538464,
-                      0.5714285714285714,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "61.36%",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006932
+            "helpId": 1188857
           }
         ],
         "notSelectable": false,
         "condensedDisplay": false
       },
-      "dimensionSummary": {
-        "id": "overview-dimensionSummary",
-        "type": "DimensionSummary",
-        "dimensionGroup": [
+      "narrative": {
+        "id": "overview-narrative",
+        "type": "Narrative",
+        "sentence": [
           {
-            "label": "Site Content",
-            "name": "sitecontent",
-            "dimension": [
-              {
-                "conceptName": "analytics.pagePath",
-                "displayName": "Page",
-                "selected": true
-              },
-              {
-                "conceptName": "analytics.pageTitle",
-                "displayName": "Page Title",
-                "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Site Search",
-            "name": "sitesearch",
-            "dimension": [
-              {
-                "conceptName": "analytics.searchKeyword",
-                "displayName": "Search Term",
-                "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Events",
-            "name": "events",
-            "dimension": [
-              {
-                "conceptName": "analytics.eventCategory",
-                "displayName": "Event Category",
-                "selected": false
-              }
-            ]
+            "message": "There were 0 total conversions",
+            "type": "STANDARD"
           }
-        ],
-        "miniTable": {
-          "id": "overview-dimensionSummary-miniTable",
-          "type": "MiniTable",
-          "dimension": [
-            {
-              "conceptName": "analytics.pagePath",
-              "displayName": "Page",
-              "enumValues": [],
-              "helpTopicId": 1032816,
-              "externalName": "ga:pagePath"
-            }
-          ],
-          "metric": [
-            {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
-              "enumValues": [],
-              "smallerValueBetter": false
-            },
-            {
-              "conceptName": "",
-              "displayName": "% Pageviews",
-              "enumValues": [],
-              "smallerValueBetter": false
-            }
-          ],
-          "sortConcept": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
-            "type": "METRIC",
-            "enumValues": [],
-            "externalName": "ga:pageviews"
-          },
-          "sortDescending": true,
-          "rowCluster": [
-            {
-              "label": "1.",
-              "rowKey": [
-                {
-                  "displayKey": "/",
-                  "drilldownKey": "/",
-                  "drillable": true,
-                  "jsonValue": "{\"displayKey\":\"/\",\"linkUrl\":\"http://www.cloudaware.com/\",\"type\":\"ReferralPathCell\"}"
-                }
-              ],
-              "row": [
-                {
-                  "rowValue": [
-                    {
-                      "dataValue": "44",
-                      "dataType": "INTEGER"
-                    },
-                    {
-                      "dataValue": "100.00%",
-                      "rawValue": 1.0,
-                      "dataType": "PERCENT"
-                    }
-                  ]
-                }
-              ],
-              "subCluster": [],
-              "selected": false
-            }
-          ],
-          "clusteredRowLabel": [
-            {
-              "label": "",
-              "subClusterLabel": [
-                {
-                  "label": "Jan 1, 2012 - Dec 31, 2012",
-                  "subClusterLabel": []
-                }
-              ]
-            }
-          ],
-          "isPlotKeys": false,
-          "tablePagination": {
-            "start": 0,
-            "end": 0,
-            "count": 0,
-            "show": 0
-          },
-          "dimensionSortDisabled": false,
-          "metricSortDisabled": false,
-          "dimensionFilterGroup": [],
-          "showHelpIcons": false,
-          "showDimensionHelpIcons": false,
-          "metricFiltersApplied": false,
-          "fixedDimensionCount": 1,
-          "scrollableTableEnabled": false,
-          "multipleSecKeysEnabled": false,
-          "excludeTotalLine": false,
-          "miniTableSettings": {
-            "showFilter": false,
-            "filterExpression": "",
-            "showRowNumbers": true,
-            "selectionKey": "",
-            "stateless": false,
-            "rowSelectionEnabled": true,
-            "showPercentBar": true,
-            "deepLink": {
-              "reportId": "content-pages",
-              "param": [],
-              "reportViewType": "report"
-            }
-          }
-        }
+        ]
+      },
+      "eulerDiagram": {
+        "id": "overview-eulerDiagram",
+        "type": "BfEulerDiagram",
+        "channels": [],
+        "allOccurrences": []
       }
-    },
-    {
-      "id": "timestampMessage",
-      "type": "TimestampMessage",
-      "isDashboard": false,
-      "isHomepage": false,
-      "utcDatetime": "2024-06-29T09:04:01.516Z"
     }
   ],
   "samplingData": [
@@ -9367,7 +5948,18 @@
       ]
     },
     {
-      "id": "reportHeader-reportToolbar",
+      "id": "reportHeader-overviewEducation",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-bfReportToolbar",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9389,51 +5981,7 @@
       ]
     },
     {
-      "id": "reportHeader-sensitiveDataMessage",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-rollUpMessageBanner",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-usersCalcMessage",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-reportHeaderCustomMessage",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-reportHeaderDismissibleBar",
+      "id": "reportHeader-headerInfo",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9466,18 +6014,7 @@
       ]
     },
     {
-      "id": "reportHeader-reportNotificationBar",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-segmentHeader",
+      "id": "reportHeader-dataViewContext",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9492,7 +6029,7 @@
       ]
     },
     {
-      "id": "reportHeader-segmentPicker",
+      "id": "reportHeader-conversionTypeSelector",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9503,7 +6040,7 @@
       ]
     },
     {
-      "id": "reportHeader-reportToolbar-emailControl",
+      "id": "reportHeader-lookbackWindowControl",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9514,7 +6051,7 @@
       ]
     },
     {
-      "id": "reportHeader-reportToolbar-exportControl",
+      "id": "reportHeader-dataSetSelector",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9525,7 +6062,7 @@
       ]
     },
     {
-      "id": "reportHeader-reportToolbar-customizationControl",
+      "id": "reportHeader-bfReportToolbar-pathSegmentSelector",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9536,40 +6073,7 @@
       ]
     },
     {
-      "id": "reportHeader-reportToolbar-title",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-reportToolbar-sensitiveDataMessage",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-reportToolbar-rollUpMessageBanner",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "reportHeader-reportToolbar-samplingControl",
+      "id": "reportHeader-bfReportToolbar-samplingControl",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9639,7 +6143,18 @@
       ]
     },
     {
-      "id": "overview-dimensionSummary",
+      "id": "overview-narrative",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "overview-eulerDiagram",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9651,28 +6166,6 @@
     },
     {
       "id": "overview-graph-lineChart",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "overview-dimensionSummary-miniTable",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "timestampMessage",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9685,11 +6178,15 @@
   ],
   "dataFreshness": [
     {
-      "id": "reportHeader-segmentHeader",
+      "id": "reportHeader-headerInfo",
       "hasRealtime": false
     },
     {
-      "id": "reportHeader-reportToolbar-samplingControl",
+      "id": "reportHeader-dataViewContext",
+      "hasRealtime": false
+    },
+    {
+      "id": "reportHeader-conversionTypeSelector",
       "hasRealtime": false
     },
     {
@@ -9697,7 +6194,11 @@
       "hasRealtime": false
     },
     {
-      "id": "overview-dimensionSummary",
+      "id": "overview-narrative",
+      "hasRealtime": false
+    },
+    {
+      "id": "overview-eulerDiagram",
       "hasRealtime": false
     },
     {
@@ -9707,9 +6208,9 @@
   ],
   "enableSamplingControl": true,
   "pageMetadata": {
-    "numberOfRequest": "7",
-    "educationTopicId": "2797244",
-    "cpuTime": "521059",
-    "processingTime": "570664"
+    "numberOfRequest": "9",
+    "educationTopicId": "2803048",
+    "cpuTime": "377606",
+    "processingTime": "3584482"
   }
 }

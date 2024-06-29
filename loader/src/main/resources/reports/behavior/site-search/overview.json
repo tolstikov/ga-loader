@@ -1,7 +1,7 @@
 {
   "type": "StandardReport",
-  "title": "Overview",
-  "helpTopicId": "1006206",
+  "title": "Site Search Overview",
+  "helpTopicId": "1153267",
   "components": [
     {
       "id": "reportHeader",
@@ -10,14 +10,14 @@
         "id": "reportHeader-reportToolbar",
         "type": "ReportToolbar",
         "addToDashboardEnabled": true,
-        "saveReportName": "Overview",
+        "saveReportName": "Site Search Overview",
         "createSavedReport": true,
         "emailControl": {
           "id": "reportHeader-reportToolbar-emailControl",
           "type": "EmailControl",
           "sender": "tolstikov@cloudaware.com",
-          "reportTitle": "Overview",
-          "reportId": "content-overview",
+          "reportTitle": "Site Search Overview",
+          "reportId": "content-site-search-overview",
           "dailyEmail": [],
           "weeklyEmail": [],
           "monthlyEmail": [],
@@ -71,7 +71,7 @@
         "title": {
           "id": "reportHeader-reportToolbar-title",
           "type": "Title",
-          "primary": "Overview",
+          "primary": "Site Search Overview",
           "detail": [],
           "primaryRequiresBidiRendering": false,
           "subtitleRequiresBidiRendering": false
@@ -97,7 +97,15 @@
               "containsSensitiveData": false
             },
             {
+              "componentId": "overview-miniPie",
+              "containsSensitiveData": false
+            },
+            {
               "componentId": "overview-dimensionSummary",
+              "containsSensitiveData": false
+            },
+            {
+              "componentId": "overview-narrative",
               "containsSensitiveData": false
             }
           ]
@@ -141,7 +149,7 @@
       "title": {
         "id": "reportHeader-title",
         "type": "Title",
-        "primary": "Overview",
+        "primary": "Site Search Overview",
         "detail": [],
         "primaryRequiresBidiRendering": false,
         "subtitleRequiresBidiRendering": false
@@ -167,7 +175,15 @@
             "containsSensitiveData": false
           },
           {
+            "componentId": "overview-miniPie",
+            "containsSensitiveData": false
+          },
+          {
             "componentId": "overview-dimensionSummary",
+            "containsSensitiveData": false
+          },
+          {
+            "componentId": "overview-narrative",
             "containsSensitiveData": false
           }
         ]
@@ -2203,38 +2219,32 @@
             }
           ]
         },
-        "primaryConcept": "analytics.pageviews",
-        "primaryConceptDisplayName": "Pageviews",
+        "primaryConcept": "analytics.searchVisits",
+        "primaryConceptDisplayName": "Sessions with Search",
         "primaryConceptPicker": {
           "group": [
             {
               "type": "METRIC",
-              "label": "Commonly used",
-              "conceptRef": [
-                "analytics.bounceRate"
-              ],
-              "shouldHighlight": true
-            },
-            {
-              "type": "METRIC",
               "label": "",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
-                "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "analytics.percentSearchExits",
+                "analytics.percentSearchRefinements",
+                "analytics.depthPerSearch",
+                "analytics.pageviewsPerSearch",
+                "analytics.searchVisits",
+                "analytics.durationPerSearch",
+                "analytics.searchUniques"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.percentSearchExits",
+              "displayName": "% Search Exits",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
+              "tooltipId": 1006953,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2244,11 +2254,56 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.percentSearchRefinements",
+              "displayName": "% Search Refinements",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
+              "tooltipId": 1006955,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.depthPerSearch",
+              "displayName": "Avg. Search Depth",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2804616,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.pageviewsPerSearch",
+              "displayName": "Results Pageviews / Search",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006951,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.searchVisits",
+              "displayName": "Sessions with Search",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1032938,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2258,39 +2313,26 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
+              "conceptName": "analytics.durationPerSearch",
+              "displayName": "Time after Search",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006257,
+              "tooltipId": 2804485,
               "scope": [
                 "VISITOR",
-                "VISIT"
+                "VISIT",
+                "HIT"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.searchUniques",
+              "displayName": "Total Unique Searches",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006243,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006271,
+              "tooltipId": 1006949,
               "scope": [
                 "VISITOR",
                 "VISIT",
@@ -2309,32 +2351,26 @@
           "group": [
             {
               "type": "METRIC",
-              "label": "Commonly used",
-              "conceptRef": [
-                "analytics.bounceRate"
-              ],
-              "shouldHighlight": true
-            },
-            {
-              "type": "METRIC",
               "label": "",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
-                "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "analytics.percentSearchExits",
+                "analytics.percentSearchRefinements",
+                "analytics.depthPerSearch",
+                "analytics.pageviewsPerSearch",
+                "analytics.searchVisits",
+                "analytics.durationPerSearch",
+                "analytics.searchUniques"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.percentSearchExits",
+              "displayName": "% Search Exits",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
+              "tooltipId": 1006953,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2344,11 +2380,56 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.percentSearchRefinements",
+              "displayName": "% Search Refinements",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
+              "tooltipId": 1006955,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.depthPerSearch",
+              "displayName": "Avg. Search Depth",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2804616,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.pageviewsPerSearch",
+              "displayName": "Results Pageviews / Search",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006951,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.searchVisits",
+              "displayName": "Sessions with Search",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1032938,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2358,39 +2439,26 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
+              "conceptName": "analytics.durationPerSearch",
+              "displayName": "Time after Search",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006257,
+              "tooltipId": 2804485,
               "scope": [
                 "VISITOR",
-                "VISIT"
+                "VISIT",
+                "HIT"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.searchUniques",
+              "displayName": "Total Unique Searches",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006243,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006271,
+              "tooltipId": 1006949,
               "scope": [
                 "VISITOR",
                 "VISIT",
@@ -2425,8 +2493,8 @@
               },
               {
                 "type": "number",
-                "label": "Pageviews",
-                "id": "primary$analytics.pageviews$[date_range-0:DateRange{20120101-20121231}]$",
+                "label": "Sessions with Search",
+                "id": "primary$analytics.searchVisits$[date_range-0:DateRange{20120101-20121231}]$",
                 "styleName": "primary0",
                 "dateRange": "Jan 1, 2012 - Dec 31, 2012",
                 "isTotal": true,
@@ -6749,8 +6817,8 @@
                     "f": "Tuesday, December 25, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6761,8 +6829,8 @@
                     "f": "Wednesday, December 26, 2012"
                   },
                   {
-                    "v": 6.0,
-                    "f": "6"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6773,8 +6841,8 @@
                     "f": "Thursday, December 27, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6785,8 +6853,8 @@
                     "f": "Friday, December 28, 2012"
                   },
                   {
-                    "v": 13.0,
-                    "f": "13"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6797,8 +6865,8 @@
                     "f": "Saturday, December 29, 2012"
                   },
                   {
-                    "v": 7.0,
-                    "f": "7"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -7213,8 +7281,8 @@
             "enumValues": []
           },
           "primaryMetric": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
+            "conceptName": "analytics.searchVisits",
+            "displayName": "Sessions with Search",
             "enumValues": []
           },
           "dimensionFilterGroup": [],
@@ -7237,8 +7305,8 @@
         "metricGroup": [
           {
             "metric": {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.searchVisits",
+              "displayName": "Sessions with Search",
               "enumValues": []
             },
             "groupName": [
@@ -7246,7 +7314,7 @@
             ],
             "group": [
               {
-                "displayName": "Pageviews",
+                "displayName": "Sessions with Search",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -7610,26 +7678,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      9.0,
-                      6.0,
-                      9.0,
-                      13.0,
-                      7.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "44",
+                    "value": "0",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006243
+            "helpId": 1032938
           },
           {
             "metric": {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
+              "conceptName": "analytics.searchUniques",
+              "displayName": "Total Unique Searches",
               "enumValues": []
             },
             "groupName": [
@@ -7637,7 +7705,7 @@
             ],
             "group": [
               {
-                "displayName": "Unique Pageviews",
+                "displayName": "Total Unique Searches",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -8001,26 +8069,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      5.0,
-                      5.0,
-                      8.0,
-                      5.0,
-                      4.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "27",
+                    "value": "0",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006271
+            "helpId": 1006949
           },
           {
             "metric": {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.pageviewsPerSearch",
+              "displayName": "Results Pageviews / Search",
               "enumValues": []
             },
             "groupName": [
@@ -8028,7 +8096,7 @@
             ],
             "group": [
               {
-                "displayName": "Avg. Time on Page",
+                "displayName": "Results Pageviews / Search",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -8392,26 +8460,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      14.75,
-                      3.0,
                       0.0,
-                      52.625,
-                      262.3333333333333,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "00:01:15",
+                    "value": "0.00",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006285
+            "helpId": 1006951
           },
           {
             "metric": {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
+              "conceptName": "analytics.percentSearchExits",
+              "displayName": "% Search Exits",
               "enumValues": []
             },
             "groupName": [
@@ -8419,7 +8487,7 @@
             ],
             "group": [
               {
-                "displayName": "Bounce Rate",
+                "displayName": "% Search Exits",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -8783,26 +8851,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      0.4,
-                      0.8,
-                      0.875,
-                      0.4,
-                      0.75,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "66.67%",
+                    "value": "0.00%",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006257
+            "helpId": 1006953
           },
           {
             "metric": {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.percentSearchRefinements",
+              "displayName": "% Search Refinements",
               "enumValues": []
             },
             "groupName": [
@@ -8810,7 +8878,7 @@
             ],
             "group": [
               {
-                "displayName": "% Exit",
+                "displayName": "% Search Refinements",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -9174,25 +9242,839 @@
                       0.0,
                       0.0,
                       0.0,
-                      0.5555555555555556,
-                      0.8333333333333334,
-                      0.8888888888888888,
-                      0.38461538461538464,
-                      0.5714285714285714,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "61.36%",
+                    "value": "0.00%",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006932
+            "helpId": 1006955
+          },
+          {
+            "metric": {
+              "conceptName": "analytics.durationPerSearch",
+              "displayName": "Time after Search",
+              "enumValues": []
+            },
+            "groupName": [
+              "Jan 1, 2012 - Dec 31, 2012"
+            ],
+            "group": [
+              {
+                "displayName": "Time after Search",
+                "groupId": "Jan 1, 2012 - Dec 31, 2012",
+                "line": [
+                  {
+                    "point": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "value": "00:00:00",
+                    "comparePoint": []
+                  }
+                ]
+              }
+            ],
+            "helpId": 2804485
+          },
+          {
+            "metric": {
+              "conceptName": "analytics.depthPerSearch",
+              "displayName": "Avg. Search Depth",
+              "enumValues": []
+            },
+            "groupName": [
+              "Jan 1, 2012 - Dec 31, 2012"
+            ],
+            "group": [
+              {
+                "displayName": "Avg. Search Depth",
+                "groupId": "Jan 1, 2012 - Dec 31, 2012",
+                "line": [
+                  {
+                    "point": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "value": "0.00",
+                    "comparePoint": []
+                  }
+                ]
+              }
+            ],
+            "helpId": 2804616
           }
         ],
         "notSelectable": false,
         "condensedDisplay": false
+      },
+      "miniPie": {
+        "id": "overview-miniPie",
+        "type": "PieChart",
+        "metricName": "Sessions",
+        "legend": [
+          "Visits Without Site Search"
+        ],
+        "dateRange": [
+          {
+            "label": "Jan 1, 2012 - Dec 31, 2012",
+            "pie": [
+              {
+                "label": "",
+                "slice": [
+                  {
+                    "value": 27.0,
+                    "formattedValue": "27"
+                  },
+                  {
+                    "value": 0.0,
+                    "formattedValue": "0"
+                  }
+                ],
+                "formattedTotal": "27"
+              }
+            ]
+          }
+        ],
+        "donut": false,
+        "fixedWidth": 200,
+        "legendPosition": "TOP"
       },
       "dimensionSummary": {
         "id": "overview-dimensionSummary",
@@ -9203,35 +10085,18 @@
             "name": "sitecontent",
             "dimension": [
               {
-                "conceptName": "analytics.pagePath",
-                "displayName": "Page",
+                "conceptName": "analytics.searchKeyword",
+                "displayName": "Search Term",
                 "selected": true
               },
               {
-                "conceptName": "analytics.pageTitle",
-                "displayName": "Page Title",
+                "conceptName": "analytics.searchCategory",
+                "displayName": "Site Search Category",
                 "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Site Search",
-            "name": "sitesearch",
-            "dimension": [
+              },
               {
-                "conceptName": "analytics.searchKeyword",
-                "displayName": "Search Term",
-                "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Events",
-            "name": "events",
-            "dimension": [
-              {
-                "conceptName": "analytics.eventCategory",
-                "displayName": "Event Category",
+                "conceptName": "analytics.searchStartPage",
+                "displayName": "Start Page",
                 "selected": false
               }
             ]
@@ -9242,76 +10107,37 @@
           "type": "MiniTable",
           "dimension": [
             {
-              "conceptName": "analytics.pagePath",
-              "displayName": "Page",
+              "conceptName": "analytics.searchKeyword",
+              "displayName": "Search Term",
               "enumValues": [],
-              "helpTopicId": 1032816,
-              "externalName": "ga:pagePath"
+              "helpTopicId": 1032763,
+              "externalName": "ga:searchKeyword"
             }
           ],
           "metric": [
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.searchUniques",
+              "displayName": "Total Unique Searches",
               "enumValues": [],
               "smallerValueBetter": false
             },
             {
               "conceptName": "",
-              "displayName": "% Pageviews",
+              "displayName": "% Total Unique Searches",
               "enumValues": [],
               "smallerValueBetter": false
             }
           ],
           "sortConcept": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
+            "conceptName": "analytics.searchUniques",
+            "displayName": "Total Unique Searches",
             "type": "METRIC",
             "enumValues": [],
-            "externalName": "ga:pageviews"
+            "externalName": "ga:searchUniques"
           },
           "sortDescending": true,
-          "rowCluster": [
-            {
-              "label": "1.",
-              "rowKey": [
-                {
-                  "displayKey": "/",
-                  "drilldownKey": "/",
-                  "drillable": true,
-                  "jsonValue": "{\"displayKey\":\"/\",\"linkUrl\":\"http://www.cloudaware.com/\",\"type\":\"ReferralPathCell\"}"
-                }
-              ],
-              "row": [
-                {
-                  "rowValue": [
-                    {
-                      "dataValue": "44",
-                      "dataType": "INTEGER"
-                    },
-                    {
-                      "dataValue": "100.00%",
-                      "rawValue": 1.0,
-                      "dataType": "PERCENT"
-                    }
-                  ]
-                }
-              ],
-              "subCluster": [],
-              "selected": false
-            }
-          ],
-          "clusteredRowLabel": [
-            {
-              "label": "",
-              "subClusterLabel": [
-                {
-                  "label": "Jan 1, 2012 - Dec 31, 2012",
-                  "subClusterLabel": []
-                }
-              ]
-            }
-          ],
+          "rowCluster": [],
+          "clusteredRowLabel": [],
           "isPlotKeys": false,
           "tablePagination": {
             "start": 0,
@@ -9338,12 +10164,22 @@
             "rowSelectionEnabled": true,
             "showPercentBar": true,
             "deepLink": {
-              "reportId": "content-pages",
+              "reportId": "content-site-search-search-terms",
               "param": [],
               "reportViewType": "report"
             }
           }
         }
+      },
+      "narrative": {
+        "id": "overview-narrative",
+        "type": "Narrative",
+        "sentence": [
+          {
+            "message": "0.00% of your visits used site search",
+            "type": "STANDARD"
+          }
+        ]
       }
     },
     {
@@ -9351,7 +10187,7 @@
       "type": "TimestampMessage",
       "isDashboard": false,
       "isHomepage": false,
-      "utcDatetime": "2024-06-29T09:04:01.516Z"
+      "utcDatetime": "2024-06-29T09:07:55.107Z"
     }
   ],
   "samplingData": [
@@ -9639,7 +10475,29 @@
       ]
     },
     {
+      "id": "overview-miniPie",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
       "id": "overview-dimensionSummary",
+      "sampled": false,
+      "canBeSampled": true,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "overview-narrative",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9697,7 +10555,15 @@
       "hasRealtime": false
     },
     {
+      "id": "overview-miniPie",
+      "hasRealtime": false
+    },
+    {
       "id": "overview-dimensionSummary",
+      "hasRealtime": false
+    },
+    {
+      "id": "overview-narrative",
       "hasRealtime": false
     },
     {
@@ -9707,9 +10573,9 @@
   ],
   "enableSamplingControl": true,
   "pageMetadata": {
-    "numberOfRequest": "7",
-    "educationTopicId": "2797244",
-    "cpuTime": "521059",
-    "processingTime": "570664"
+    "numberOfRequest": "9",
+    "educationTopicId": "2847182",
+    "cpuTime": "8661341",
+    "processingTime": "1459477"
   }
 }

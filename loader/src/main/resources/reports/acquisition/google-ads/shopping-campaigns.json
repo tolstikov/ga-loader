@@ -1,7 +1,7 @@
 {
-  "type": "StandardReport",
-  "title": "Overview",
-  "helpTopicId": "1006206",
+  "type": "AdwordsReport",
+  "title": "Google Ads Shopping Campaigns",
+  "helpTopicId": "0",
   "components": [
     {
       "id": "reportHeader",
@@ -10,14 +10,15 @@
         "id": "reportHeader-reportToolbar",
         "type": "ReportToolbar",
         "addToDashboardEnabled": true,
-        "saveReportName": "Overview",
+        "saveReportName": "Google Ads Shopping Campaigns",
         "createSavedReport": true,
+        "customizedReportConfig": "context {\n  id: \"advertising-adwords-shopping\"\n  title {\n    value: \"Google Ads Shopping Campaigns\"\n    is_message_id: false\n  }\n  help_topic_id: 1043504\n  context_metric: \"analytics.totalVisitors\"\n  dimension_filter {\n    dimension: \"analytics.trafficType\"\n    expression: \"paid\"\n    match_type: EXACT\n  }\n  dimension_filter {\n    dimension: \"analytics.source\"\n    expression: \"google\"\n    match_type: EXACT\n  }\n  dimension_filter {\n    dimension: \"analytics.adwordsCampaignID\"\n    expression: \"(not set)\"\n    match_type: EXACT\n    complement: true\n  }\n  is_custom: true\n}\ntab {\n  id: \"explorer\"\n  type: EXPLORER\n  disable_without_drilldowns: false\n  label {\n    value: \"Explorer\"\n    is_message_id: false\n  }\n  [analytics.Explorer.config] {\n    metric_group {\n      id: \"summary-adwords\"\n      label {\n        value: \"Summary\"\n        is_message_id: false\n      }\n      metric: \"analytics.adClicks\"\n      metric: \"analytics.adCost\"\n      metric: \"analytics.CPC\"\n      metric: \"analytics.totalVisitors\"\n      metric: \"analytics.visits\"\n      metric: \"analytics.bounceRate\"\n      metric: \"analytics.avgPageviews\"\n      metric: \"analytics.goalConversionRate\"\n      metric: \"analytics.goalCompletionsAll\"\n      metric: \"analytics.goalValueAll\"\n      metric: \"analytics.goalConversionRate1\"\n      metric: \"analytics.goal1Completions\"\n      metric: \"analytics.goal1Value\"\n      metric: \"analytics.goalConversionRate2\"\n      metric: \"analytics.goal2Completions\"\n      metric: \"analytics.goal2Value\"\n      metric: \"analytics.goalConversionRate3\"\n      metric: \"analytics.goal3Completions\"\n      metric: \"analytics.goal3Value\"\n    }\n    metric_group {\n      id: \"site_usage_adwords\"\n      label {\n        value: \"Site Usage\"\n        is_message_id: false\n      }\n      metric: \"analytics.totalVisitors\"\n      metric: \"analytics.visits\"\n      metric: \"analytics.avgPageviews\"\n      metric: \"analytics.avgSessionTime\"\n      metric: \"analytics.percentNewVisits\"\n      metric: \"analytics.bounceRate\"\n      metric: \"analytics.goalCompletionsAll\"\n    }\n    metric_group {\n      id: \"goal_set1\"\n      label {\n        value: \"Goal Set 1\"\n        is_message_id: false\n      }\n      metric: \"analytics.totalVisitors\"\n      metric: \"analytics.visits\"\n      metric: \"analytics.goalConversionRate\"\n      metric: \"analytics.goalValuePerVisit\"\n      metric: \"analytics.goalConversionRate1\"\n      metric: \"analytics.goalConversionRate2\"\n      metric: \"analytics.goalConversionRate3\"\n    }\n    metric_group {\n      id: \"ecommerce\"\n      label {\n        value: \"Ecommerce\"\n        is_message_id: false\n      }\n      metric: \"analytics.totalVisitors\"\n      metric: \"analytics.visits\"\n    }\n    table_modes {\n      id: \"default\"\n      table_view_type: DATA\n      table_view_type: PIE\n      table_view_type: PERFORMANCE\n      table_view_type: COMPARISON\n      table_view_type: PIVOT\n    }\n  }\n}\n[analytics.CustomReport.config] {\n  canned_report_id: \"advertising-adwords-shopping\"\n}\n",
         "emailControl": {
           "id": "reportHeader-reportToolbar-emailControl",
           "type": "EmailControl",
           "sender": "tolstikov@cloudaware.com",
-          "reportTitle": "Overview",
-          "reportId": "content-overview",
+          "reportTitle": "Google Ads Shopping Campaigns",
+          "reportId": "advertising-adwords-shopping",
           "dailyEmail": [],
           "weeklyEmail": [],
           "monthlyEmail": [],
@@ -65,13 +66,13 @@
           "id": "reportHeader-reportToolbar-customizationControl",
           "type": "CustomizationControl",
           "isCustom": false,
-          "isCustomizable": false,
+          "isCustomizable": true,
           "isAnalyzable": false
         },
         "title": {
           "id": "reportHeader-reportToolbar-title",
           "type": "Title",
-          "primary": "Overview",
+          "primary": "Google Ads Shopping Campaigns",
           "detail": [],
           "primaryRequiresBidiRendering": false,
           "subtitleRequiresBidiRendering": false
@@ -89,15 +90,11 @@
               "containsSensitiveData": false
             },
             {
-              "componentId": "overview-graph-lineChart",
+              "componentId": "explorer-table",
               "containsSensitiveData": false
             },
             {
-              "componentId": "overview-sparkline",
-              "containsSensitiveData": false
-            },
-            {
-              "componentId": "overview-dimensionSummary",
+              "componentId": "explorer-graph-lineChart",
               "containsSensitiveData": false
             }
           ]
@@ -141,7 +138,7 @@
       "title": {
         "id": "reportHeader-title",
         "type": "Title",
-        "primary": "Overview",
+        "primary": "Google Ads Shopping Campaigns",
         "detail": [],
         "primaryRequiresBidiRendering": false,
         "subtitleRequiresBidiRendering": false
@@ -159,15 +156,11 @@
             "containsSensitiveData": false
           },
           {
-            "componentId": "overview-graph-lineChart",
+            "componentId": "explorer-table",
             "containsSensitiveData": false
           },
           {
-            "componentId": "overview-sparkline",
-            "containsSensitiveData": false
-          },
-          {
-            "componentId": "overview-dimensionSummary",
+            "componentId": "explorer-graph-lineChart",
             "containsSensitiveData": false
           }
         ]
@@ -180,7 +173,7 @@
       "usersCalcMessage": {
         "id": "reportHeader-usersCalcMessage",
         "type": "UsersCalcMessage",
-        "showMessage": false
+        "showMessage": true
       },
       "reportHeaderCustomMessage": {
         "id": "reportHeader-reportHeaderCustomMessage",
@@ -227,11 +220,11 @@
               {
                 "title": "Jan 1, 2012 - Dec 31, 2012",
                 "primaryMetricData": {
-                  "displayName": "Pageviews",
-                  "formattedPercent": "100.00%",
-                  "formattedTotal": "44",
-                  "formattedValue": "44",
-                  "percent": 100.0
+                  "displayName": "Users",
+                  "formattedPercent": "0.00%",
+                  "formattedTotal": "18",
+                  "formattedValue": "0",
+                  "percent": 0.0
                 }
               }
             ],
@@ -2157,29 +2150,1757 @@
       "type": "TabControl",
       "tab": [
         {
-          "id": "overview",
-          "label": "Overview",
+          "id": "explorer",
+          "label": "Explorer",
           "selected": true
         }
       ],
       "hideSingleTab": false
     },
     {
-      "id": "overview",
-      "type": "OverviewTab",
+      "id": "explorer",
+      "type": "ExplorerTab",
       "role": "tab",
-      "graphOptions": {
-        "id": "overview-graphOptions",
-        "type": "GraphOptions",
-        "timeDimensionSelector": {
+      "segmentExplorer": {
+        "id": "explorer-segmentExplorer",
+        "type": "SegmentExplorer",
+        "listOption": [
+          {
+            "id": "analytics.campaignCampaignId",
+            "label": "Campaign / Campaign ID",
+            "selected": true,
+            "suboption": []
+          },
+          {
+            "id": "analytics.shoppingCategory1",
+            "label": "Shopping Category Level 1",
+            "selected": false,
+            "suboption": []
+          },
+          {
+            "id": "analytics.shoppingProductType1",
+            "label": "Shopping Product Type Level 1",
+            "selected": false,
+            "suboption": []
+          },
+          {
+            "id": "analytics.shoppingBrand",
+            "label": "Shopping Brand",
+            "selected": false,
+            "suboption": []
+          }
+        ],
+        "disablePrimaryMenuOptions": false
+      },
+      "sectionControl": {
+        "id": "explorer-sectionControl",
+        "type": "SectionControl",
+        "section": [
+          {
+            "id": "summary-adwords",
+            "label": "Summary",
+            "editable": false
+          },
+          {
+            "id": "site_usage_adwords",
+            "label": "Site Usage",
+            "editable": false
+          },
+          {
+            "id": "goal_set1",
+            "label": "Goal Set 1",
+            "editable": false
+          },
+          {
+            "id": "ecommerce",
+            "label": "Ecommerce",
+            "editable": false
+          }
+        ],
+        "selectedId": "summary-adwords"
+      },
+      "graphMode": {
+        "id": "explorer-graphMode",
+        "type": "GraphModeSelector",
+        "mode": [
+          {
+            "id": "lineChart",
+            "displayName": "Line Chart"
+          },
+          {
+            "id": "motionChart",
+            "displayName": "Motion Chart"
+          }
+        ],
+        "selectedMode": "lineChart"
+      },
+      "table": {
+        "id": "explorer-table",
+        "type": "Table",
+        "dataTable": {
+          "id": "explorer-table-dataTable",
+          "type": "DataTable",
+          "dimension": [
+            {
+              "conceptName": "analytics.campaignCampaignId",
+              "displayName": "Campaign / Campaign ID",
+              "enumValues": [],
+              "helpTopicId": 7628569
+            }
+          ],
+          "metric": [
+            {
+              "conceptName": "analytics.adClicks",
+              "displayName": "Clicks",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006995,
+              "externalName": "ga:adClicks"
+            },
+            {
+              "conceptName": "analytics.adCost",
+              "displayName": "Cost",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006993,
+              "externalName": "ga:adCost"
+            },
+            {
+              "conceptName": "analytics.CPC",
+              "displayName": "CPC",
+              "enumValues": [],
+              "smallerValueBetter": true,
+              "helpTopicId": 1006997,
+              "externalName": "ga:CPC"
+            },
+            {
+              "conceptName": "analytics.totalVisitors",
+              "displayName": "Users",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 2630986,
+              "externalName": "ga:users"
+            },
+            {
+              "conceptName": "analytics.visits",
+              "displayName": "Sessions",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 2631008,
+              "externalName": "ga:sessions"
+            },
+            {
+              "conceptName": "analytics.bounceRate",
+              "displayName": "Bounce Rate",
+              "enumValues": [],
+              "smallerValueBetter": true,
+              "helpTopicId": 1006257,
+              "externalName": "ga:bounceRate"
+            },
+            {
+              "conceptName": "analytics.avgPageviews",
+              "displayName": "Pages / Session",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006251,
+              "externalName": "ga:pageviewsPerSession"
+            },
+            {
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1708791,
+              "externalName": "ga:goalConversionRateAll"
+            },
+            {
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006273,
+              "externalName": "ga:goalCompletionsAll"
+            },
+            {
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006275,
+              "externalName": "ga:goalValueAll"
+            }
+          ],
+          "sortConcept": {
+            "conceptName": "analytics.adClicks",
+            "displayName": "Clicks",
+            "type": "METRIC",
+            "enumValues": [],
+            "externalName": "ga:adClicks"
+          },
+          "sortDescending": true,
+          "rowCluster": [],
+          "clusteredRowLabel": [],
+          "isPlotKeys": false,
+          "tablePagination": {
+            "start": 0,
+            "end": 0,
+            "count": 0,
+            "show": 10,
+            "display5000Rows": true
+          },
+          "dimensionSortDisabled": false,
+          "metricSortDisabled": false,
+          "dimensionFilterGroup": [
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.trafficType",
+                  "filterById": false,
+                  "expression": "paid",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            },
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.source",
+                  "filterById": false,
+                  "expression": "google",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            },
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.adwordsCampaignID",
+                  "filterById": false,
+                  "expression": "(not set)",
+                  "match": "EXACT",
+                  "complement": true
+                }
+              ]
+            },
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.adwordsCampaignType",
+                  "filterById": false,
+                  "expression": "Shopping",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            }
+          ],
+          "showHelpIcons": true,
+          "showDimensionHelpIcons": true,
+          "metricFiltersApplied": false,
+          "fixedDimensionCount": 1,
+          "tableScorecard": {
+            "card": [
+              {
+                "id": "analytics.adClicks",
+                "selected": true,
+                "primary": true,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "0",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.adCost",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "$0.00",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "$0.00",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.CPC",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "$0.00",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "$0.00",
+                      "deltaValue": "0.00%",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.totalVisitors",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "18",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.visits",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "27",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.bounceRate",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0.00%",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "66.67%",
+                      "deltaValue": "-100.00%",
+                      "type": "POSITIVE"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.avgPageviews",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0.00",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "1.63",
+                      "deltaValue": "-100.00%",
+                      "type": "NEGATIVE"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.goalConversionRate",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0.00%",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "0.00%",
+                      "deltaValue": "0.00%",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.goalCompletionsAll",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "0",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.goalValueAll",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "$0.00",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "$0.00",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              }
+            ],
+            "rowLabel": [
+              ""
+            ]
+          },
+          "scrollableTableEnabled": false,
+          "multipleSecKeysEnabled": false,
+          "excludeTotalLine": false,
+          "dataTableSettings": {
+            "header": {
+              "row": [
+                {
+                  "cell": [
+                    {
+                      "type": "GROUP",
+                      "rowSpan": 1,
+                      "colSpan": 5,
+                      "label": "Acquisition"
+                    },
+                    {
+                      "type": "GROUP",
+                      "rowSpan": 1,
+                      "colSpan": 2,
+                      "label": "Behavior"
+                    },
+                    {
+                      "type": "MENU",
+                      "rowSpan": 1,
+                      "colSpan": 3,
+                      "label": "Conversions",
+                      "menu": {
+                        "options": [
+                          {
+                            "id": "ALL",
+                            "name": "All Goals",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          },
+                          {
+                            "id": "Goal1",
+                            "name": "Goal 1: Create an account",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          },
+                          {
+                            "id": "Goal2",
+                            "name": "Goal 2: Schedule a Demo",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          },
+                          {
+                            "id": "Goal3",
+                            "name": "Goal 3: Sign up",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          }
+                        ],
+                        "selectedId": "ALL"
+                      },
+                      "menuId": "conversionsSelector",
+                      "menuLabel": "Conversions"
+                    }
+                  ]
+                },
+                {
+                  "cell": [
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.adClicks",
+                        "displayName": "Clicks",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006995,
+                        "externalName": "ga:adClicks"
+                      },
+                      "conceptIndex": 0
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.adCost",
+                        "displayName": "Cost",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006993,
+                        "externalName": "ga:adCost"
+                      },
+                      "conceptIndex": 1
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.CPC",
+                        "displayName": "CPC",
+                        "enumValues": [],
+                        "smallerValueBetter": true,
+                        "helpTopicId": 1006997,
+                        "externalName": "ga:CPC"
+                      },
+                      "conceptIndex": 2
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.totalVisitors",
+                        "displayName": "Users",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 2630986,
+                        "externalName": "ga:users"
+                      },
+                      "conceptIndex": 3
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.visits",
+                        "displayName": "Sessions",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 2631008,
+                        "externalName": "ga:sessions"
+                      },
+                      "conceptIndex": 4
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.bounceRate",
+                        "displayName": "Bounce Rate",
+                        "enumValues": [],
+                        "smallerValueBetter": true,
+                        "helpTopicId": 1006257,
+                        "externalName": "ga:bounceRate"
+                      },
+                      "conceptIndex": 5
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.avgPageviews",
+                        "displayName": "Pages / Session",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006251,
+                        "externalName": "ga:pageviewsPerSession"
+                      },
+                      "conceptIndex": 6
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.goalConversionRate",
+                        "displayName": "Goal Conversion Rate",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1708791,
+                        "externalName": "ga:goalConversionRateAll"
+                      },
+                      "conceptIndex": 7
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.goalCompletionsAll",
+                        "displayName": "Goal Completions",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006273,
+                        "externalName": "ga:goalCompletionsAll"
+                      },
+                      "conceptIndex": 8
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.goalValueAll",
+                        "displayName": "Goal Value",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006275,
+                        "externalName": "ga:goalValueAll"
+                      },
+                      "conceptIndex": 9
+                    }
+                  ]
+                }
+              ],
+              "height": 2,
+              "groupStartIndex": [
+                0,
+                5,
+                7
+              ]
+            },
+            "showHeaderFilterControls": false,
+            "headerFilterConditionGroup": [],
+            "inlineIntelligenceEnabled": false
+          }
+        },
+        "tableControl": {
+          "id": "explorer-table-tableControl",
+          "type": "TableControl",
+          "conditionBuilder": {
+            "conditionGroup": [],
+            "conceptPicker": {
+              "group": [
+                {
+                  "type": "DIMENSION",
+                  "label": "Dimensions",
+                  "conceptRef": [
+                    "analytics.campaignCampaignId"
+                  ],
+                  "shouldHighlight": false
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Commonly used",
+                  "conceptRef": [
+                    "analytics.totalVisitors",
+                    "analytics.visits",
+                    "analytics.bounceRate",
+                    "analytics.avgPageviews",
+                    "analytics.avgSessionTime"
+                  ],
+                  "shouldHighlight": true
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Ecommerce",
+                  "conceptRef": [
+                    "analytics.visits",
+                    "analytics.totalVisitors"
+                  ],
+                  "shouldHighlight": false
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Goal Set 1",
+                  "conceptRef": [
+                    "analytics.goalConversionRate1",
+                    "analytics.goalConversionRate",
+                    "analytics.goalValuePerVisit",
+                    "analytics.goalConversionRate2",
+                    "analytics.visits",
+                    "analytics.goalConversionRate3",
+                    "analytics.totalVisitors"
+                  ],
+                  "shouldHighlight": false
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Site Usage",
+                  "conceptRef": [
+                    "analytics.percentNewVisits",
+                    "analytics.avgSessionTime",
+                    "analytics.bounceRate",
+                    "analytics.goalCompletionsAll",
+                    "analytics.avgPageviews",
+                    "analytics.visits",
+                    "analytics.totalVisitors"
+                  ],
+                  "shouldHighlight": false
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Summary",
+                  "conceptRef": [
+                    "analytics.bounceRate",
+                    "analytics.adClicks",
+                    "analytics.adCost",
+                    "analytics.CPC",
+                    "analytics.goal1Completions",
+                    "analytics.goalConversionRate1",
+                    "analytics.goal1Value",
+                    "analytics.goalCompletionsAll",
+                    "analytics.goalConversionRate",
+                    "analytics.goalValueAll",
+                    "analytics.avgPageviews",
+                    "analytics.goal2Completions",
+                    "analytics.goalConversionRate2",
+                    "analytics.goal2Value",
+                    "analytics.visits",
+                    "analytics.goal3Completions",
+                    "analytics.goalConversionRate3",
+                    "analytics.goal3Value",
+                    "analytics.totalVisitors"
+                  ],
+                  "shouldHighlight": false
+                }
+              ],
+              "concept": [
+                {
+                  "conceptName": "analytics.campaignCampaignId",
+                  "displayName": "Campaign / Campaign ID",
+                  "type": "DIMENSION",
+                  "enumValues": [],
+                  "tooltipId": 7628569,
+                  "scope": [],
+                  "family": "STRING",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.percentNewVisits",
+                  "displayName": "% New Sessions",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006245,
+                  "scope": [
+                    "VISITOR"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.avgSessionTime",
+                  "displayName": "Avg. Session Duration",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 2632799,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.bounceRate",
+                  "displayName": "Bounce Rate",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006257,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.adClicks",
+                  "displayName": "Clicks",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006995,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "geoIncompatible": true,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.adCost",
+                  "displayName": "Cost",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006993,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "geoIncompatible": true,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.CPC",
+                  "displayName": "CPC",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006997,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal1Completions",
+                  "displayName": "Create an account (Goal 1 Completions)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1046532,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate1",
+                  "displayName": "Create an account (Goal 1 Conversion Rate)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006981,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal1Value",
+                  "displayName": "Create an account (Goal 1 Value)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1007017,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalCompletionsAll",
+                  "displayName": "Goal Completions",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006273,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate",
+                  "displayName": "Goal Conversion Rate",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1708791,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalValueAll",
+                  "displayName": "Goal Value",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006275,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.avgPageviews",
+                  "displayName": "Pages / Session",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006251,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalValuePerVisit",
+                  "displayName": "Per Session Goal Value",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 2632845,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal2Completions",
+                  "displayName": "Schedule a Demo (Goal 2 Completions)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1046532,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate2",
+                  "displayName": "Schedule a Demo (Goal 2 Conversion Rate)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006981,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal2Value",
+                  "displayName": "Schedule a Demo (Goal 2 Value)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1007017,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.visits",
+                  "displayName": "Sessions",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 2631008,
+                  "scope": [
+                    "VISITOR"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal3Completions",
+                  "displayName": "Sign up (Goal 3 Completions)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1046532,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate3",
+                  "displayName": "Sign up (Goal 3 Conversion Rate)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006981,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal3Value",
+                  "displayName": "Sign up (Goal 3 Value)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1007017,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.totalVisitors",
+                  "displayName": "Users",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 2630986,
+                  "scope": [
+                    "VISITOR"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                }
+              ],
+              "groupView": true,
+              "hideGroupViewSwitch": false,
+              "hideSearchBox": false
+            },
+            "enableMultipleConditions": false,
+            "showDefaultIfEmpty": true,
+            "autocompleteMetric": "analytics.totalVisitors"
+          },
+          "dimensionPicker": {
+            "group": [
+              {
+                "type": "DIMENSION",
+                "label": "Commonly used",
+                "conceptRef": [
+                  "analytics.deviceCategory",
+                  "analytics.campaign",
+                  "analytics.medium",
+                  "analytics.sourceMedium",
+                  "analytics.source"
+                ],
+                "shouldHighlight": true
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Acquisition",
+                "conceptRef": [
+                  "analytics.trafficChannel",
+                  "analytics.medium",
+                  "analytics.source",
+                  "analytics.sourceMedium",
+                  "analytics.trafficType"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Advertising",
+                "conceptRef": [
+                  "analytics.adwordsExternalCustomerName",
+                  "analytics.adContent",
+                  "analytics.adDistributionNetwork",
+                  "analytics.campaign",
+                  "analytics.destinationUrl",
+                  "analytics.adwordsAdGroupID",
+                  "analytics.adwordsCampaignID",
+                  "analytics.adwordsCampaignType",
+                  "analytics.adwordsCreativeID",
+                  "analytics.adwordsCriteriaID",
+                  "analytics.adwordsExternalCustomerID",
+                  "analytics.adGroup",
+                  "analytics.adSlot",
+                  "analytics.keyword",
+                  "analytics.adwordsCriteriaType",
+                  "analytics.clickSocialAnnotationType",
+                  "analytics.isTrueViewVideoAd"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Custom Dimensions",
+                "conceptRef": [
+                  "analytics.customDimension1"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Social",
+                "conceptRef": [
+                  "analytics.socialNetwork",
+                  "analytics.originatingSocialNetwork"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Time",
+                "conceptRef": [
+                  "analytics.date",
+                  "analytics.nthDay",
+                  "analytics.day",
+                  "analytics.dayOfWeek",
+                  "analytics.dayOfWeekName",
+                  "analytics.hour",
+                  "analytics.nthHour",
+                  "analytics.dateHour",
+                  "analytics.isoYearIsoWeek",
+                  "analytics.isoWeek",
+                  "analytics.isoYear",
+                  "analytics.nthMonth",
+                  "analytics.month",
+                  "analytics.yearMonth",
+                  "analytics.nthWeek",
+                  "analytics.week",
+                  "analytics.yearWeek",
+                  "analytics.year"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Users",
+                "conceptRef": [
+                  "analytics.dataSource",
+                  "analytics.deviceCategory",
+                  "analytics.isMobile"
+                ],
+                "shouldHighlight": false
+              }
+            ],
+            "concept": [
+              {
+                "conceptName": "analytics.adwordsExternalCustomerName",
+                "displayName": "Account",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 6083665,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adContent",
+                "displayName": "Ad Content",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032749,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adDistributionNetwork",
+                "displayName": "Ad Distribution Network",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618916,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.campaign",
+                "displayName": "Campaign",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032809,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dataSource",
+                "displayName": "Data Source",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 6160574,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.date",
+                "displayName": "Date",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047201,
+                "scope": [],
+                "family": "DATE",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthDay",
+                "displayName": "Day Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047204,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.day",
+                "displayName": "Day of the month",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032731,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dayOfWeek",
+                "displayName": "Day of Week",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047206,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dayOfWeekName",
+                "displayName": "Day of Week Name",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3082110,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.trafficChannel",
+                "displayName": "Default Channel Grouping",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.destinationUrl",
+                "displayName": "Destination URL",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047211,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.deviceCategory",
+                "displayName": "Device Category",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2980153,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsAdGroupID",
+                "displayName": "Google Ads Ad Group ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047130,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCampaignID",
+                "displayName": "Google Ads Campaign ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047134,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCampaignType",
+                "displayName": "Google Ads Campaign Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 6094473,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCreativeID",
+                "displayName": "Google Ads Creative ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047136,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCriteriaID",
+                "displayName": "Google Ads Criteria ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1046525,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsExternalCustomerID",
+                "displayName": "Google Ads Customer ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047138,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adGroup",
+                "displayName": "Google Ads: Ad Group",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032745,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adSlot",
+                "displayName": "Google Ads: Ad Slot",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032751,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.hour",
+                "displayName": "Hour",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032792,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthHour",
+                "displayName": "Hour Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047284,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dateHour",
+                "displayName": "Hour of Day",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618918,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isoYearIsoWeek",
+                "displayName": "ISO Week of ISO Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3395166,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isoWeek",
+                "displayName": "ISO Week of the Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3394331,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isoYear",
+                "displayName": "ISO Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3395038,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.keyword",
+                "displayName": "Keyword",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032747,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCriteriaType",
+                "displayName": "Keyword Match Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2976157,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.medium",
+                "displayName": "Medium",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032755,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isMobile",
+                "displayName": "Mobile (Including Tablet)",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032800,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthMonth",
+                "displayName": "Month Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047332,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.month",
+                "displayName": "Month of the year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032733,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.yearMonth",
+                "displayName": "Month of Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618963,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.customDimension1",
+                "displayName": "SignIn Traffic",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2721638,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.clickSocialAnnotationType",
+                "displayName": "Social Annotation Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2444437,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.socialNetwork",
+                "displayName": "Social Network",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1319054,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.originatingSocialNetwork",
+                "displayName": "Social Network",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1652588,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.source",
+                "displayName": "Source",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032811,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.sourceMedium",
+                "displayName": "Source / Medium",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032813,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.trafficType",
+                "displayName": "Traffic Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047792,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isTrueViewVideoAd",
+                "displayName": "TrueView Video Ad",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3479201,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthWeek",
+                "displayName": "Week Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047879,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.week",
+                "displayName": "Week of the Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032794,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.yearWeek",
+                "displayName": "Week of Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618964,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.year",
+                "displayName": "Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047890,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              }
+            ],
+            "groupView": true,
+            "hideGroupViewSwitch": false,
+            "hideSearchBox": false
+          },
+          "showSecondaryDimensionPicker": true,
+          "advancedFilterMode": false,
+          "filterExpression": "",
+          "smartSortEnabled": false,
+          "deltaSortEnabled": false,
+          "sortType": "",
+          "showSorttypeDropdown": true,
+          "auxComponentId": "",
+          "showPlotKeys": false,
+          "showFilterControl": true,
+          "disableSecondaryDimensionPicker": false,
+          "enableMultipleSecondaryKeys": false,
+          "showBasicFilterControl": true,
+          "showAdvancedFilterTooltip": false
+        },
+        "tableMode": {
+          "id": "explorer-table-tableMode",
+          "type": "TableModeSelector",
           "mode": [
             {
-              "id": "NTHHOUR",
-              "dimension": "analytics.nthHour",
-              "displayName": "Hourly",
+              "id": "data",
+              "displayName": "Data",
+              "selected": true,
+              "disabled": false
+            },
+            {
+              "id": "pie",
+              "displayName": "Percentage",
               "selected": false,
               "disabled": false
             },
+            {
+              "id": "performance",
+              "displayName": "Performance",
+              "selected": false,
+              "disabled": false
+            },
+            {
+              "id": "comparison",
+              "displayName": "Comparison",
+              "selected": false,
+              "disabled": false
+            },
+            {
+              "id": "term_cloud",
+              "displayName": "Term Cloud",
+              "selected": false,
+              "disabled": false
+            },
+            {
+              "id": "pivot",
+              "displayName": "Pivot",
+              "selected": false,
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "graphOptions": {
+        "id": "explorer-graphOptions",
+        "type": "GraphOptions",
+        "timeDimensionSelector": {
+          "mode": [
             {
               "id": "NTHDAY",
               "dimension": "analytics.nthDay",
@@ -2203,52 +3924,106 @@
             }
           ]
         },
-        "primaryConcept": "analytics.pageviews",
-        "primaryConceptDisplayName": "Pageviews",
+        "primaryConcept": "analytics.adClicks",
+        "primaryConceptDisplayName": "Clicks",
         "primaryConceptPicker": {
           "group": [
             {
               "type": "METRIC",
               "label": "Commonly used",
               "conceptRef": [
-                "analytics.bounceRate"
+                "analytics.totalVisitors",
+                "analytics.visits",
+                "analytics.bounceRate",
+                "analytics.avgPageviews",
+                "analytics.avgSessionTime"
               ],
               "shouldHighlight": true
             },
             {
               "type": "METRIC",
-              "label": "",
+              "label": "Ecommerce",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
+                "analytics.visits",
+                "analytics.totalVisitors"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Goal Set 1",
+              "conceptRef": [
+                "analytics.goalConversionRate1",
+                "analytics.goalConversionRate",
+                "analytics.goalValuePerVisit",
+                "analytics.goalConversionRate2",
+                "analytics.visits",
+                "analytics.goalConversionRate3",
+                "analytics.totalVisitors"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Site Usage",
+              "conceptRef": [
+                "analytics.percentNewVisits",
+                "analytics.avgSessionTime",
                 "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "analytics.goalCompletionsAll",
+                "analytics.avgPageviews",
+                "analytics.visits",
+                "analytics.totalVisitors"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Summary",
+              "conceptRef": [
+                "analytics.bounceRate",
+                "analytics.adClicks",
+                "analytics.adCost",
+                "analytics.CPC",
+                "analytics.goal1Completions",
+                "analytics.goalConversionRate1",
+                "analytics.goal1Value",
+                "analytics.goalCompletionsAll",
+                "analytics.goalConversionRate",
+                "analytics.goalValueAll",
+                "analytics.avgPageviews",
+                "analytics.goal2Completions",
+                "analytics.goalConversionRate2",
+                "analytics.goal2Value",
+                "analytics.visits",
+                "analytics.goal3Completions",
+                "analytics.goalConversionRate3",
+                "analytics.goal3Value",
+                "analytics.totalVisitors"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.percentNewVisits",
+              "displayName": "% New Sessions",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
+              "tooltipId": 1006245,
               "scope": [
-                "VISITOR",
-                "VISIT"
+                "VISITOR"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.avgSessionTime",
+              "displayName": "Avg. Session Duration",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
+              "tooltipId": 2632799,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2272,11 +4047,75 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.adClicks",
+              "displayName": "Clicks",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006243,
+              "tooltipId": 1006995,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "geoIncompatible": true,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.adCost",
+              "displayName": "Cost",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006993,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "geoIncompatible": true,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.CPC",
+              "displayName": "CPC",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006997,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal1Completions",
+              "displayName": "Create an account (Goal 1 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate1",
+              "displayName": "Create an account (Goal 1 Conversion Rate)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006981,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2286,11 +4125,27 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
+              "conceptName": "analytics.goal1Value",
+              "displayName": "Create an account (Goal 1 Value)",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006271,
+              "tooltipId": 1007017,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006273,
               "scope": [
                 "VISITOR",
                 "VISIT",
@@ -2299,10 +4154,185 @@
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1708791,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006275,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.avgPageviews",
+              "displayName": "Pages / Session",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006251,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalValuePerVisit",
+              "displayName": "Per Session Goal Value",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2632845,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal2Completions",
+              "displayName": "Schedule a Demo (Goal 2 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate2",
+              "displayName": "Schedule a Demo (Goal 2 Conversion Rate)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006981,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal2Value",
+              "displayName": "Schedule a Demo (Goal 2 Value)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1007017,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.visits",
+              "displayName": "Sessions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2631008,
+              "scope": [
+                "VISITOR"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal3Completions",
+              "displayName": "Sign up (Goal 3 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate3",
+              "displayName": "Sign up (Goal 3 Conversion Rate)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006981,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal3Value",
+              "displayName": "Sign up (Goal 3 Value)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1007017,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.totalVisitors",
+              "displayName": "Users",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2630986,
+              "scope": [
+                "VISITOR"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
             }
           ],
-          "groupView": false,
-          "hideGroupViewSwitch": true,
+          "groupView": true,
+          "hideGroupViewSwitch": false,
           "hideSearchBox": false
         },
         "compareConceptPicker": {
@@ -2311,44 +4341,98 @@
               "type": "METRIC",
               "label": "Commonly used",
               "conceptRef": [
-                "analytics.bounceRate"
+                "analytics.totalVisitors",
+                "analytics.visits",
+                "analytics.bounceRate",
+                "analytics.avgPageviews",
+                "analytics.avgSessionTime"
               ],
               "shouldHighlight": true
             },
             {
               "type": "METRIC",
-              "label": "",
+              "label": "Ecommerce",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
+                "analytics.visits",
+                "analytics.totalVisitors"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Goal Set 1",
+              "conceptRef": [
+                "analytics.goalConversionRate1",
+                "analytics.goalConversionRate",
+                "analytics.goalValuePerVisit",
+                "analytics.goalConversionRate2",
+                "analytics.visits",
+                "analytics.goalConversionRate3",
+                "analytics.totalVisitors"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Site Usage",
+              "conceptRef": [
+                "analytics.percentNewVisits",
+                "analytics.avgSessionTime",
                 "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "analytics.goalCompletionsAll",
+                "analytics.avgPageviews",
+                "analytics.visits",
+                "analytics.totalVisitors"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Summary",
+              "conceptRef": [
+                "analytics.bounceRate",
+                "analytics.adClicks",
+                "analytics.adCost",
+                "analytics.CPC",
+                "analytics.goal1Completions",
+                "analytics.goalConversionRate1",
+                "analytics.goal1Value",
+                "analytics.goalCompletionsAll",
+                "analytics.goalConversionRate",
+                "analytics.goalValueAll",
+                "analytics.avgPageviews",
+                "analytics.goal2Completions",
+                "analytics.goalConversionRate2",
+                "analytics.goal2Value",
+                "analytics.visits",
+                "analytics.goal3Completions",
+                "analytics.goalConversionRate3",
+                "analytics.goal3Value",
+                "analytics.totalVisitors"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.percentNewVisits",
+              "displayName": "% New Sessions",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
+              "tooltipId": 1006245,
               "scope": [
-                "VISITOR",
-                "VISIT"
+                "VISITOR"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.avgSessionTime",
+              "displayName": "Avg. Session Duration",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
+              "tooltipId": 2632799,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2372,11 +4456,75 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.adClicks",
+              "displayName": "Clicks",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006243,
+              "tooltipId": 1006995,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "geoIncompatible": true,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.adCost",
+              "displayName": "Cost",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006993,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "geoIncompatible": true,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.CPC",
+              "displayName": "CPC",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006997,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal1Completions",
+              "displayName": "Create an account (Goal 1 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate1",
+              "displayName": "Create an account (Goal 1 Conversion Rate)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006981,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2386,11 +4534,27 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
+              "conceptName": "analytics.goal1Value",
+              "displayName": "Create an account (Goal 1 Value)",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006271,
+              "tooltipId": 1007017,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006273,
               "scope": [
                 "VISITOR",
                 "VISIT",
@@ -2399,10 +4563,185 @@
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1708791,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006275,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.avgPageviews",
+              "displayName": "Pages / Session",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006251,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalValuePerVisit",
+              "displayName": "Per Session Goal Value",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2632845,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal2Completions",
+              "displayName": "Schedule a Demo (Goal 2 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate2",
+              "displayName": "Schedule a Demo (Goal 2 Conversion Rate)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006981,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal2Value",
+              "displayName": "Schedule a Demo (Goal 2 Value)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1007017,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.visits",
+              "displayName": "Sessions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2631008,
+              "scope": [
+                "VISITOR"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal3Completions",
+              "displayName": "Sign up (Goal 3 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate3",
+              "displayName": "Sign up (Goal 3 Conversion Rate)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006981,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal3Value",
+              "displayName": "Sign up (Goal 3 Value)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1007017,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.totalVisitors",
+              "displayName": "Users",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2630986,
+              "scope": [
+                "VISITOR"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
             }
           ],
-          "groupView": false,
-          "hideGroupViewSwitch": true,
+          "groupView": true,
+          "hideGroupViewSwitch": false,
           "hideSearchBox": false
         },
         "primaryConceptEnabled": true,
@@ -2410,11 +4749,17 @@
         "timeSelectorEnabled": true,
         "conceptMode": "METRIC"
       },
+      "graphFilteringDisclaimer": {
+        "id": "explorer-graphFilteringDisclaimer",
+        "type": "StaticText",
+        "text": ""
+      },
       "graph": {
-        "id": "overview-graph",
+        "id": "explorer-graph",
         "type": "Graph",
+        "role": "graph",
         "lineChart": {
-          "id": "overview-graph-lineChart",
+          "id": "explorer-graph-lineChart",
           "type": "LineChart",
           "dataTable": {
             "cols": [
@@ -2425,8 +4770,8 @@
               },
               {
                 "type": "number",
-                "label": "Pageviews",
-                "id": "primary$analytics.pageviews$[date_range-0:DateRange{20120101-20121231}]$",
+                "label": "Clicks",
+                "id": "primary$analytics.adClicks$[date_range-0:DateRange{20120101-20121231}]$",
                 "styleName": "primary0",
                 "dateRange": "Jan 1, 2012 - Dec 31, 2012",
                 "isTotal": true,
@@ -6749,8 +9094,8 @@
                     "f": "Tuesday, December 25, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6761,8 +9106,8 @@
                     "f": "Wednesday, December 26, 2012"
                   },
                   {
-                    "v": 6.0,
-                    "f": "6"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6773,8 +9118,8 @@
                     "f": "Thursday, December 27, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6785,8 +9130,8 @@
                     "f": "Friday, December 28, 2012"
                   },
                   {
-                    "v": 13.0,
-                    "f": "13"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6797,8 +9142,8 @@
                     "f": "Saturday, December 29, 2012"
                   },
                   {
-                    "v": 7.0,
-                    "f": "7"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -7213,11 +9558,56 @@
             "enumValues": []
           },
           "primaryMetric": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
+            "conceptName": "analytics.adClicks",
+            "displayName": "Clicks",
             "enumValues": []
           },
-          "dimensionFilterGroup": [],
+          "dimensionFilterGroup": [
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.trafficType",
+                  "filterById": false,
+                  "expression": "paid",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            },
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.source",
+                  "filterById": false,
+                  "expression": "google",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            },
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.adwordsCampaignID",
+                  "filterById": false,
+                  "expression": "(not set)",
+                  "match": "EXACT",
+                  "complement": true
+                }
+              ]
+            },
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.adwordsCampaignType",
+                  "filterById": false,
+                  "expression": "Shopping",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            }
+          ],
           "granularity": "DAY",
           "hideLegend": false,
           "currencySymbol": "",
@@ -7230,2120 +9620,6 @@
           "paddingBottom": 0,
           "showForecasting": false
         }
-      },
-      "sparkline": {
-        "id": "overview-sparkline",
-        "type": "HorizontalSparkline",
-        "metricGroup": [
-          {
-            "metric": {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "Pageviews",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      9.0,
-                      6.0,
-                      9.0,
-                      13.0,
-                      7.0,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "44",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006243
-          },
-          {
-            "metric": {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "Unique Pageviews",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      5.0,
-                      5.0,
-                      8.0,
-                      5.0,
-                      4.0,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "27",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006271
-          },
-          {
-            "metric": {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "Avg. Time on Page",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      14.75,
-                      3.0,
-                      0.0,
-                      52.625,
-                      262.3333333333333,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "00:01:15",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006285
-          },
-          {
-            "metric": {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "Bounce Rate",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.4,
-                      0.8,
-                      0.875,
-                      0.4,
-                      0.75,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "66.67%",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006257
-          },
-          {
-            "metric": {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
-              "enumValues": []
-            },
-            "groupName": [
-              "Jan 1, 2012 - Dec 31, 2012"
-            ],
-            "group": [
-              {
-                "displayName": "% Exit",
-                "groupId": "Jan 1, 2012 - Dec 31, 2012",
-                "line": [
-                  {
-                    "point": [
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.0,
-                      0.5555555555555556,
-                      0.8333333333333334,
-                      0.8888888888888888,
-                      0.38461538461538464,
-                      0.5714285714285714,
-                      0.0,
-                      0.0
-                    ],
-                    "value": "61.36%",
-                    "comparePoint": []
-                  }
-                ]
-              }
-            ],
-            "helpId": 1006932
-          }
-        ],
-        "notSelectable": false,
-        "condensedDisplay": false
-      },
-      "dimensionSummary": {
-        "id": "overview-dimensionSummary",
-        "type": "DimensionSummary",
-        "dimensionGroup": [
-          {
-            "label": "Site Content",
-            "name": "sitecontent",
-            "dimension": [
-              {
-                "conceptName": "analytics.pagePath",
-                "displayName": "Page",
-                "selected": true
-              },
-              {
-                "conceptName": "analytics.pageTitle",
-                "displayName": "Page Title",
-                "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Site Search",
-            "name": "sitesearch",
-            "dimension": [
-              {
-                "conceptName": "analytics.searchKeyword",
-                "displayName": "Search Term",
-                "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Events",
-            "name": "events",
-            "dimension": [
-              {
-                "conceptName": "analytics.eventCategory",
-                "displayName": "Event Category",
-                "selected": false
-              }
-            ]
-          }
-        ],
-        "miniTable": {
-          "id": "overview-dimensionSummary-miniTable",
-          "type": "MiniTable",
-          "dimension": [
-            {
-              "conceptName": "analytics.pagePath",
-              "displayName": "Page",
-              "enumValues": [],
-              "helpTopicId": 1032816,
-              "externalName": "ga:pagePath"
-            }
-          ],
-          "metric": [
-            {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
-              "enumValues": [],
-              "smallerValueBetter": false
-            },
-            {
-              "conceptName": "",
-              "displayName": "% Pageviews",
-              "enumValues": [],
-              "smallerValueBetter": false
-            }
-          ],
-          "sortConcept": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
-            "type": "METRIC",
-            "enumValues": [],
-            "externalName": "ga:pageviews"
-          },
-          "sortDescending": true,
-          "rowCluster": [
-            {
-              "label": "1.",
-              "rowKey": [
-                {
-                  "displayKey": "/",
-                  "drilldownKey": "/",
-                  "drillable": true,
-                  "jsonValue": "{\"displayKey\":\"/\",\"linkUrl\":\"http://www.cloudaware.com/\",\"type\":\"ReferralPathCell\"}"
-                }
-              ],
-              "row": [
-                {
-                  "rowValue": [
-                    {
-                      "dataValue": "44",
-                      "dataType": "INTEGER"
-                    },
-                    {
-                      "dataValue": "100.00%",
-                      "rawValue": 1.0,
-                      "dataType": "PERCENT"
-                    }
-                  ]
-                }
-              ],
-              "subCluster": [],
-              "selected": false
-            }
-          ],
-          "clusteredRowLabel": [
-            {
-              "label": "",
-              "subClusterLabel": [
-                {
-                  "label": "Jan 1, 2012 - Dec 31, 2012",
-                  "subClusterLabel": []
-                }
-              ]
-            }
-          ],
-          "isPlotKeys": false,
-          "tablePagination": {
-            "start": 0,
-            "end": 0,
-            "count": 0,
-            "show": 0
-          },
-          "dimensionSortDisabled": false,
-          "metricSortDisabled": false,
-          "dimensionFilterGroup": [],
-          "showHelpIcons": false,
-          "showDimensionHelpIcons": false,
-          "metricFiltersApplied": false,
-          "fixedDimensionCount": 1,
-          "scrollableTableEnabled": false,
-          "multipleSecKeysEnabled": false,
-          "excludeTotalLine": false,
-          "miniTableSettings": {
-            "showFilter": false,
-            "filterExpression": "",
-            "showRowNumbers": true,
-            "selectionKey": "",
-            "stateless": false,
-            "rowSelectionEnabled": true,
-            "showPercentBar": true,
-            "deepLink": {
-              "reportId": "content-pages",
-              "param": [],
-              "reportViewType": "report"
-            }
-          }
-        }
       }
     },
     {
@@ -9351,7 +9627,14 @@
       "type": "TimestampMessage",
       "isDashboard": false,
       "isHomepage": false,
-      "utcDatetime": "2024-06-29T09:04:01.516Z"
+      "utcDatetime": "2024-06-29T08:58:46.979Z"
+    },
+    {
+      "id": "signupBanner",
+      "type": "AdwordsLinkBanner",
+      "showMarketingMessage": false,
+      "canLink": true,
+      "servingAccountsLinkedToProfile": 1
     }
   ],
   "samplingData": [
@@ -9479,7 +9762,7 @@
     {
       "id": "reportHeader-segmentHeader",
       "sampled": false,
-      "canBeSampled": false,
+      "canBeSampled": true,
       "samplingNumbers": [
         {
           "numSamplesRead": 0,
@@ -9571,7 +9854,7 @@
     {
       "id": "reportHeader-reportToolbar-samplingControl",
       "sampled": false,
-      "canBeSampled": false,
+      "canBeSampled": true,
       "samplingNumbers": [
         {
           "numSamplesRead": 0,
@@ -9591,7 +9874,7 @@
       ]
     },
     {
-      "id": "overview",
+      "id": "explorer",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9602,7 +9885,7 @@
       ]
     },
     {
-      "id": "overview-graphOptions",
+      "id": "explorer-segmentExplorer",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9613,7 +9896,7 @@
       ]
     },
     {
-      "id": "overview-graph",
+      "id": "explorer-sectionControl",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9624,10 +9907,25 @@
       ]
     },
     {
-      "id": "overview-sparkline",
+      "id": "explorer-graphMode",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "explorer-table",
+      "sampled": false,
+      "canBeSampled": true,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        },
         {
           "numSamplesRead": 0,
           "samplingSpaceSize": 0
@@ -9639,7 +9937,7 @@
       ]
     },
     {
-      "id": "overview-dimensionSummary",
+      "id": "explorer-graphOptions",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9650,7 +9948,7 @@
       ]
     },
     {
-      "id": "overview-graph-lineChart",
+      "id": "explorer-graphFilteringDisclaimer",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9661,9 +9959,53 @@
       ]
     },
     {
-      "id": "overview-dimensionSummary-miniTable",
+      "id": "explorer-graph",
       "sampled": false,
       "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "explorer-table-dataTable",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "explorer-table-tableControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "explorer-table-tableMode",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "explorer-graph-lineChart",
+      "sampled": false,
+      "canBeSampled": true,
       "samplingNumbers": [
         {
           "numSamplesRead": 0,
@@ -9673,6 +10015,17 @@
     },
     {
       "id": "timestampMessage",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "signupBanner",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9693,23 +10046,18 @@
       "hasRealtime": false
     },
     {
-      "id": "overview-sparkline",
+      "id": "explorer-table",
       "hasRealtime": false
     },
     {
-      "id": "overview-dimensionSummary",
-      "hasRealtime": false
-    },
-    {
-      "id": "overview-graph-lineChart",
+      "id": "explorer-graph-lineChart",
       "hasRealtime": false
     }
   ],
   "enableSamplingControl": true,
   "pageMetadata": {
     "numberOfRequest": "7",
-    "educationTopicId": "2797244",
-    "cpuTime": "521059",
-    "processingTime": "570664"
+    "cpuTime": "1492747",
+    "processingTime": "2656319"
   }
 }

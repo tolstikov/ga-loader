@@ -1,0 +1,2638 @@
+{
+  "type": "AdwordsReport",
+  "title": "Google Ads Treemaps",
+  "helpTopicId": "6101804",
+  "components": [
+    {
+      "id": "reportHeader",
+      "type": "ReportHeader",
+      "reportToolbar": {
+        "id": "reportHeader-reportToolbar",
+        "type": "ReportToolbar",
+        "saveReportName": "Google Ads Treemaps",
+        "createSavedReport": true,
+        "customizationControl": {
+          "id": "reportHeader-reportToolbar-customizationControl",
+          "type": "CustomizationControl",
+          "isCustom": false,
+          "isCustomizable": false,
+          "isAnalyzable": false
+        },
+        "title": {
+          "id": "reportHeader-reportToolbar-title",
+          "type": "Title",
+          "primary": "Google Ads Treemaps",
+          "detail": [],
+          "primaryRequiresBidiRendering": false,
+          "subtitleRequiresBidiRendering": false
+        },
+        "sensitiveDataMessage": {
+          "id": "reportHeader-reportToolbar-sensitiveDataMessage",
+          "type": "SensitiveDataMessage",
+          "componentSensitive": [
+            {
+              "componentId": "reportHeader-reportToolbar-samplingControl",
+              "containsSensitiveData": false
+            },
+            {
+              "componentId": "treemap-table",
+              "containsSensitiveData": false
+            },
+            {
+              "componentId": "treemap-treeMap",
+              "containsSensitiveData": false
+            }
+          ]
+        },
+        "rollUpMessageBanner": {
+          "id": "reportHeader-reportToolbar-rollUpMessageBanner",
+          "type": "RollUpMessageBanner",
+          "showRollUpMessage": false
+        },
+        "samplingControl": {
+          "id": "reportHeader-reportToolbar-samplingControl",
+          "type": "SamplingControl",
+          "sampleSize": 500000,
+          "maxSampleSize": 500000,
+          "minSampleSize": 250000,
+          "showBestEffort": false,
+          "enableSimplifiedSamplingTool": true,
+          "simplifiedSamplingToolSelector": {
+            "options": [
+              {
+                "id": "faster",
+                "name": "Faster response",
+                "separator": false,
+                "enableChangeSelectedId": true,
+                "disabled": false
+              },
+              {
+                "id": "moreprecision",
+                "name": "Greater precision",
+                "separator": false,
+                "enableChangeSelectedId": true,
+                "disabled": false
+              }
+            ],
+            "selectedId": "moreprecision"
+          },
+          "totalVisits": 27,
+          "enableOffline": true
+        }
+      },
+      "title": {
+        "id": "reportHeader-title",
+        "type": "Title",
+        "primary": "Google Ads Treemaps",
+        "detail": [],
+        "primaryRequiresBidiRendering": false,
+        "subtitleRequiresBidiRendering": false
+      },
+      "sensitiveDataMessage": {
+        "id": "reportHeader-sensitiveDataMessage",
+        "type": "SensitiveDataMessage",
+        "componentSensitive": [
+          {
+            "componentId": "reportHeader-reportToolbar-samplingControl",
+            "containsSensitiveData": false
+          },
+          {
+            "componentId": "treemap-table",
+            "containsSensitiveData": false
+          },
+          {
+            "componentId": "treemap-treeMap",
+            "containsSensitiveData": false
+          }
+        ]
+      },
+      "rollUpMessageBanner": {
+        "id": "reportHeader-rollUpMessageBanner",
+        "type": "RollUpMessageBanner",
+        "showRollUpMessage": false
+      },
+      "usersCalcMessage": {
+        "id": "reportHeader-usersCalcMessage",
+        "type": "UsersCalcMessage",
+        "showMessage": true
+      },
+      "reportHeaderCustomMessage": {
+        "id": "reportHeader-reportHeaderCustomMessage",
+        "type": "ReportHeaderCustomMessage"
+      },
+      "reportHeaderDismissibleBar": {
+        "id": "reportHeader-reportHeaderDismissibleBar",
+        "type": "ReportHeaderDismissibleBar",
+        "dismissibleMessage": []
+      },
+      "breadcrumb": {
+        "id": "reportHeader-breadcrumb",
+        "type": "Breadcrumb",
+        "part": [],
+        "readOnly": false
+      },
+      "dateControl": {
+        "id": "reportHeader-dateControl",
+        "type": "DateControl",
+        "startDate": [
+          20120101
+        ],
+        "endDate": [
+          20121231
+        ],
+        "hideComparison": true,
+        "serverDate": 20240629,
+        "firstDayOfWeek": 6
+      },
+      "reportNotificationBar": {
+        "id": "reportHeader-reportNotificationBar",
+        "type": "ReportNotificationBar",
+        "notification": []
+      }
+    },
+    {
+      "id": "treemap",
+      "type": "TreeMapTab",
+      "role": "tab",
+      "segmentExplorer": {
+        "id": "treemap-segmentExplorer",
+        "type": "SegmentExplorer",
+        "listOption": [
+          {
+            "id": "analytics.campaign",
+            "label": "Campaign",
+            "selected": true,
+            "suboption": []
+          }
+        ],
+        "disablePrimaryMenuOptions": false
+      },
+      "table": {
+        "id": "treemap-table",
+        "type": "Table",
+        "dataTable": {
+          "id": "treemap-table-dataTable",
+          "type": "DataTable",
+          "dimension": [
+            {
+              "conceptName": "analytics.campaign",
+              "displayName": "Campaign",
+              "enumValues": [],
+              "helpTopicId": 1032809,
+              "externalName": "ga:campaign"
+            }
+          ],
+          "metric": [
+            {
+              "conceptName": "analytics.adClicks",
+              "displayName": "Clicks",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006995,
+              "externalName": "ga:adClicks"
+            },
+            {
+              "conceptName": "analytics.adCost",
+              "displayName": "Cost",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006993,
+              "externalName": "ga:adCost"
+            },
+            {
+              "conceptName": "analytics.CPC",
+              "displayName": "CPC",
+              "enumValues": [],
+              "smallerValueBetter": true,
+              "helpTopicId": 1006997,
+              "externalName": "ga:CPC"
+            },
+            {
+              "conceptName": "analytics.totalVisitors",
+              "displayName": "Users",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 2630986,
+              "externalName": "ga:users"
+            },
+            {
+              "conceptName": "analytics.visits",
+              "displayName": "Sessions",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 2631008,
+              "externalName": "ga:sessions"
+            },
+            {
+              "conceptName": "analytics.bounceRate",
+              "displayName": "Bounce Rate",
+              "enumValues": [],
+              "smallerValueBetter": true,
+              "helpTopicId": 1006257,
+              "externalName": "ga:bounceRate"
+            },
+            {
+              "conceptName": "analytics.avgPageviews",
+              "displayName": "Pages / Session",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006251,
+              "externalName": "ga:pageviewsPerSession"
+            },
+            {
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1708791,
+              "externalName": "ga:goalConversionRateAll"
+            },
+            {
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006273,
+              "externalName": "ga:goalCompletionsAll"
+            },
+            {
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
+              "enumValues": [],
+              "smallerValueBetter": false,
+              "helpTopicId": 1006275,
+              "externalName": "ga:goalValueAll"
+            }
+          ],
+          "sortConcept": {
+            "conceptName": "analytics.adClicks",
+            "displayName": "Clicks",
+            "type": "METRIC",
+            "enumValues": [],
+            "externalName": "ga:adClicks"
+          },
+          "sortDescending": true,
+          "rowCluster": [],
+          "clusteredRowLabel": [],
+          "isPlotKeys": false,
+          "tablePagination": {
+            "start": 0,
+            "end": 0,
+            "count": 0,
+            "show": 10,
+            "display5000Rows": true
+          },
+          "dimensionSortDisabled": false,
+          "metricSortDisabled": false,
+          "dimensionFilterGroup": [
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.trafficType",
+                  "filterById": false,
+                  "expression": "paid",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            },
+            {
+              "dimensionFilter": [
+                {
+                  "dimension": "analytics.source",
+                  "filterById": false,
+                  "expression": "google",
+                  "match": "EXACT",
+                  "complement": false
+                }
+              ]
+            }
+          ],
+          "showHelpIcons": true,
+          "showDimensionHelpIcons": true,
+          "metricFiltersApplied": false,
+          "fixedDimensionCount": 1,
+          "tableScorecard": {
+            "card": [
+              {
+                "id": "analytics.adClicks",
+                "selected": true,
+                "primary": true,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "0",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.adCost",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "$0.00",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "$0.00",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.CPC",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "$0.00",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "$0.00",
+                      "deltaValue": "0.00%",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.totalVisitors",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "18",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.visits",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "27",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.bounceRate",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0.00%",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "66.67%",
+                      "deltaValue": "-100.00%",
+                      "type": "POSITIVE"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.avgPageviews",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0.00",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "1.63",
+                      "deltaValue": "-100.00%",
+                      "type": "NEGATIVE"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.goalConversionRate",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0.00%",
+                    "comparison": {
+                      "text": "Avg for View",
+                      "value": "0.00%",
+                      "deltaValue": "0.00%",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.goalCompletionsAll",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "0",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "0",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "analytics.goalValueAll",
+                "selected": false,
+                "primary": false,
+                "metric": [
+                  {
+                    "value": "$0.00",
+                    "comparison": {
+                      "text": "% of Total",
+                      "value": "0.00%",
+                      "deltaValue": "$0.00",
+                      "type": "NEUTRAL"
+                    }
+                  }
+                ]
+              }
+            ],
+            "rowLabel": [
+              ""
+            ]
+          },
+          "scrollableTableEnabled": false,
+          "multipleSecKeysEnabled": false,
+          "excludeTotalLine": false,
+          "dataTableSettings": {
+            "header": {
+              "row": [
+                {
+                  "cell": [
+                    {
+                      "type": "GROUP",
+                      "rowSpan": 1,
+                      "colSpan": 5,
+                      "label": "Acquisition"
+                    },
+                    {
+                      "type": "GROUP",
+                      "rowSpan": 1,
+                      "colSpan": 2,
+                      "label": "Behavior"
+                    },
+                    {
+                      "type": "MENU",
+                      "rowSpan": 1,
+                      "colSpan": 3,
+                      "label": "Conversions",
+                      "menu": {
+                        "options": [
+                          {
+                            "id": "ALL",
+                            "name": "All Goals",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          },
+                          {
+                            "id": "Goal1",
+                            "name": "Goal 1: Create an account",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          },
+                          {
+                            "id": "Goal2",
+                            "name": "Goal 2: Schedule a Demo",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          },
+                          {
+                            "id": "Goal3",
+                            "name": "Goal 3: Sign up",
+                            "separator": false,
+                            "enableChangeSelectedId": true,
+                            "disabled": false
+                          }
+                        ],
+                        "selectedId": "ALL"
+                      },
+                      "menuId": "conversionsSelector",
+                      "menuLabel": "Conversions"
+                    }
+                  ]
+                },
+                {
+                  "cell": [
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.adClicks",
+                        "displayName": "Clicks",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006995,
+                        "externalName": "ga:adClicks"
+                      },
+                      "conceptIndex": 0
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.adCost",
+                        "displayName": "Cost",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006993,
+                        "externalName": "ga:adCost"
+                      },
+                      "conceptIndex": 1
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.CPC",
+                        "displayName": "CPC",
+                        "enumValues": [],
+                        "smallerValueBetter": true,
+                        "helpTopicId": 1006997,
+                        "externalName": "ga:CPC"
+                      },
+                      "conceptIndex": 2
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.totalVisitors",
+                        "displayName": "Users",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 2630986,
+                        "externalName": "ga:users"
+                      },
+                      "conceptIndex": 3
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.visits",
+                        "displayName": "Sessions",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 2631008,
+                        "externalName": "ga:sessions"
+                      },
+                      "conceptIndex": 4
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.bounceRate",
+                        "displayName": "Bounce Rate",
+                        "enumValues": [],
+                        "smallerValueBetter": true,
+                        "helpTopicId": 1006257,
+                        "externalName": "ga:bounceRate"
+                      },
+                      "conceptIndex": 5
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.avgPageviews",
+                        "displayName": "Pages / Session",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006251,
+                        "externalName": "ga:pageviewsPerSession"
+                      },
+                      "conceptIndex": 6
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.goalConversionRate",
+                        "displayName": "Goal Conversion Rate",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1708791,
+                        "externalName": "ga:goalConversionRateAll"
+                      },
+                      "conceptIndex": 7
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.goalCompletionsAll",
+                        "displayName": "Goal Completions",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006273,
+                        "externalName": "ga:goalCompletionsAll"
+                      },
+                      "conceptIndex": 8
+                    },
+                    {
+                      "type": "CONCEPT",
+                      "rowSpan": 1,
+                      "colSpan": 1,
+                      "concept": {
+                        "conceptName": "analytics.goalValueAll",
+                        "displayName": "Goal Value",
+                        "enumValues": [],
+                        "smallerValueBetter": false,
+                        "helpTopicId": 1006275,
+                        "externalName": "ga:goalValueAll"
+                      },
+                      "conceptIndex": 9
+                    }
+                  ]
+                }
+              ],
+              "height": 2,
+              "groupStartIndex": [
+                0,
+                5,
+                7
+              ]
+            },
+            "showHeaderFilterControls": false,
+            "headerFilterConditionGroup": [],
+            "inlineIntelligenceEnabled": false
+          }
+        },
+        "tableControl": {
+          "id": "treemap-table-tableControl",
+          "type": "TableControl",
+          "conditionBuilder": {
+            "conditionGroup": [],
+            "conceptPicker": {
+              "group": [
+                {
+                  "type": "DIMENSION",
+                  "label": "Commonly used",
+                  "conceptRef": [
+                    "analytics.campaign"
+                  ],
+                  "shouldHighlight": true
+                },
+                {
+                  "type": "DIMENSION",
+                  "label": "Dimensions",
+                  "conceptRef": [
+                    "analytics.campaign"
+                  ],
+                  "shouldHighlight": false
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Commonly used",
+                  "conceptRef": [
+                    "analytics.totalVisitors",
+                    "analytics.visits",
+                    "analytics.bounceRate",
+                    "analytics.avgPageviews"
+                  ],
+                  "shouldHighlight": true
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Acquisition",
+                  "conceptRef": [
+                    "analytics.adClicks",
+                    "analytics.adCost",
+                    "analytics.CPC",
+                    "analytics.visits",
+                    "analytics.totalVisitors"
+                  ],
+                  "shouldHighlight": false
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Behavior",
+                  "conceptRef": [
+                    "analytics.bounceRate",
+                    "analytics.avgPageviews"
+                  ],
+                  "shouldHighlight": false
+                },
+                {
+                  "type": "METRIC",
+                  "label": "Conversions",
+                  "conceptRef": [
+                    "analytics.goal1Completions",
+                    "analytics.goalConversionRate1",
+                    "analytics.goal1Value",
+                    "analytics.goalCompletionsAll",
+                    "analytics.goalConversionRate",
+                    "analytics.goalValueAll",
+                    "analytics.goal2Completions",
+                    "analytics.goalConversionRate2",
+                    "analytics.goal2Value",
+                    "analytics.goal3Completions",
+                    "analytics.goalConversionRate3",
+                    "analytics.goal3Value"
+                  ],
+                  "shouldHighlight": false
+                }
+              ],
+              "concept": [
+                {
+                  "conceptName": "analytics.campaign",
+                  "displayName": "Campaign",
+                  "type": "DIMENSION",
+                  "enumValues": [],
+                  "tooltipId": 1032809,
+                  "scope": [],
+                  "family": "STRING",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.bounceRate",
+                  "displayName": "Bounce Rate",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006257,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.adClicks",
+                  "displayName": "Clicks",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006995,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "geoIncompatible": true,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.adCost",
+                  "displayName": "Cost",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006993,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "geoIncompatible": true,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.CPC",
+                  "displayName": "CPC",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006997,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal1Completions",
+                  "displayName": "Create an account (Goal 1 Completions)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1046532,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate1",
+                  "displayName": "Create an account (Goal 1 Conversion Rate)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006981,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal1Value",
+                  "displayName": "Create an account (Goal 1 Value)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1007017,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalCompletionsAll",
+                  "displayName": "Goal Completions",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006273,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate",
+                  "displayName": "Goal Conversion Rate",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1708791,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalValueAll",
+                  "displayName": "Goal Value",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006275,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.avgPageviews",
+                  "displayName": "Pages / Session",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006251,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal2Completions",
+                  "displayName": "Schedule a Demo (Goal 2 Completions)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1046532,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate2",
+                  "displayName": "Schedule a Demo (Goal 2 Conversion Rate)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006981,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal2Value",
+                  "displayName": "Schedule a Demo (Goal 2 Value)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1007017,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.visits",
+                  "displayName": "Sessions",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 2631008,
+                  "scope": [
+                    "VISITOR"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal3Completions",
+                  "displayName": "Sign up (Goal 3 Completions)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1046532,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goalConversionRate3",
+                  "displayName": "Sign up (Goal 3 Conversion Rate)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1006981,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.goal3Value",
+                  "displayName": "Sign up (Goal 3 Value)",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 1007017,
+                  "scope": [
+                    "VISITOR",
+                    "VISIT",
+                    "HIT"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "multiplier": 1000000,
+                  "fuzzyMatchDisplayName": []
+                },
+                {
+                  "conceptName": "analytics.totalVisitors",
+                  "displayName": "Users",
+                  "type": "METRIC",
+                  "enumValues": [],
+                  "tooltipId": 2630986,
+                  "scope": [
+                    "VISITOR"
+                  ],
+                  "family": "NUMBER",
+                  "deprecated": false,
+                  "fuzzyMatchDisplayName": []
+                }
+              ],
+              "groupView": true,
+              "hideGroupViewSwitch": false,
+              "hideSearchBox": false
+            },
+            "enableMultipleConditions": false,
+            "showDefaultIfEmpty": true,
+            "autocompleteMetric": "analytics.totalVisitors"
+          },
+          "dimensionPicker": {
+            "group": [
+              {
+                "type": "DIMENSION",
+                "label": "Commonly used",
+                "conceptRef": [
+                  "analytics.deviceCategory",
+                  "analytics.medium",
+                  "analytics.sourceMedium",
+                  "analytics.source"
+                ],
+                "shouldHighlight": true
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Acquisition",
+                "conceptRef": [
+                  "analytics.trafficChannel",
+                  "analytics.directSession",
+                  "analytics.medium",
+                  "analytics.referralPath",
+                  "analytics.source",
+                  "analytics.sourceMedium",
+                  "analytics.trafficType"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Advertising",
+                "conceptRef": [
+                  "analytics.adwordsExternalCustomerName",
+                  "analytics.adContent",
+                  "analytics.adDistributionNetwork",
+                  "analytics.campaignCode",
+                  "analytics.destinationUrl",
+                  "analytics.displayUrl",
+                  "analytics.adwordsAdGroupID",
+                  "analytics.adwordsCampaignID",
+                  "analytics.adwordsCreativeID",
+                  "analytics.adwordsCriteriaID",
+                  "analytics.adwordsExternalCustomerID",
+                  "analytics.adGroup",
+                  "analytics.adSlot",
+                  "analytics.adSlotPosition",
+                  "analytics.keyword",
+                  "analytics.adwordsCriteriaType",
+                  "analytics.contentDomain",
+                  "analytics.contentPlacementType",
+                  "analytics.contentUrl",
+                  "analytics.matchType",
+                  "analytics.queryWordCount",
+                  "analytics.query",
+                  "analytics.clickSocialAnnotationType",
+                  "analytics.isTrueViewVideoAd"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Behavior",
+                "conceptRef": [
+                  "analytics.appId",
+                  "analytics.appInstallerId",
+                  "analytics.appName",
+                  "analytics.appVersion",
+                  "analytics.gwoExperimentId",
+                  "analytics.experimentCombination",
+                  "analytics.gwoExperimentName",
+                  "analytics.fullReferrer",
+                  "analytics.gwoCombinationId"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Custom Dimensions",
+                "conceptRef": [
+                  "analytics.customDimension1"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Social",
+                "conceptRef": [
+                  "analytics.originatingSocialNetwork",
+                  "analytics.socialNetwork"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Time",
+                "conceptRef": [
+                  "analytics.date",
+                  "analytics.nthDay",
+                  "analytics.day",
+                  "analytics.dayOfWeek",
+                  "analytics.dayOfWeekName",
+                  "analytics.hour",
+                  "analytics.nthHour",
+                  "analytics.dateHour",
+                  "analytics.isoYearIsoWeek",
+                  "analytics.isoWeek",
+                  "analytics.isoYear",
+                  "analytics.nthMonth",
+                  "analytics.month",
+                  "analytics.yearMonth",
+                  "analytics.nthWeek",
+                  "analytics.week",
+                  "analytics.yearWeek",
+                  "analytics.year"
+                ],
+                "shouldHighlight": false
+              },
+              {
+                "type": "DIMENSION",
+                "label": "Users",
+                "conceptRef": [
+                  "analytics.dataSource",
+                  "analytics.deviceCategory",
+                  "analytics.isMobile"
+                ],
+                "shouldHighlight": false
+              }
+            ],
+            "concept": [
+              {
+                "conceptName": "analytics.adwordsExternalCustomerName",
+                "displayName": "Account",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 6083665,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adContent",
+                "displayName": "Ad Content",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032749,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adDistributionNetwork",
+                "displayName": "Ad Distribution Network",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618916,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.appId",
+                "displayName": "App ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2643584,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.appInstallerId",
+                "displayName": "App Installer ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2643633,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.appName",
+                "displayName": "App Name",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2413843,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.appVersion",
+                "displayName": "App Version",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2413795,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.campaignCode",
+                "displayName": "Campaign Code",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dataSource",
+                "displayName": "Data Source",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 6160574,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.date",
+                "displayName": "Date",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047201,
+                "scope": [],
+                "family": "DATE",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthDay",
+                "displayName": "Day Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047204,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.day",
+                "displayName": "Day of the month",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032731,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dayOfWeek",
+                "displayName": "Day of Week",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047206,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dayOfWeekName",
+                "displayName": "Day of Week Name",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3082110,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.trafficChannel",
+                "displayName": "Default Channel Grouping",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.destinationUrl",
+                "displayName": "Destination URL",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047211,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.deviceCategory",
+                "displayName": "Device Category",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2980153,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.directSession",
+                "displayName": "Direct Session",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 7382032,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.displayUrl",
+                "displayName": "Display URL",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3394328,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.gwoExperimentId",
+                "displayName": "Experiment ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2525474,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.experimentCombination",
+                "displayName": "Experiment ID with Variant",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 9080765,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.gwoExperimentName",
+                "displayName": "Experiment Name",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 6308373,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.fullReferrer",
+                "displayName": "Full Referrer",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047687,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsAdGroupID",
+                "displayName": "Google Ads Ad Group ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047130,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCampaignID",
+                "displayName": "Google Ads Campaign ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047134,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCreativeID",
+                "displayName": "Google Ads Creative ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047136,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCriteriaID",
+                "displayName": "Google Ads Criteria ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1046525,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsExternalCustomerID",
+                "displayName": "Google Ads Customer ID",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047138,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adGroup",
+                "displayName": "Google Ads: Ad Group",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032745,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adSlot",
+                "displayName": "Google Ads: Ad Slot",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032751,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adSlotPosition",
+                "displayName": "Google Ads: Ad Slot Position",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032753,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.hour",
+                "displayName": "Hour",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032792,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthHour",
+                "displayName": "Hour Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047284,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.dateHour",
+                "displayName": "Hour of Day",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618918,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isoYearIsoWeek",
+                "displayName": "ISO Week of ISO Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3395166,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isoWeek",
+                "displayName": "ISO Week of the Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3394331,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isoYear",
+                "displayName": "ISO Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3395038,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.keyword",
+                "displayName": "Keyword",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032747,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.adwordsCriteriaType",
+                "displayName": "Keyword Match Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2976157,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.medium",
+                "displayName": "Medium",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032755,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isMobile",
+                "displayName": "Mobile (Including Tablet)",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032800,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthMonth",
+                "displayName": "Month Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047332,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.month",
+                "displayName": "Month of the year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032733,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.yearMonth",
+                "displayName": "Month of Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618963,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.contentDomain",
+                "displayName": "Placement Domain",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047355,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.contentPlacementType",
+                "displayName": "Placement Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047163,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.contentUrl",
+                "displayName": "Placement URL",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047358,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.matchType",
+                "displayName": "Query Match Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618961,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.queryWordCount",
+                "displayName": "Query Word Count",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 6124333,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.referralPath",
+                "displayName": "Referral Path",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032757,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.query",
+                "displayName": "Search Query",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047307,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.customDimension1",
+                "displayName": "SignIn Traffic",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2721638,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.clickSocialAnnotationType",
+                "displayName": "Social Annotation Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2444437,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.originatingSocialNetwork",
+                "displayName": "Social Network",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1652588,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.socialNetwork",
+                "displayName": "Social Network",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1319054,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.source",
+                "displayName": "Source",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032811,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.sourceMedium",
+                "displayName": "Source / Medium",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032813,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.trafficType",
+                "displayName": "Traffic Type",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047792,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.isTrueViewVideoAd",
+                "displayName": "TrueView Video Ad",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 3479201,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.gwoCombinationId",
+                "displayName": "Variant",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2527803,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.nthWeek",
+                "displayName": "Week Index",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047879,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.week",
+                "displayName": "Week of the Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1032794,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.yearWeek",
+                "displayName": "Week of Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 2618964,
+                "scope": [],
+                "family": "NUMBER",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              },
+              {
+                "conceptName": "analytics.year",
+                "displayName": "Year",
+                "type": "DIMENSION",
+                "enumValues": [],
+                "tooltipId": 1047890,
+                "scope": [],
+                "family": "STRING",
+                "deprecated": false,
+                "fuzzyMatchDisplayName": []
+              }
+            ],
+            "groupView": true,
+            "hideGroupViewSwitch": false,
+            "hideSearchBox": false
+          },
+          "showSecondaryDimensionPicker": true,
+          "advancedFilterMode": false,
+          "filterExpression": "",
+          "smartSortEnabled": false,
+          "deltaSortEnabled": false,
+          "sortType": "",
+          "showSorttypeDropdown": true,
+          "auxComponentId": "",
+          "showPlotKeys": false,
+          "showFilterControl": true,
+          "disableSecondaryDimensionPicker": false,
+          "enableMultipleSecondaryKeys": false,
+          "showBasicFilterControl": true,
+          "showAdvancedFilterTooltip": false
+        },
+        "tableMode": {
+          "id": "treemap-table-tableMode",
+          "type": "TableModeSelector",
+          "mode": [
+            {
+              "id": "data",
+              "displayName": "Data",
+              "selected": true,
+              "disabled": false
+            },
+            {
+              "id": "pie",
+              "displayName": "Percentage",
+              "selected": false,
+              "disabled": false
+            },
+            {
+              "id": "performance",
+              "displayName": "Performance",
+              "selected": false,
+              "disabled": false
+            },
+            {
+              "id": "comparison",
+              "displayName": "Comparison",
+              "selected": false,
+              "disabled": false
+            },
+            {
+              "id": "term_cloud",
+              "displayName": "Term Cloud",
+              "selected": false,
+              "disabled": false
+            },
+            {
+              "id": "pivot",
+              "displayName": "Pivot",
+              "selected": false,
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "treeMap": {
+        "id": "treemap-treeMap",
+        "type": "TreeMap",
+        "value": [],
+        "dimension": [
+          {
+            "conceptName": "analytics.campaign",
+            "displayName": "Campaign",
+            "type": "DIMENSION",
+            "enumValues": []
+          }
+        ],
+        "drillable": true,
+        "selectedVolumeMetric": {
+          "conceptName": "analytics.totalVisitors",
+          "displayName": "Users",
+          "type": "METRIC",
+          "enumValues": []
+        },
+        "volumeMetricPicker": {
+          "group": [
+            {
+              "type": "METRIC",
+              "label": "Commonly used",
+              "conceptRef": [
+                "analytics.totalVisitors",
+                "analytics.visits"
+              ],
+              "shouldHighlight": true
+            },
+            {
+              "type": "METRIC",
+              "label": "Clicks",
+              "conceptRef": [
+                "analytics.adClicks",
+                "analytics.adCost",
+                "analytics.impressions"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Site Usage",
+              "conceptRef": [
+                "analytics.goalCompletionsAll"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Summary",
+              "conceptRef": [
+                "analytics.goalValueAll",
+                "analytics.newVisits",
+                "analytics.visits",
+                "analytics.totalVisitors"
+              ],
+              "shouldHighlight": false
+            }
+          ],
+          "concept": [
+            {
+              "conceptName": "analytics.adClicks",
+              "displayName": "Clicks",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006995,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "geoIncompatible": true,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.adCost",
+              "displayName": "Cost",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006993,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "geoIncompatible": true,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006273,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006275,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.impressions",
+              "displayName": "Impressions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006991,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "geoIncompatible": true,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.newVisits",
+              "displayName": "New Users",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2630913,
+              "scope": [
+                "VISITOR"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.visits",
+              "displayName": "Sessions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2631008,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.totalVisitors",
+              "displayName": "Users",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2630986,
+              "scope": [
+                "VISITOR"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            }
+          ],
+          "groupView": true,
+          "hideGroupViewSwitch": false,
+          "hideSearchBox": false
+        },
+        "selectedRelativeMetric": {
+          "conceptName": "analytics.bounceRate",
+          "displayName": "Bounce Rate",
+          "type": "METRIC",
+          "enumValues": []
+        },
+        "relativeMetricPicker": {
+          "group": [
+            {
+              "type": "METRIC",
+              "label": "Commonly used",
+              "conceptRef": [
+                "analytics.bounceRate",
+                "analytics.avgSessionTime",
+                "analytics.avgPageviews"
+              ],
+              "shouldHighlight": true
+            },
+            {
+              "type": "METRIC",
+              "label": "Clicks",
+              "conceptRef": [
+                "analytics.CPC",
+                "analytics.CTR"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Site Usage",
+              "conceptRef": [
+                "analytics.percentNewVisits",
+                "analytics.avgSessionTime",
+                "analytics.bounceRate",
+                "analytics.avgPageviews"
+              ],
+              "shouldHighlight": false
+            },
+            {
+              "type": "METRIC",
+              "label": "Summary",
+              "conceptRef": [
+                "analytics.goalConversionRate"
+              ],
+              "shouldHighlight": false
+            }
+          ],
+          "concept": [
+            {
+              "conceptName": "analytics.percentNewVisits",
+              "displayName": "% New Sessions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006245,
+              "scope": [
+                "VISITOR"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.avgSessionTime",
+              "displayName": "Avg. Session Duration",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 2632799,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.bounceRate",
+              "displayName": "Bounce Rate",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006257,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.CPC",
+              "displayName": "CPC",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006997,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.CTR",
+              "displayName": "CTR",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006915,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1708791,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.avgPageviews",
+              "displayName": "Pages / Session",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006251,
+              "scope": [
+                "VISITOR",
+                "VISIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            }
+          ],
+          "groupView": true,
+          "hideGroupViewSwitch": false,
+          "hideSearchBox": false
+        },
+        "smallerValueDesirable": true,
+        "numRolledUpRows": -15
+      }
+    },
+    {
+      "id": "timestampMessage",
+      "type": "TimestampMessage",
+      "isDashboard": false,
+      "isHomepage": false,
+      "utcDatetime": "2024-06-29T08:56:00.301Z"
+    },
+    {
+      "id": "signupBanner",
+      "type": "AdwordsLinkBanner",
+      "showMarketingMessage": false,
+      "canLink": true,
+      "servingAccountsLinkedToProfile": 1
+    }
+  ],
+  "samplingData": [
+    {
+      "id": "reportHeader",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportToolbar",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-title",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-sensitiveDataMessage",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-rollUpMessageBanner",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-usersCalcMessage",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportHeaderCustomMessage",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportHeaderDismissibleBar",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-breadcrumb",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-dateControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportNotificationBar",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportToolbar-customizationControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportToolbar-title",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportToolbar-sensitiveDataMessage",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportToolbar-rollUpMessageBanner",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-reportToolbar-samplingControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "treemap",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "treemap-segmentExplorer",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "treemap-table",
+      "sampled": false,
+      "canBeSampled": true,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        },
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        },
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "treemap-treeMap",
+      "sampled": false,
+      "canBeSampled": true,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "treemap-table-dataTable",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "treemap-table-tableControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "treemap-table-tableMode",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "timestampMessage",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "signupBanner",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    }
+  ],
+  "dataFreshness": [
+    {
+      "id": "reportHeader-reportToolbar-samplingControl",
+      "hasRealtime": false
+    },
+    {
+      "id": "treemap-table",
+      "hasRealtime": false
+    },
+    {
+      "id": "treemap-treeMap",
+      "hasRealtime": false
+    }
+  ],
+  "enableSamplingControl": true,
+  "pageMetadata": {
+    "numberOfRequest": "5",
+    "educationTopicId": "2803046",
+    "cpuTime": "802548",
+    "processingTime": "993638"
+  }
+}

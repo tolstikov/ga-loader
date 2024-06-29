@@ -1,0 +1,597 @@
+{
+  "type": "BigFunnelsReport",
+  "title": "Time Lag",
+  "helpTopicId": "1188903",
+  "components": [
+    {
+      "id": "reportHeader",
+      "type": "BigFunnelsReportHeader",
+      "bfReportToolbar": {
+        "id": "reportHeader-bfReportToolbar",
+        "type": "BfReportToolbar",
+        "property": [
+          {
+            "key": "savedReportName",
+            "value": "Time Lag"
+          },
+          {
+            "key": "createSavedReport",
+            "value": "true"
+          }
+        ],
+        "pathSegmentSelector": {
+          "id": "reportHeader-bfReportToolbar-pathSegmentSelector",
+          "type": "PathSegmentSelector",
+          "presetSegment": [
+            {
+              "id": "presetall",
+              "name": "All Conversions",
+              "selected": false
+            },
+            {
+              "id": "preset1",
+              "name": "Time Lag > 1 day",
+              "selected": false
+            },
+            {
+              "id": "preset9",
+              "name": "Path Length > 1",
+              "selected": false
+            },
+            {
+              "id": "preset2",
+              "name": "Any interaction is Referral",
+              "selected": false
+            },
+            {
+              "id": "preset3",
+              "name": "First interaction is Paid Advertising",
+              "selected": false
+            },
+            {
+              "id": "preset4",
+              "name": "Last interaction is Paid Advertising",
+              "selected": false
+            },
+            {
+              "id": "preset5",
+              "name": "First interaction is Direct",
+              "selected": false
+            },
+            {
+              "id": "preset6",
+              "name": "Last interaction is Direct",
+              "selected": false
+            },
+            {
+              "id": "preset7",
+              "name": "First interaction is Organic Search",
+              "selected": false
+            },
+            {
+              "id": "preset8",
+              "name": "Last interaction is Organic Search",
+              "selected": false
+            }
+          ],
+          "userSegment": [],
+          "selectedSegmentId": [],
+          "allowCreateSegment": true
+        },
+        "exportControl": {
+          "id": "reportHeader-bfReportToolbar-exportControl",
+          "type": "ExportControl",
+          "availableFormat": [
+            "CSV",
+            "TSV",
+            "CSV_FOR_EXCEL",
+            "PDF"
+          ],
+          "externalApiRequest": [],
+          "enableFormatingOptions": true,
+          "availableUnsampledFormats": [
+            "CSV",
+            "TSV",
+            "CSV_FOR_EXCEL"
+          ],
+          "enableEmailRequestedOption": false,
+          "disallowedMetric": [],
+          "enableMetadataStoring": true,
+          "isMagnumOpusEnabled": false,
+          "opusShouldDisplayQuota": true
+        },
+        "samplingControl": {
+          "id": "reportHeader-bfReportToolbar-samplingControl",
+          "type": "SamplingControl",
+          "sampleSize": 1000000,
+          "maxSampleSize": 1000000,
+          "minSampleSize": 1000,
+          "showBestEffort": false,
+          "enableSimplifiedSamplingTool": false,
+          "enableOffline": true
+        }
+      },
+      "title": {
+        "id": "reportHeader-title",
+        "type": "Title",
+        "primary": "Time Lag",
+        "detail": [],
+        "primaryRequiresBidiRendering": false,
+        "subtitleRequiresBidiRendering": false
+      },
+      "headerInfo": {
+        "id": "reportHeader-headerInfo",
+        "type": "GaHeaderInfo",
+        "profileHasHarmfulFilter": true,
+        "notification": []
+      },
+      "breadcrumb": {
+        "id": "reportHeader-breadcrumb",
+        "type": "Breadcrumb",
+        "part": [],
+        "readOnly": false
+      },
+      "dateControl": {
+        "id": "reportHeader-dateControl",
+        "type": "DateControl",
+        "startDate": [
+          20120101
+        ],
+        "endDate": [
+          20121231
+        ],
+        "hideComparison": false,
+        "serverDate": 20240629,
+        "firstDayOfWeek": 6
+      },
+      "dataViewContext": {
+        "id": "reportHeader-dataViewContext",
+        "type": "DataViewContext",
+        "subClusterKey": [],
+        "dataView": [
+          {
+            "id": [],
+            "displayName": "",
+            "percent": 0.0,
+            "contextText": "% of conversions",
+            "contextDetail": [
+              {
+                "title": "Jan 1, 2012 - Dec 31, 2012",
+                "detail": "0.00% (0 of 0)"
+              }
+            ],
+            "contextValue": "0.00%",
+            "comparisonMode": false,
+            "isInactive": false,
+            "isInvalid": false
+          }
+        ],
+        "segmentStateKey": "bfSegment",
+        "useCommonColorScheme": false,
+        "isReadOnly": false
+      },
+      "conversionTypeSelector": {
+        "id": "reportHeader-conversionTypeSelector",
+        "type": "ConversionTypeSelector",
+        "richSelector": {
+          "singleSelectModeEnabled": false,
+          "group": [],
+          "optionCount": 0,
+          "showSelectOptions": true,
+          "showDisplayOptions": true,
+          "showFilter": true,
+          "applyTopLevelStyle": true,
+          "isReadOnly": false
+        }
+      },
+      "lookbackWindowControl": {
+        "id": "reportHeader-lookbackWindowControl",
+        "type": "LookbackWindowControl",
+        "lookbackWindowOption": {
+          "lookbackWindow": {
+            "value": 30,
+            "enabled": true
+          },
+          "maxLookbackWindow": "NINETY_DAYS",
+          "popupSlider": true
+        },
+        "tooltipId": 2877688,
+        "isReadOnly": false
+      },
+      "dataSetSelector": {
+        "id": "reportHeader-dataSetSelector",
+        "type": "BigFunnelsDataSetSelector",
+        "options": [
+          {
+            "id": "ALL",
+            "name": "All",
+            "selected": true,
+            "disabled": false
+          },
+          {
+            "id": "ADWORDS",
+            "name": "Google Ads",
+            "selected": false,
+            "disabled": false
+          }
+        ],
+        "isReadOnly": false
+      }
+    },
+    {
+      "id": "tabControl",
+      "type": "TabControl",
+      "tab": [
+        {
+          "id": "histogramTab",
+          "label": "Distribution",
+          "selected": true
+        }
+      ],
+      "hideSingleTab": false
+    },
+    {
+      "id": "histogramTab",
+      "type": "AdvancedHistogramTab",
+      "role": "tab",
+      "sectionControl": {
+        "id": "histogramTab-sectionControl",
+        "type": "SectionControl",
+        "section": [
+          {
+            "id": "time_lag",
+            "label": "Time Lag in Days",
+            "editable": false
+          }
+        ],
+        "selectedId": "time_lag"
+      },
+      "scorecard": {
+        "id": "histogramTab-scorecard",
+        "type": "Scorecard",
+        "card": [
+          {
+            "id": "bigfunnels.conversions",
+            "selected": false,
+            "primary": false,
+            "metricName": "Conversions",
+            "metric": [
+              {
+                "value": "0",
+                "comparison": {
+                  "text": "% of Total",
+                  "value": "0.00%",
+                  "deltaValue": "0",
+                  "type": "NEUTRAL"
+                }
+              }
+            ],
+            "helpId": 2430031
+          },
+          {
+            "id": "bigfunnels.conversion_value",
+            "selected": false,
+            "primary": false,
+            "metricName": "Conversion Value",
+            "metric": [
+              {
+                "value": "$0.00",
+                "comparison": {
+                  "text": "% of Total",
+                  "value": "0.00%",
+                  "deltaValue": "$0.00",
+                  "type": "NEUTRAL"
+                }
+              }
+            ],
+            "helpId": 2430033
+          }
+        ],
+        "isSelectable": false,
+        "segmentName": [
+          ""
+        ]
+      },
+      "segmentExplorer": {
+        "id": "histogramTab-segmentExplorer",
+        "type": "SegmentExplorer",
+        "listOption": [
+          {
+            "id": "bigfunnels.path_length_in_days",
+            "label": "Time Lag in Days",
+            "selected": true,
+            "suboption": []
+          }
+        ],
+        "disablePrimaryMenuOptions": false
+      },
+      "advancedHistogramTable": {
+        "id": "histogramTab-advancedHistogramTable",
+        "type": "AdvancedHistogramTable",
+        "dimension": {
+          "conceptName": "bigfunnels.path_length_in_days",
+          "displayName": "Time Lag in Days",
+          "enumValues": [],
+          "helpTopicId": 2428865,
+          "externalName": "mcf:timeLagInDaysHistogram"
+        },
+        "dimensionLabel": "Time Lag in Days",
+        "metric": [
+          {
+            "conceptName": "bigfunnels.conversions",
+            "displayName": "Conversions",
+            "enumValues": [],
+            "smallerValueBetter": false,
+            "helpTopicId": 2430031,
+            "externalName": "mcf:totalConversions"
+          },
+          {
+            "conceptName": "bigfunnels.conversion_value",
+            "displayName": "Conversion Value",
+            "enumValues": [],
+            "smallerValueBetter": false,
+            "helpTopicId": 2430033,
+            "externalName": "mcf:totalConversionValue"
+          }
+        ],
+        "metricLegend": [
+          "Conversions",
+          "Conversion Value"
+        ],
+        "clusteredRowLabel": [],
+        "bucket": [],
+        "showColumnHistograms": false,
+        "showPercentageColumn": true,
+        "isReadOnly": false
+      }
+    }
+  ],
+  "samplingData": [
+    {
+      "id": "reportHeader",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-bfReportToolbar",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-title",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-headerInfo",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-breadcrumb",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-dateControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-dataViewContext",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        },
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-conversionTypeSelector",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-lookbackWindowControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-dataSetSelector",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-bfReportToolbar-pathSegmentSelector",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-bfReportToolbar-exportControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "reportHeader-bfReportToolbar-samplingControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "tabControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "histogramTab",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "histogramTab-sectionControl",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "histogramTab-scorecard",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        },
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "histogramTab-segmentExplorer",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
+      "id": "histogramTab-advancedHistogramTable",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    }
+  ],
+  "dataFreshness": [
+    {
+      "id": "reportHeader-headerInfo",
+      "hasRealtime": false
+    },
+    {
+      "id": "reportHeader-dataViewContext",
+      "hasRealtime": false
+    },
+    {
+      "id": "reportHeader-conversionTypeSelector",
+      "hasRealtime": false
+    },
+    {
+      "id": "histogramTab-scorecard",
+      "hasRealtime": false
+    },
+    {
+      "id": "histogramTab-advancedHistogramTable",
+      "hasRealtime": false
+    }
+  ],
+  "enableSamplingControl": true,
+  "pageMetadata": {
+    "numberOfRequest": "7",
+    "educationTopicId": "2803048",
+    "cpuTime": "190604",
+    "processingTime": "309914"
+  }
+}
