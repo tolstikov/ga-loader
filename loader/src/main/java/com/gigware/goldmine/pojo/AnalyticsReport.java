@@ -18,10 +18,7 @@ public final class AnalyticsReport {
     private String uniqueName;
     private List<Dimension> dimensions;
     private List<Metric> metrics;
-
-    public AnalyticsReport(final File file) {
-
-    }
+    private List<Dimension> secondaryDimensions;
 
     public AnalyticsReport(
             final String label,
@@ -29,10 +26,27 @@ public final class AnalyticsReport {
             final List<Dimension> dimensions,
             final List<Metric> metrics
     ) {
+        this(
+                label,
+                uniqueName,
+                dimensions,
+                metrics,
+                List.of()
+        );
+    }
+
+    public AnalyticsReport(
+            final String label,
+            final String uniqueName,
+            final List<Dimension> dimensions,
+            final List<Metric> metrics,
+            final List<Dimension> secondaryDimensions
+    ) {
         this.label = label;
         this.uniqueName = uniqueName;
         this.dimensions = dimensions;
         this.metrics = metrics;
+        this.secondaryDimensions = secondaryDimensions;
     }
 
     public String getLabel() {
@@ -68,6 +82,15 @@ public final class AnalyticsReport {
 
     public AnalyticsReport setMetrics(final List<Metric> metrics) {
         this.metrics = metrics;
+        return this;
+    }
+
+    public List<Dimension> getSecondaryDimensions() {
+        return secondaryDimensions;
+    }
+
+    public AnalyticsReport setSecondaryDimensions(final List<Dimension> secondaryDimensions) {
+        this.secondaryDimensions = secondaryDimensions;
         return this;
     }
 }

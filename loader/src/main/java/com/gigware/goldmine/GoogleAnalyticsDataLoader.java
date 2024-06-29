@@ -36,7 +36,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public final class GoogleAnalyticsDataLoader {
 
@@ -103,8 +102,11 @@ public final class GoogleAnalyticsDataLoader {
 
         final ReportsConverter reportsConverter = new ReportsConverter();
         final List<AnalyticsReport> analyticsReports = reportsConverter.readReports();
-        for (AnalyticsReport analyticsReport : analyticsReports){
-            downloadSingle("67352952", analyticsReport.getDimensions(), analyticsReport.getMetrics(), "2013-10-01","2013-10-31", analyticsReport.getUniqueName());
+        for (AnalyticsReport analyticsReport : analyticsReports) {
+            final List<Dimension> dimensions = Lists.newArrayList(analyticsReport.getDimensions());
+            dimensions.add(new Dimension().setName("ga:date"));
+            dimensions.addAll(analyticsReport.getSecondaryDimensions());
+            downloadSingle("67352952", dimensions, analyticsReport.getMetrics(), "2013-10-01", "2013-10-31", analyticsReport.getUniqueName());
         }
 //        testDate();
 //        try {
