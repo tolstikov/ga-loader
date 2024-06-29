@@ -100,7 +100,10 @@ public final class GoogleAnalyticsDataLoader {
      */
     public static void main(final String[] args) throws IOException {
 
-        final ReportsConverter reportsConverter = new ReportsConverter("errors");
+        final ReportsConverter reportsConverter = new ReportsConverter("gutter");
+        final String viewId = "67352952";
+        final String startDate = "2023-08-01";
+        final String endDate = "2023-08-31";
         final List<AnalyticsReport> analyticsReports = reportsConverter.readReports();
         for (AnalyticsReport analyticsReport : analyticsReports) {
             System.out.println("Process: " + analyticsReport.getUniqueName());
@@ -110,10 +113,10 @@ public final class GoogleAnalyticsDataLoader {
                 for (final Dimension secondary : analyticsReport.getSecondaryDimensions()) {
                     List<Dimension> requestDimensions = Lists.newArrayList(dimensions);
                     requestDimensions.add(secondary);
-                    downloadSingle("67352952", requestDimensions, analyticsReport.getMetrics(), "2013-10-01", "2013-10-31", analyticsReport.getUniqueName() + "/" + secondary.getName());
+                    downloadSingle(viewId, requestDimensions, analyticsReport.getMetrics(), startDate, endDate, analyticsReport.getUniqueName() + "/" + secondary.getName());
                 }
             } else {
-                downloadSingle("67352952", dimensions, analyticsReport.getMetrics(), "2013-10-01", "2013-10-31", analyticsReport.getUniqueName());
+                downloadSingle(viewId, dimensions, analyticsReport.getMetrics(), startDate, endDate, analyticsReport.getUniqueName());
             }
         }
 //        testDate();
