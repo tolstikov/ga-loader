@@ -100,7 +100,7 @@ public final class GoogleAnalyticsDataLoader {
      */
     public static void main(final String[] args) throws IOException {
 
-        final ReportsConverter reportsConverter = new ReportsConverter();
+        final ReportsConverter reportsConverter = new ReportsConverter("gutted");
         final List<AnalyticsReport> analyticsReports = reportsConverter.readReports();
         for (AnalyticsReport analyticsReport : analyticsReports) {
             System.out.println("Process: " + analyticsReport.getUniqueName());

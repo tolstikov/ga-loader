@@ -22,6 +22,12 @@ public final class ReportsConverter {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
+    private final String rootFolder;
+
+    public ReportsConverter(final String rootFolder) {
+        this.rootFolder = rootFolder;
+    }
+
     private static String readFile(final File file) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
@@ -40,7 +46,7 @@ public final class ReportsConverter {
 
         try {
             ClassLoader classLoader = ReportsConverter.class.getClassLoader();
-            URL resource = classLoader.getResource("gutted"); // todo check if all
+            URL resource = classLoader.getResource(rootFolder); // todo check if all
             Path path = Paths.get(resource.toURI());
             assert resource != null;
             return Files.walk(path)
