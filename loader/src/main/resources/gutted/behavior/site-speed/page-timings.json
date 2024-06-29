@@ -1,0 +1,61 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.pagePath",
+      "displayName": "Page",
+      "enumValues": [],
+      "helpTopicId": 1032816,
+      "externalName": "ga:pagePath"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.avgPageLoadTime",
+      "displayName": "Avg. Page Load Time (sec)",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 1047121,
+      "externalName": "ga:avgPageLoadTime"
+    },
+    {
+      "conceptName": "analytics.pageviews",
+      "displayName": "Pageviews",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006243,
+      "externalName": "ga:pageviews"
+    },
+    {
+      "conceptName": "analytics.bounceRate",
+      "displayName": "Bounce Rate",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 1006257,
+      "externalName": "ga:bounceRate"
+    },
+    {
+      "conceptName": "analytics.exitRate",
+      "displayName": "% Exit",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006932,
+      "externalName": "ga:exitRate"
+    },
+    {
+      "conceptName": "analytics.pageValue",
+      "displayName": "Page Value",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2492778,
+      "externalName": "ga:pageValue"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.source",
+    "analytics.medium",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.landingPagePath"
+  ]
+}

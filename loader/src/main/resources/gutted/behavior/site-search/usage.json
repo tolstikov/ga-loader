@@ -1,0 +1,94 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.searchUsed",
+      "displayName": "Site Search Status",
+      "enumValues": [],
+      "helpTopicId": 1032761,
+      "externalName": "ga:searchUsed"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.visits",
+      "displayName": "Sessions",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2631008,
+      "externalName": "ga:sessions"
+    },
+    {
+      "conceptName": "analytics.percentNewVisits",
+      "displayName": "% New Sessions",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006245,
+      "externalName": "ga:percentNewSessions"
+    },
+    {
+      "conceptName": "analytics.newVisits",
+      "displayName": "New Users",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2630913,
+      "externalName": "ga:newUsers"
+    },
+    {
+      "conceptName": "analytics.bounceRate",
+      "displayName": "Bounce Rate",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 1006257,
+      "externalName": "ga:bounceRate"
+    },
+    {
+      "conceptName": "analytics.avgPageviews",
+      "displayName": "Pages / Session",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006251,
+      "externalName": "ga:pageviewsPerSession"
+    },
+    {
+      "conceptName": "analytics.avgSessionTime",
+      "displayName": "Avg. Session Duration",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2632799,
+      "externalName": "ga:avgSessionDuration"
+    },
+    {
+      "conceptName": "analytics.goalConversionRate",
+      "displayName": "Goal Conversion Rate",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1708791,
+      "externalName": "ga:goalConversionRateAll"
+    },
+    {
+      "conceptName": "analytics.goalCompletionsAll",
+      "displayName": "Goal Completions",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006273,
+      "externalName": "ga:goalCompletionsAll"
+    },
+    {
+      "conceptName": "analytics.goalValueAll",
+      "displayName": "Goal Value",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006275,
+      "externalName": "ga:goalValueAll"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.source",
+    "analytics.medium",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.landingPagePath",
+    "analytics.pagePath"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.userTimingCategory",
+      "displayName": "Timing Category",
+      "enumValues": [],
+      "helpTopicId": 2467064,
+      "externalName": "ga:userTimingCategory"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.avgUserTiming",
+      "displayName": "Avg. User Timing (sec)",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 2467063,
+      "externalName": "ga:avgUserTimingValue"
+    },
+    {
+      "conceptName": "analytics.userTimingCount",
+      "displayName": "User Timing Sample",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2467121,
+      "externalName": "ga:userTimingSample"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.landingPagePath",
+    "analytics.pagePath"
+  ]
+}

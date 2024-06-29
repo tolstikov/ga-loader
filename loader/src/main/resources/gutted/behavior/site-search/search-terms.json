@@ -1,0 +1,70 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.searchKeyword",
+      "displayName": "Search Term",
+      "enumValues": [],
+      "helpTopicId": 1032763,
+      "externalName": "ga:searchKeyword"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.searchUniques",
+      "displayName": "Total Unique Searches",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006949,
+      "externalName": "ga:searchUniques"
+    },
+    {
+      "conceptName": "analytics.pageviewsPerSearch",
+      "displayName": "Results Pageviews / Search",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006951,
+      "externalName": "ga:avgSearchResultViews"
+    },
+    {
+      "conceptName": "analytics.percentSearchExits",
+      "displayName": "% Search Exits",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 1006953,
+      "externalName": "ga:searchExitRate"
+    },
+    {
+      "conceptName": "analytics.percentSearchRefinements",
+      "displayName": "% Search Refinements",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006955,
+      "externalName": "ga:percentSearchRefinements"
+    },
+    {
+      "conceptName": "analytics.durationPerSearch",
+      "displayName": "Time after Search",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2804485,
+      "externalName": "ga:avgSearchDuration"
+    },
+    {
+      "conceptName": "analytics.depthPerSearch",
+      "displayName": "Avg. Search Depth",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2804616,
+      "externalName": "ga:avgSearchDepth"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.source",
+    "analytics.medium",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.landingPagePath",
+    "analytics.pagePath"
+  ]
+}
