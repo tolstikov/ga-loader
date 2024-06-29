@@ -17,7 +17,7 @@ public final class ReportsConverter {
 
     public static void main(final String[] args) throws URISyntaxException, IOException {
         ClassLoader classLoader = ReportsConverter.class.getClassLoader();
-        URL resource = classLoader.getResource(""); // todo check if all
+        URL resource = classLoader.getResource("reports"); // todo check if all
         List<File> collect = Files.walk(Paths.get(resource.toURI()))
                 .filter(Files::isRegularFile)
                 .map(Path::toFile)
