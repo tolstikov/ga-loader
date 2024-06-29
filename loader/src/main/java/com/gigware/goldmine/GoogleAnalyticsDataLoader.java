@@ -100,63 +100,36 @@ public final class GoogleAnalyticsDataLoader {
      */
     public static void main(final String[] args) throws IOException {
 
-        final ReportsConverter reportsConverter = new ReportsConverter("gutter");
-        final String viewId = "67352952";
-        final String startDate = "2023-08-01";
-        final String endDate = "2023-08-31";
+        final ReportsConverter reportsConverter = new ReportsConverter("gutted");
+//        final String startDate = "2023-08-01";
+//        final String endDate = "2023-08-31";
         final List<AnalyticsReport> analyticsReports = reportsConverter.readReports();
-        for (AnalyticsReport analyticsReport : analyticsReports) {
-            System.out.println("Process: " + analyticsReport.getUniqueName());
-            final List<Dimension> dimensions = Lists.newArrayList(analyticsReport.getDimensions());
-            if (!analyticsReport.getSecondaryDimensions().isEmpty()) {
-                dimensions.add(new Dimension().setName("ga:date"));
-                for (final Dimension secondary : analyticsReport.getSecondaryDimensions()) {
-                    List<Dimension> requestDimensions = Lists.newArrayList(dimensions);
-                    requestDimensions.add(secondary);
-                    downloadSingle(viewId, requestDimensions, analyticsReport.getMetrics(), startDate, endDate, analyticsReport.getUniqueName() + "/" + secondary.getName());
-                }
-            } else {
-                downloadSingle(viewId, dimensions, analyticsReport.getMetrics(), startDate, endDate, analyticsReport.getUniqueName());
-            }
-        }
-//        testDate();
-//        try {
 
-//        downloadSingle("67352952",
-////                Stream.of(
-////                        EnumDimensions.TIME__DATE
-////                ).map(EnumDimensions::getDimension).collect(Collectors.toList()),
-//                Stream.of(
-//                        "ga:date"
-//                ).map(d->new Dimension().setName(d)).collect(Collectors.toList()),
-//                Stream.of(
-////                        EnumMetrics.SESSION__SESSIONS,
-////                        EnumMetrics.SESSION__BOUNCES,
-////                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
-////                        EnumMetrics.USER__1_DAY_ACTIVE_USERS,
-//                        EnumMetrics.USER__14_DAY_ACTIVE_USERS
-//                ).map(EnumMetrics::getMetric).collect(Collectors.toList()),
-//                "2013-10-01",
-//                "2013-10-31",
-//                "test_ug");
-//        for (final String viewId : PROCESS_VIEW_ID) {
-//            System.out.println("===============================================================================");
-//            System.out.println("Processing of view with id: " + viewId);
-////            try {
-//
-//////                processView(viewId);
-////            } catch (Exception e) {
-////                e.printStackTrace();
-////            }
-//            for (final AnalyticsReport report : PROCESS_REPORTS) {
-//                try {
-//                    processFullReport(viewId, report);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            System.out.println("===============================================================================");
-//        }
+        for (final String viewId : PROCESS_VIEW_ID) {
+            System.out.println("===============================================================================");
+            System.out.println("Processing of view with id: " + viewId);
+
+            for (AnalyticsReport analyticsReport : analyticsReports) {
+                final List<Dimension> dimensions = Lists.newArrayList(analyticsReport.getDimensions());
+                dimensions.add(new Dimension().setName("ga:date"));
+                final LocalDate startLocalDate = calculateRangeStart(viewId, analyticsReport);
+                for (LocalDate firstRequestDate = startLocalDate; firstRequestDate.isBefore(END); firstRequestDate = firstRequestDate.plusYears(1)) {
+                    final String startDate = firstRequestDate.format(DATE_TIME_FORMATTER);
+                    final String endDate = firstRequestDate.plusYears(1).minusDays(1).format(DATE_TIME_FORMATTER);
+                    System.out.println("Process: " + analyticsReport.getUniqueName() + " from: " + startDate + " to: " + endDate);
+                    if (!analyticsReport.getSecondaryDimensions().isEmpty()) {
+                        for (final Dimension secondary : analyticsReport.getSecondaryDimensions()) {
+                            List<Dimension> requestDimensions = Lists.newArrayList(dimensions);
+                            requestDimensions.add(secondary);
+                            downloadSingle(viewId, requestDimensions, analyticsReport.getMetrics(), startDate, endDate, analyticsReport.getUniqueName() + "/" + secondary.getName());
+                        }
+                    } else {
+                        downloadSingle(viewId, dimensions, analyticsReport.getMetrics(), startDate, endDate, analyticsReport.getUniqueName());
+                    }
+                }
+            }
+            System.out.println("===============================================================================");
+        }
 //            final DateRange dateRange = new DateRange().setStartDate("2012-01-01").setEndDate("2012-01-02");
 //            final List<DateRange> dateRanges = Lists.newArrayList();
 //            dateRanges.add(dateRange);
@@ -292,60 +265,55 @@ public final class GoogleAnalyticsDataLoader {
         System.out.println();
     }
 
-    private static void processView(final String viewId) {
-        for (final EnumGroup report : EnumGroup.values()) {
-            if (report.getDimensions().size() < 9) {
-//                simpleDownload(viewId, report);
-            } else {
-                calculatedDownload(report);
-            }
-        }
-        System.out.println();
-    }
-
     private static void downloadSingle(final String viewId, final List<Dimension> dimensions, final List<Metric> metrics, final String startDate,
                                        final String endDate, final String name) {
-        final AnalyticsReporting client = getAnalyticsReporting();
-        //            dimensions.add(EnumDimensions.TIME__DATE.getDimension());
-        final ReportRequest request = new ReportRequest()
-                .setViewId(viewId)
-                .setDateRanges(
-                        Arrays.asList(
-                                new DateRange().setStartDate(startDate).setEndDate(endDate)
-                        )
-                )
-                .setMetrics(metrics)
-                .setDimensions(dimensions)
-                .setPageSize(PAGE_SIZE);
-        try {
-            String nextPageToken = null;
-            GetReportsResponse response;
-            do {
-                response = client.reports().batchGet(
-                        new GetReportsRequest()
-                                .setReportRequests(
-                                        ImmutableList.of(
-                                                request.setPageToken(nextPageToken)
-                                        )
-                                )
-                ).execute();
-                if (response == null || response.getReports() == null || response.getReports().isEmpty()) {
-                    throw new IllegalArgumentException("No data in response");
-                }
-                if (response.getReports().size() > 1) {
-                    throw new IllegalArgumentException("More than 1 report in response");
-                }
-                Report responseReport = response.getReports().get(0);
-                String reportContent = MAPPER.writeValueAsString(responseReport);
-//                save(viewId + "/" + group.name().toLowerCase() + "_deprecated/" + rangeStartDate + "__" + rangeEndDate + ".json", reportContent);
-                save(viewId + "/" + name.toLowerCase() + "/" + startDate + "__" + endDate + "_" + nextPageToken + ".json", reportContent);
-                nextPageToken = responseReport.getNextPageToken();
-            } while (nextPageToken != null);
 
-        } catch (IOException e) {
-            // todo retry logic
-            e.printStackTrace();
-        }
+        int retryCount = 5;
+
+        do {
+            final AnalyticsReporting client = getAnalyticsReporting();
+            //            dimensions.add(EnumDimensions.TIME__DATE.getDimension());
+            final ReportRequest request = new ReportRequest()
+                    .setViewId(viewId)
+                    .setDateRanges(
+                            Arrays.asList(
+                                    new DateRange().setStartDate(startDate).setEndDate(endDate)
+                            )
+                    )
+                    .setMetrics(metrics)
+                    .setDimensions(dimensions)
+                    .setPageSize(PAGE_SIZE);
+            try {
+                String nextPageToken = null;
+                GetReportsResponse response;
+                do {
+                    response = client.reports().batchGet(
+                            new GetReportsRequest()
+                                    .setReportRequests(
+                                            ImmutableList.of(
+                                                    request.setPageToken(nextPageToken)
+                                            )
+                                    )
+                    ).execute();
+                    if (response == null || response.getReports() == null || response.getReports().isEmpty()) {
+                        throw new IllegalArgumentException("No data in response");
+                    }
+                    if (response.getReports().size() > 1) {
+                        throw new IllegalArgumentException("More than 1 report in response");
+                    }
+                    Report responseReport = response.getReports().get(0);
+                    String reportContent = MAPPER.writeValueAsString(responseReport);
+//                save(viewId + "/" + group.name().toLowerCase() + "_deprecated/" + rangeStartDate + "__" + rangeEndDate + ".json", reportContent);
+                    save(viewId + "/" + name.toLowerCase() + "/" + startDate + "__" + endDate + "_" + nextPageToken + ".json", reportContent);
+                    nextPageToken = responseReport.getNextPageToken();
+                } while (nextPageToken != null);
+                break;
+            } catch (IOException e) {
+                System.out.println("retry" + retryCount + " ex: " + e.getMessage());
+                retryCount--;
+            }
+        } while (retryCount > 0);
+
     }
 
     private static void simpleDownload(final String viewId, final List<EnumDimensions> dimensionsIn, final List<EnumMetrics> metricsIn, final String name) {
