@@ -1,0 +1,77 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.pagePath",
+      "displayName": "Page",
+      "enumValues": [],
+      "helpTopicId": 1032816,
+      "externalName": "ga:pagePath"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.pageviews",
+      "displayName": "Pageviews",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006243,
+      "externalName": "ga:pageviews"
+    },
+    {
+      "conceptName": "analytics.uniquePageviews",
+      "displayName": "Unique Pageviews",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006271,
+      "externalName": "ga:uniquePageviews"
+    },
+    {
+      "conceptName": "analytics.avgPageDuration",
+      "displayName": "Avg. Time on Page",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006285,
+      "externalName": "ga:avgTimeOnPage"
+    },
+    {
+      "conceptName": "analytics.entrances",
+      "displayName": "Entrances",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1032981,
+      "externalName": "ga:entrances"
+    },
+    {
+      "conceptName": "analytics.bounceRate",
+      "displayName": "Bounce Rate",
+      "enumValues": [],
+      "smallerValueBetter": true,
+      "helpTopicId": 1006257,
+      "externalName": "ga:bounceRate"
+    },
+    {
+      "conceptName": "analytics.exitRate",
+      "displayName": "% Exit",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006932,
+      "externalName": "ga:exitRate"
+    },
+    {
+      "conceptName": "analytics.pageValue",
+      "displayName": "Page Value",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 2492778,
+      "externalName": "ga:pageValue"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.source",
+    "analytics.medium",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.landingPagePath"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.eventCategory",
+      "displayName": "Event Category",
+      "enumValues": [],
+      "helpTopicId": 1032899,
+      "externalName": "ga:eventCategory"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.totalEvents",
+      "displayName": "Total Events",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006962,
+      "externalName": "ga:totalEvents"
+    },
+    {
+      "conceptName": "analytics.uniqueEventsTrue",
+      "displayName": "Unique Events",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 7131463,
+      "externalName": "ga:uniqueEvents"
+    },
+    {
+      "conceptName": "analytics.eventValue",
+      "displayName": "Event Value",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006966,
+      "externalName": "ga:eventValue"
+    },
+    {
+      "conceptName": "analytics.eventAvgValue",
+      "displayName": "Avg. Value",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1047148,
+      "externalName": "ga:avgEventValue"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.source",
+    "analytics.medium",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.eventAction",
+    "analytics.eventLabel",
+    "analytics.landingPagePath",
+    "analytics.pagePath"
+  ]
+}

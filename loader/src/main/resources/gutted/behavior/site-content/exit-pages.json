@@ -1,0 +1,48 @@
+{
+  "dimension": [
+    {
+      "conceptName": "analytics.pagePath",
+      "displayName": "Page",
+      "enumValues": [],
+      "helpTopicId": 1032816,
+      "externalName": "ga:pagePath"
+    }
+  ],
+  "metric": [
+    {
+      "conceptName": "analytics.exits",
+      "displayName": "Exits",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1032985,
+      "externalName": "ga:exits"
+    },
+    {
+      "conceptName": "analytics.pageviews",
+      "displayName": "Pageviews",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006243,
+      "externalName": "ga:pageviews"
+    },
+    {
+      "conceptName": "analytics.exitRate",
+      "displayName": "% Exit",
+      "enumValues": [],
+      "smallerValueBetter": false,
+      "helpTopicId": 1006932,
+      "externalName": "ga:exitRate"
+    }
+  ],
+  "secondaryDimensions": [
+    "analytics.deviceCategory",
+    "analytics.source",
+    "analytics.medium",
+    "analytics.sourceMedium",
+    "analytics.campaign",
+    "analytics.landingPagePath",
+    "analytics.eventAction",
+    "analytics.eventLabel",
+    "analytics.eventCategory"
+  ]
+}
