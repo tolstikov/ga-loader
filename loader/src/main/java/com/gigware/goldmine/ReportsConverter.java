@@ -57,20 +57,43 @@ public final class ReportsConverter {
     public AnalyticsReport readReport(final File file) {
         try {
             final JsonNode jsonNode = MAPPER.readTree(file);
+
+            final List<Dimension> secondary = StreamSupport
+                    .stream(jsonNode.withArrayProperty("secondaryDimensions").spliterator(), false)
+                    .map(jn -> jn.asText())
+                    .map(this::nameFromAnalytics)
+                    // check that exist
+                    .map(gaName -> new Dimension().setName(gaName))
+                    .toList();
+
             return new AnalyticsReport(
                     file.getName(),
                     file.getName(),
                     StreamSupport
                             .stream(jsonNode.withArrayProperty("dimension").spliterator(), false)
-                            .map(jn -> new Dimension().setName(jn.get("externalName").asText()))
+                            .map(jn -> extractName(jn))
+                            .map(name -> new Dimension().setName(name))
                             .toList(),
                     StreamSupport
                             .stream(jsonNode.withArrayProperty("metric").spliterator(), false)
-                            .map(jn -> new Metric().setExpression(jn.get("externalName").asText()))
-                            .toList()
+                            .map(jn -> extractName(jn))
+                            .map(name -> new Metric().setExpression(name))
+                            .toList(),
+                    secondary
             );
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public String extractName(final JsonNode jsonNode){
+        if (!jsonNode.has("externalName")){
+            return nameFromAnalytics(jsonNode.get("conceptName").asText());
+        }
+        return jsonNode.get("externalName").asText();
+    }
+
+    public String nameFromAnalytics(final String analyticsName){
+        return "ga:"+analyticsName.split("\\.")[1];
     }
 }
