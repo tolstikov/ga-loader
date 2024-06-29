@@ -1,7 +1,7 @@
 {
-  "type": "StandardReport",
+  "type": "GoalsReport",
   "title": "Overview",
-  "helpTopicId": "1006206",
+  "helpTopicId": "1006214",
   "components": [
     {
       "id": "reportHeader",
@@ -17,7 +17,7 @@
           "type": "EmailControl",
           "sender": "tolstikov@cloudaware.com",
           "reportTitle": "Overview",
-          "reportId": "content-overview",
+          "reportId": "conversions-goals-overview",
           "dailyEmail": [],
           "weeklyEmail": [],
           "monthlyEmail": [],
@@ -89,15 +89,19 @@
               "containsSensitiveData": false
             },
             {
-              "componentId": "overview-graph-lineChart",
+              "componentId": "reportHeader-conversionSelector",
               "containsSensitiveData": false
             },
             {
-              "componentId": "overview-sparkline",
+              "componentId": "overview_goaloption_ALL-graph-lineChart",
               "containsSensitiveData": false
             },
             {
-              "componentId": "overview-dimensionSummary",
+              "componentId": "overview_goaloption_ALL-sparkline",
+              "containsSensitiveData": false
+            },
+            {
+              "componentId": "overview_goaloption_ALL-dimensionSummary",
               "containsSensitiveData": false
             }
           ]
@@ -159,15 +163,19 @@
             "containsSensitiveData": false
           },
           {
-            "componentId": "overview-graph-lineChart",
+            "componentId": "reportHeader-conversionSelector",
             "containsSensitiveData": false
           },
           {
-            "componentId": "overview-sparkline",
+            "componentId": "overview_goaloption_ALL-graph-lineChart",
             "containsSensitiveData": false
           },
           {
-            "componentId": "overview-dimensionSummary",
+            "componentId": "overview_goaloption_ALL-sparkline",
+            "containsSensitiveData": false
+          },
+          {
+            "componentId": "overview_goaloption_ALL-dimensionSummary",
             "containsSensitiveData": false
           }
         ]
@@ -227,11 +235,11 @@
               {
                 "title": "Jan 1, 2012 - Dec 31, 2012",
                 "primaryMetricData": {
-                  "displayName": "Pageviews",
-                  "formattedPercent": "100.00%",
-                  "formattedTotal": "44",
-                  "formattedValue": "44",
-                  "percent": 100.0
+                  "displayName": "Goal Completions",
+                  "formattedPercent": "0.00%",
+                  "formattedTotal": "0",
+                  "formattedValue": "0",
+                  "percent": 0.0
                 }
               }
             ],
@@ -2150,6 +2158,38 @@
           "hideGroupViewSwitch": true,
           "hideSearchBox": false
         }
+      },
+      "conversionSelector": {
+        "id": "reportHeader-conversionSelector",
+        "type": "ConversionSelector",
+        "enabledConversionOptions": [
+          {
+            "name": "All Goals",
+            "conversionIndex": "ALL",
+            "metricValue": "0",
+            "selected": true
+          },
+          {
+            "name": "Goal 1: Create an account",
+            "conversionIndex": "1",
+            "metricValue": "0",
+            "selected": false
+          },
+          {
+            "name": "Goal 2: Schedule a Demo",
+            "conversionIndex": "2",
+            "metricValue": "0",
+            "selected": false
+          },
+          {
+            "name": "Goal 3: Sign up",
+            "conversionIndex": "3",
+            "metricValue": "0",
+            "selected": false
+          }
+        ],
+        "disabledConversionOptions": [],
+        "isReadOnly": false
       }
     },
     {
@@ -2157,7 +2197,7 @@
       "type": "TabControl",
       "tab": [
         {
-          "id": "overview",
+          "id": "overview_goaloption_ALL",
           "label": "Overview",
           "selected": true
         }
@@ -2165,11 +2205,11 @@
       "hideSingleTab": false
     },
     {
-      "id": "overview",
+      "id": "overview_goaloption_ALL",
       "type": "OverviewTab",
       "role": "tab",
       "graphOptions": {
-        "id": "overview-graphOptions",
+        "id": "overview_goaloption_ALL-graphOptions",
         "type": "GraphOptions",
         "timeDimensionSelector": {
           "mode": [
@@ -2203,38 +2243,62 @@
             }
           ]
         },
-        "primaryConcept": "analytics.pageviews",
-        "primaryConceptDisplayName": "Pageviews",
+        "primaryConcept": "analytics.goalCompletionsAll",
+        "primaryConceptDisplayName": "Goal Completions",
         "primaryConceptPicker": {
           "group": [
             {
               "type": "METRIC",
-              "label": "Commonly used",
-              "conceptRef": [
-                "analytics.bounceRate"
-              ],
-              "shouldHighlight": true
-            },
-            {
-              "type": "METRIC",
               "label": "",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
-                "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "analytics.goal1Completions",
+                "analytics.goalCompletionsAll",
+                "analytics.goalConversionRate",
+                "analytics.goalValueAll",
+                "analytics.goal2Completions",
+                "analytics.goal3Completions",
+                "analytics.abandonedFunnelsRate"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.goal1Completions",
+              "displayName": "Create an account (Goal 1 Completions)",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006273,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1708791,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2244,53 +2308,57 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
+              "tooltipId": 1006275,
               "scope": [
                 "VISITOR",
-                "VISIT"
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal2Completions",
+              "displayName": "Schedule a Demo (Goal 2 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
+              "conceptName": "analytics.goal3Completions",
+              "displayName": "Sign up (Goal 3 Completions)",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006257,
+              "tooltipId": 1046532,
               "scope": [
                 "VISITOR",
-                "VISIT"
+                "VISIT",
+                "HIT"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.abandonedFunnelsRate",
+              "displayName": "Total Abandonment Rate",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006243,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006271,
+              "tooltipId": 1033001,
               "scope": [
                 "VISITOR",
                 "VISIT",
@@ -2309,32 +2377,56 @@
           "group": [
             {
               "type": "METRIC",
-              "label": "Commonly used",
-              "conceptRef": [
-                "analytics.bounceRate"
-              ],
-              "shouldHighlight": true
-            },
-            {
-              "type": "METRIC",
               "label": "",
               "conceptRef": [
-                "analytics.exitRate",
-                "analytics.avgPageDuration",
-                "analytics.bounceRate",
-                "analytics.pageviews",
-                "analytics.uniquePageviews"
+                "analytics.goal1Completions",
+                "analytics.goalCompletionsAll",
+                "analytics.goalConversionRate",
+                "analytics.goalValueAll",
+                "analytics.goal2Completions",
+                "analytics.goal3Completions",
+                "analytics.abandonedFunnelsRate"
               ],
               "shouldHighlight": false
             }
           ],
           "concept": [
             {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.goal1Completions",
+              "displayName": "Create an account (Goal 1 Completions)",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006932,
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1006273,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1708791,
               "scope": [
                 "VISITOR",
                 "VISIT"
@@ -2344,53 +2436,57 @@
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006285,
+              "tooltipId": 1006275,
               "scope": [
                 "VISITOR",
-                "VISIT"
+                "VISIT",
+                "HIT"
+              ],
+              "family": "NUMBER",
+              "deprecated": false,
+              "multiplier": 1000000,
+              "fuzzyMatchDisplayName": []
+            },
+            {
+              "conceptName": "analytics.goal2Completions",
+              "displayName": "Schedule a Demo (Goal 2 Completions)",
+              "type": "METRIC",
+              "enumValues": [],
+              "tooltipId": 1046532,
+              "scope": [
+                "VISITOR",
+                "VISIT",
+                "HIT"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
+              "conceptName": "analytics.goal3Completions",
+              "displayName": "Sign up (Goal 3 Completions)",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006257,
+              "tooltipId": 1046532,
               "scope": [
                 "VISITOR",
-                "VISIT"
+                "VISIT",
+                "HIT"
               ],
               "family": "NUMBER",
               "deprecated": false,
               "fuzzyMatchDisplayName": []
             },
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.abandonedFunnelsRate",
+              "displayName": "Total Abandonment Rate",
               "type": "METRIC",
               "enumValues": [],
-              "tooltipId": 1006243,
-              "scope": [
-                "VISITOR",
-                "VISIT"
-              ],
-              "family": "NUMBER",
-              "deprecated": false,
-              "fuzzyMatchDisplayName": []
-            },
-            {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
-              "type": "METRIC",
-              "enumValues": [],
-              "tooltipId": 1006271,
+              "tooltipId": 1033001,
               "scope": [
                 "VISITOR",
                 "VISIT",
@@ -2411,10 +2507,10 @@
         "conceptMode": "METRIC"
       },
       "graph": {
-        "id": "overview-graph",
+        "id": "overview_goaloption_ALL-graph",
         "type": "Graph",
         "lineChart": {
-          "id": "overview-graph-lineChart",
+          "id": "overview_goaloption_ALL-graph-lineChart",
           "type": "LineChart",
           "dataTable": {
             "cols": [
@@ -2425,8 +2521,8 @@
               },
               {
                 "type": "number",
-                "label": "Pageviews",
-                "id": "primary$analytics.pageviews$[date_range-0:DateRange{20120101-20121231}]$",
+                "label": "Goal Completions",
+                "id": "primary$analytics.goalCompletionsAll$[date_range-0:DateRange{20120101-20121231}]$",
                 "styleName": "primary0",
                 "dateRange": "Jan 1, 2012 - Dec 31, 2012",
                 "isTotal": true,
@@ -6749,8 +6845,8 @@
                     "f": "Tuesday, December 25, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6761,8 +6857,8 @@
                     "f": "Wednesday, December 26, 2012"
                   },
                   {
-                    "v": 6.0,
-                    "f": "6"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6773,8 +6869,8 @@
                     "f": "Thursday, December 27, 2012"
                   },
                   {
-                    "v": 9.0,
-                    "f": "9"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6785,8 +6881,8 @@
                     "f": "Friday, December 28, 2012"
                   },
                   {
-                    "v": 13.0,
-                    "f": "13"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -6797,8 +6893,8 @@
                     "f": "Saturday, December 29, 2012"
                   },
                   {
-                    "v": 7.0,
-                    "f": "7"
+                    "v": 0.0,
+                    "f": "0"
                   }
                 ]
               },
@@ -7213,8 +7309,8 @@
             "enumValues": []
           },
           "primaryMetric": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
+            "conceptName": "analytics.goalCompletionsAll",
+            "displayName": "Goal Completions",
             "enumValues": []
           },
           "dimensionFilterGroup": [],
@@ -7232,13 +7328,13 @@
         }
       },
       "sparkline": {
-        "id": "overview-sparkline",
+        "id": "overview_goaloption_ALL-sparkline",
         "type": "HorizontalSparkline",
         "metricGroup": [
           {
             "metric": {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
               "enumValues": []
             },
             "groupName": [
@@ -7246,7 +7342,7 @@
             ],
             "group": [
               {
-                "displayName": "Pageviews",
+                "displayName": "Goal Completions",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -7610,26 +7706,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      9.0,
-                      6.0,
-                      9.0,
-                      13.0,
-                      7.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "44",
+                    "value": "0",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006243
+            "helpId": 1006273
           },
           {
             "metric": {
-              "conceptName": "analytics.uniquePageviews",
-              "displayName": "Unique Pageviews",
+              "conceptName": "analytics.goalValueAll",
+              "displayName": "Goal Value",
               "enumValues": []
             },
             "groupName": [
@@ -7637,7 +7733,7 @@
             ],
             "group": [
               {
-                "displayName": "Unique Pageviews",
+                "displayName": "Goal Value",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -8001,26 +8097,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      5.0,
-                      5.0,
-                      8.0,
-                      5.0,
-                      4.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "27",
+                    "value": "$0.00",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006271
+            "helpId": 1006275
           },
           {
             "metric": {
-              "conceptName": "analytics.avgPageDuration",
-              "displayName": "Avg. Time on Page",
+              "conceptName": "analytics.goalConversionRate",
+              "displayName": "Goal Conversion Rate",
               "enumValues": []
             },
             "groupName": [
@@ -8028,7 +8124,7 @@
             ],
             "group": [
               {
-                "displayName": "Avg. Time on Page",
+                "displayName": "Goal Conversion Rate",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -8392,26 +8488,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      14.75,
-                      3.0,
                       0.0,
-                      52.625,
-                      262.3333333333333,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "00:01:15",
+                    "value": "0.00%",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006285
+            "helpId": 1708791
           },
           {
             "metric": {
-              "conceptName": "analytics.bounceRate",
-              "displayName": "Bounce Rate",
+              "conceptName": "analytics.abandonedFunnelsRate",
+              "displayName": "Total Abandonment Rate",
               "enumValues": []
             },
             "groupName": [
@@ -8419,7 +8515,7 @@
             ],
             "group": [
               {
-                "displayName": "Bounce Rate",
+                "displayName": "Total Abandonment Rate",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -8783,26 +8879,26 @@
                       0.0,
                       0.0,
                       0.0,
-                      0.4,
-                      0.8,
-                      0.875,
-                      0.4,
-                      0.75,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "66.67%",
+                    "value": "0.00%",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006257
+            "helpId": 1033001
           },
           {
             "metric": {
-              "conceptName": "analytics.exitRate",
-              "displayName": "% Exit",
+              "conceptName": "analytics.goal1Completions",
+              "displayName": "Create an account (Goal 1 Completions)",
               "enumValues": []
             },
             "groupName": [
@@ -8810,7 +8906,7 @@
             ],
             "group": [
               {
-                "displayName": "% Exit",
+                "displayName": "Create an account (Goal 1 Completions)",
                 "groupId": "Jan 1, 2012 - Dec 31, 2012",
                 "line": [
                   {
@@ -9174,144 +9270,865 @@
                       0.0,
                       0.0,
                       0.0,
-                      0.5555555555555556,
-                      0.8333333333333334,
-                      0.8888888888888888,
-                      0.38461538461538464,
-                      0.5714285714285714,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
                       0.0,
                       0.0
                     ],
-                    "value": "61.36%",
+                    "value": "0",
                     "comparePoint": []
                   }
                 ]
               }
             ],
-            "helpId": 1006932
+            "helpId": 1046532
+          },
+          {
+            "metric": {
+              "conceptName": "analytics.goal2Completions",
+              "displayName": "Schedule a Demo (Goal 2 Completions)",
+              "enumValues": []
+            },
+            "groupName": [
+              "Jan 1, 2012 - Dec 31, 2012"
+            ],
+            "group": [
+              {
+                "displayName": "Schedule a Demo (Goal 2 Completions)",
+                "groupId": "Jan 1, 2012 - Dec 31, 2012",
+                "line": [
+                  {
+                    "point": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "value": "0",
+                    "comparePoint": []
+                  }
+                ]
+              }
+            ],
+            "helpId": 1046532
+          },
+          {
+            "metric": {
+              "conceptName": "analytics.goal3Completions",
+              "displayName": "Sign up (Goal 3 Completions)",
+              "enumValues": []
+            },
+            "groupName": [
+              "Jan 1, 2012 - Dec 31, 2012"
+            ],
+            "group": [
+              {
+                "displayName": "Sign up (Goal 3 Completions)",
+                "groupId": "Jan 1, 2012 - Dec 31, 2012",
+                "line": [
+                  {
+                    "point": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "value": "0",
+                    "comparePoint": []
+                  }
+                ]
+              }
+            ],
+            "helpId": 1046532
           }
         ],
         "notSelectable": false,
         "condensedDisplay": false
       },
       "dimensionSummary": {
-        "id": "overview-dimensionSummary",
+        "id": "overview_goaloption_ALL-dimensionSummary",
         "type": "DimensionSummary",
         "dimensionGroup": [
           {
-            "label": "Site Content",
-            "name": "sitecontent",
+            "label": "Goals",
+            "name": "goals",
             "dimension": [
               {
-                "conceptName": "analytics.pagePath",
-                "displayName": "Page",
+                "conceptName": "analytics.goalRequestUri",
+                "displayName": "Goal Completion Location",
                 "selected": true
               },
               {
-                "conceptName": "analytics.pageTitle",
-                "displayName": "Page Title",
-                "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Site Search",
-            "name": "sitesearch",
-            "dimension": [
-              {
-                "conceptName": "analytics.searchKeyword",
-                "displayName": "Search Term",
-                "selected": false
-              }
-            ]
-          },
-          {
-            "label": "Events",
-            "name": "events",
-            "dimension": [
-              {
-                "conceptName": "analytics.eventCategory",
-                "displayName": "Event Category",
+                "conceptName": "analytics.sourceMedium",
+                "displayName": "Source / Medium",
                 "selected": false
               }
             ]
           }
         ],
         "miniTable": {
-          "id": "overview-dimensionSummary-miniTable",
+          "id": "overview_goaloption_ALL-dimensionSummary-miniTable",
           "type": "MiniTable",
           "dimension": [
             {
-              "conceptName": "analytics.pagePath",
-              "displayName": "Page",
+              "conceptName": "analytics.goalRequestUri",
+              "displayName": "Goal Completion Location",
               "enumValues": [],
-              "helpTopicId": 1032816,
-              "externalName": "ga:pagePath"
+              "helpTopicId": 1047225,
+              "externalName": "ga:goalCompletionLocation"
             }
           ],
           "metric": [
             {
-              "conceptName": "analytics.pageviews",
-              "displayName": "Pageviews",
+              "conceptName": "analytics.goalCompletionsAll",
+              "displayName": "Goal Completions",
               "enumValues": [],
               "smallerValueBetter": false
             },
             {
               "conceptName": "",
-              "displayName": "% Pageviews",
+              "displayName": "% Goal Completions",
               "enumValues": [],
               "smallerValueBetter": false
             }
           ],
           "sortConcept": {
-            "conceptName": "analytics.pageviews",
-            "displayName": "Pageviews",
+            "conceptName": "analytics.goalCompletionsAll",
+            "displayName": "Goal Completions",
             "type": "METRIC",
             "enumValues": [],
-            "externalName": "ga:pageviews"
+            "externalName": "ga:goalCompletionsAll"
           },
           "sortDescending": true,
-          "rowCluster": [
-            {
-              "label": "1.",
-              "rowKey": [
-                {
-                  "displayKey": "/",
-                  "drilldownKey": "/",
-                  "drillable": true,
-                  "jsonValue": "{\"displayKey\":\"/\",\"linkUrl\":\"http://www.cloudaware.com/\",\"type\":\"ReferralPathCell\"}"
-                }
-              ],
-              "row": [
-                {
-                  "rowValue": [
-                    {
-                      "dataValue": "44",
-                      "dataType": "INTEGER"
-                    },
-                    {
-                      "dataValue": "100.00%",
-                      "rawValue": 1.0,
-                      "dataType": "PERCENT"
-                    }
-                  ]
-                }
-              ],
-              "subCluster": [],
-              "selected": false
-            }
-          ],
-          "clusteredRowLabel": [
-            {
-              "label": "",
-              "subClusterLabel": [
-                {
-                  "label": "Jan 1, 2012 - Dec 31, 2012",
-                  "subClusterLabel": []
-                }
-              ]
-            }
-          ],
+          "rowCluster": [],
+          "clusteredRowLabel": [],
           "isPlotKeys": false,
           "tablePagination": {
             "start": 0,
@@ -9338,20 +10155,13 @@
             "rowSelectionEnabled": true,
             "showPercentBar": true,
             "deepLink": {
-              "reportId": "content-pages",
+              "reportId": "conversions-goals-uri",
               "param": [],
               "reportViewType": "report"
             }
           }
         }
       }
-    },
-    {
-      "id": "timestampMessage",
-      "type": "TimestampMessage",
-      "isDashboard": false,
-      "isHomepage": false,
-      "utcDatetime": "2024-06-29T09:04:01.516Z"
     }
   ],
   "samplingData": [
@@ -9503,6 +10313,17 @@
       ]
     },
     {
+      "id": "reportHeader-conversionSelector",
+      "sampled": false,
+      "canBeSampled": false,
+      "samplingNumbers": [
+        {
+          "numSamplesRead": 0,
+          "samplingSpaceSize": 0
+        }
+      ]
+    },
+    {
       "id": "reportHeader-reportToolbar-emailControl",
       "sampled": false,
       "canBeSampled": false,
@@ -9591,7 +10412,7 @@
       ]
     },
     {
-      "id": "overview",
+      "id": "overview_goaloption_ALL",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9602,7 +10423,7 @@
       ]
     },
     {
-      "id": "overview-graphOptions",
+      "id": "overview_goaloption_ALL-graphOptions",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9613,7 +10434,7 @@
       ]
     },
     {
-      "id": "overview-graph",
+      "id": "overview_goaloption_ALL-graph",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9624,7 +10445,7 @@
       ]
     },
     {
-      "id": "overview-sparkline",
+      "id": "overview_goaloption_ALL-sparkline",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9639,7 +10460,7 @@
       ]
     },
     {
-      "id": "overview-dimensionSummary",
+      "id": "overview_goaloption_ALL-dimensionSummary",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9650,7 +10471,7 @@
       ]
     },
     {
-      "id": "overview-graph-lineChart",
+      "id": "overview_goaloption_ALL-graph-lineChart",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9661,18 +10482,7 @@
       ]
     },
     {
-      "id": "overview-dimensionSummary-miniTable",
-      "sampled": false,
-      "canBeSampled": false,
-      "samplingNumbers": [
-        {
-          "numSamplesRead": 0,
-          "samplingSpaceSize": 0
-        }
-      ]
-    },
-    {
-      "id": "timestampMessage",
+      "id": "overview_goaloption_ALL-dimensionSummary-miniTable",
       "sampled": false,
       "canBeSampled": false,
       "samplingNumbers": [
@@ -9689,27 +10499,31 @@
       "hasRealtime": false
     },
     {
+      "id": "reportHeader-conversionSelector",
+      "hasRealtime": false
+    },
+    {
       "id": "reportHeader-reportToolbar-samplingControl",
       "hasRealtime": false
     },
     {
-      "id": "overview-sparkline",
+      "id": "overview_goaloption_ALL-sparkline",
       "hasRealtime": false
     },
     {
-      "id": "overview-dimensionSummary",
+      "id": "overview_goaloption_ALL-dimensionSummary",
       "hasRealtime": false
     },
     {
-      "id": "overview-graph-lineChart",
+      "id": "overview_goaloption_ALL-graph-lineChart",
       "hasRealtime": false
     }
   ],
   "enableSamplingControl": true,
   "pageMetadata": {
-    "numberOfRequest": "7",
-    "educationTopicId": "2797244",
-    "cpuTime": "521059",
-    "processingTime": "570664"
+    "numberOfRequest": "8",
+    "educationTopicId": "2803087",
+    "cpuTime": "257870",
+    "processingTime": "508178"
   }
 }
