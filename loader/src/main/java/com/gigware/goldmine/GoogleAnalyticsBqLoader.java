@@ -70,13 +70,14 @@ public final class GoogleAnalyticsBqLoader {
     private static void execute() throws IOException, InterruptedException {
         final boolean overrideCsv = false;              //перезаписывать ли существующие CSV
         final boolean overrideBqTable = false;          //перезаписывать таблицу или добавлять записи в конец
-        final boolean directUpload = false;             //пропускать создание CSV и загружать сразу же из существующих
+        final boolean needCreateCsv = false;            //нужно ли создавать CSV
+        final boolean needBqUpload = true;              //нужно ли загружать в BQ
         final Storage storage = getStorage(CREDENTIAL_BQ_PATH);
         for (final String view : VIEW_TYPES) {
             for (final String schema : REPORT_SCHEMA_TYPES) {
                 System.out.println("########################################################################");
                 System.out.println("Start processing reports in view=" + view + " and schema=" + schema);
-                processViewSchemaReports(storage, view, schema, overrideCsv, overrideBqTable, directUpload);
+                processViewSchemaReports(storage, view, schema, overrideCsv, overrideBqTable, needCreateCsv, needBqUpload);
                 System.out.println("Rows saved for reports in view=" + view + " and schema=" + schema);
             }
         }
@@ -90,12 +91,13 @@ public final class GoogleAnalyticsBqLoader {
             final String schema,
             final boolean overrideCsv,
             final boolean overrideBqTable,
-            final boolean directUpload
+            final boolean needCreateCsv,
+            final boolean needBqUpload
     ) throws IOException, InterruptedException {
         final List<StorageObject> objects = listBucketPrefix(storage, BUCKET_NAME, view + "/" + schema);
         final List<StorageObject> filtered = objects.stream().filter(it -> it.getName().endsWith(".json")).toList();
         final List<StorageObject> created = objects.stream().filter(it -> it.getName().endsWith(".csv")).toList();
-        if (!directUpload) {
+        if (needCreateCsv) {
             final Set<String> reportNames = filtered.stream().map(StorageObject::getName).collect(Collectors.toSet());
             int count = 0;
             for (final String reportName : reportNames) {
@@ -131,7 +133,9 @@ public final class GoogleAnalyticsBqLoader {
                 }
             }
         }
-//        uploadData(view, schema, overrideBqTable);
+        if (needBqUpload) {
+            uploadData(view, schema, overrideBqTable);
+        }
     }
 
     private static void uploadData(
