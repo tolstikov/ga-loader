@@ -30,12 +30,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public final class GoogleAnalyticsBqLoader {
+    private static final Pattern DATE_PATTERN = Pattern.compile("(20\\d{2})(\\d{2})(\\d{2})");
+    private static final Pattern NUMERIC_PATTERN = Pattern.compile("\\d+\\.?\\d*");
     private static final List<String> VIEW_TYPES = Arrays.asList(
             "77102263",
             "129100799",
@@ -67,33 +77,76 @@ public final class GoogleAnalyticsBqLoader {
         }
     }
 
-    private static void execute() throws IOException, InterruptedException {
-        final boolean overrideCsv = false;              //перезаписывать ли существующие CSV
-        final boolean overrideBqTable = false;          //перезаписывать таблицу или добавлять записи в конец
+    private static void execute() {
         final boolean needCreateCsv = false;            //нужно ли создавать CSV
-        final boolean needBqUpload = true;              //нужно ли загружать в BQ
-        final Storage storage = getStorage(CREDENTIAL_BQ_PATH);
+        final boolean overrideCsv = false;              //перезаписывать ли существующие CSV
+        final boolean needBqUpload = false;            //нужно ли загружать в BQ
+        final boolean overrideBqTable = false;          //перезаписывать таблицу или добавлять записи в конец
+
+        final List<Callable<String>> taskList = Lists.newArrayList();
+        final List<Exception> uncaughtExceptions = Lists.newArrayList();
         for (final String view : VIEW_TYPES) {
             for (final String schema : REPORT_SCHEMA_TYPES) {
-                System.out.println("########################################################################");
-                System.out.println("Start processing reports in view=" + view + " and schema=" + schema);
-                processViewSchemaReports(storage, view, schema, overrideCsv, overrideBqTable, needCreateCsv, needBqUpload);
-                System.out.println("Rows saved for reports in view=" + view + " and schema=" + schema);
+                Callable<String> callable = () -> {
+                    try {
+                        return run(view, schema, needCreateCsv, overrideCsv, needBqUpload, overrideBqTable);
+                    } catch (Exception ex) {
+                        uncaughtExceptions.add(ex);
+                        return null;
+                    }
+                };
+                taskList.add(callable);
             }
         }
 
-        System.out.println("All report processed!");
+        try (ExecutorService executor = Executors.newFixedThreadPool(12)) {
+            final List<Future<String>> futureList = Lists.newArrayList();
+            final List<String> result = Lists.newArrayList();
+            try {
+                futureList.addAll(executor.invokeAll(taskList));
+                System.out.println("All report processed!");
+                for (final Future<String> future : futureList) {
+                    final String value = future.get();
+                    if (value != null) {
+                        result.add(value);
+                    }
+                }
+            } catch (InterruptedException | ExecutionException ex) {
+                System.out.println("Interrupted Exception or Execution Exception!");
+            }
+            if (!uncaughtExceptions.isEmpty()) {
+                throw new RuntimeException(String.join("\n", uncaughtExceptions.stream().map(Throwable::getMessage).toList()));
+            }
+            if (result.size() != taskList.size()) {
+                throw new RuntimeException("Invalid call! Valid calls: " + String.join(", ", result));
+            }
+        }
+    }
+
+    private static String run(
+            final String view,
+            final String schema,
+            final boolean needCreateCsv,
+            final boolean overrideCsv,
+            final boolean needBqUpload,
+            final boolean overrideBqTable
+    ) throws IOException, InterruptedException {
+        System.out.println("########################################################################");
+        System.out.println("Start processing reports in view=" + view + " and schema=" + schema);
+        processViewSchemaReports(view, schema, needCreateCsv, overrideCsv, needBqUpload, overrideBqTable);
+        System.out.println("Rows saved for reports in view=" + view + " and schema=" + schema);
+        return view + "_" + schema;
     }
 
     private static void processViewSchemaReports(
-            final Storage storage,
             final String view,
             final String schema,
-            final boolean overrideCsv,
-            final boolean overrideBqTable,
             final boolean needCreateCsv,
-            final boolean needBqUpload
+            final boolean overrideCsv,
+            final boolean needBqUpload,
+            final boolean overrideBqTable
     ) throws IOException, InterruptedException {
+        final Storage storage = getStorage(CREDENTIAL_BQ_PATH);
         final List<StorageObject> objects = listBucketPrefix(storage, BUCKET_NAME, view + "/" + schema);
         final List<StorageObject> filtered = objects.stream().filter(it -> it.getName().endsWith(".json")).toList();
         final List<StorageObject> created = objects.stream().filter(it -> it.getName().endsWith(".csv")).toList();
@@ -103,7 +156,7 @@ public final class GoogleAnalyticsBqLoader {
             for (final String reportName : reportNames) {
                 count++;
                 System.out.println("-----------------------------------------------------------------------------------------------");
-                System.out.println("Report #" + count + " of " + reportNames.size() + " with name='" + reportName + "' start processing!");
+                System.out.println("[" + view + "_" + schema + "] " + "Report #" + count + " of " + reportNames.size() + " with name='" + reportName + "' start processing!");
                 final String csvPath;
                 if (reportName.endsWith(".json")) {
                     csvPath = reportName.substring(0, reportName.length() - 5) + CSV_POSTFIX;
@@ -121,15 +174,15 @@ public final class GoogleAnalyticsBqLoader {
                     final String content = getFileContent(storage, BUCKET_NAME, reportName);
                     final ReportBq report = MAPPER.readValue(content, ReportBq.class);
                     if (report.data == null || report.data.rows == null || report.data.rows.isEmpty()) {
-                        System.out.println("Report has empty data!");
+                        System.out.println("[" + view + "_" + schema + "] " + "Report has empty data!");
                         continue;
                     }
                     final List<BqTableRow> data = processReport(report, reportName, view, schema);
-                    System.out.println("Data has been processed");
+                    System.out.println("[" + view + "_" + schema + "] " + "Data has been processed");
                     createCsv(data, csvPath);
-                    System.out.println("CSV saved: '" + csvPath + "'");
+                    System.out.println("[" + view + "_" + schema + "] " + "CSV saved: '" + csvPath + "'");
                 } else {
-                    System.out.println("CSV already exists: '" + csvPath + "'");
+                    System.out.println("[" + view + "_" + schema + "] " + "CSV already exists: '" + csvPath + "'");
                 }
             }
         }
@@ -146,7 +199,7 @@ public final class GoogleAnalyticsBqLoader {
         final List<JobReference> jobReferenceList = Lists.newArrayList();
         final Bigquery bigQueryClient = getBqClient(CREDENTIAL_BQ_PATH);
         final JobReference jobReference = saveBq(bigQueryClient, view, schema, view + "_" + schema, overrideBqTable);
-        System.out.println("Data has been saved in BQ table: '" + view + "_" + schema + "'");
+        System.out.println("[" + view + "_" + schema + "] " + "Data has been saved in BQ table: '" + view + "_" + schema + "'");
         jobReferenceList.add(jobReference);
         final List<JobReference> errors = Lists.newArrayList();
         for (final JobReference jr : jobReferenceList) {
@@ -154,20 +207,24 @@ public final class GoogleAnalyticsBqLoader {
                 final JobStatus jobStatus = getJobStatus(bigQueryClient, jr);
                 if (jobStatus.getErrors() != null && !jobStatus.getErrors().isEmpty()) {
                     errors.add(jr);
+                    break;
                 } else if ("FAILURE".equals(jobStatus.getState())) {
                     errors.add(jr);
+                    break;
                 } else if ("PENDING".equals(jobStatus.getState()) || "RUNNING".equals(jobStatus.getState())) {
+                    System.out.println("[" + view + "_" + schema + "] " + "Sleep 10000ms");
                     Thread.sleep(10000L);
                 } else if ("DONE".equals(jobStatus.getState()) || "SUCCESS".equals(jobStatus.getState())) {
-                    System.out.println("Data has been uploaded in BQ table: '" + view + "_" + schema + "'");
+                    System.out.println("[" + view + "_" + schema + "] " + "Data has been uploaded in BQ table: '" + view + "_" + schema + "'");
                     break;
                 } else {
                     errors.add(jr);
+                    break;
                 }
             }
         }
         if (!errors.isEmpty()) {
-            throw new RuntimeException("Upload error! Uploads with error count: " + errors.size());
+            throw new RuntimeException("Upload error! View=" + view + " and schema=" + schema);
         }
     }
 
@@ -254,20 +311,35 @@ public final class GoogleAnalyticsBqLoader {
         content.append("reportSource").append("\n");
 
         for (final BqTableRow row : data) {
-            content.append("\"").append(escapeValue(row.getDate())).append("\"").append(",");
+            content.append(escapeValue(toDate(row.getDate()))).append(",");
             content.append("\"").append(escapeValue(row.getDim1Name())).append("\"").append(",");
             content.append("\"").append(escapeValue(row.getDim1Value())).append("\"").append(",");
             content.append("\"").append(escapeValue(row.getDim2Name())).append("\"").append(",");
             content.append("\"").append(escapeValue(row.getDim2Value())).append("\"").append(",");
             content.append("\"").append(escapeValue(row.getMetricName())).append("\"").append(",");
             content.append("\"").append(escapeValue(row.getMetricType())).append("\"").append(",");
-            content.append("\"").append(escapeValue(row.getMetricValue())).append("\"").append(",");
+            content.append(escapeValue(checkNumeric(row.getMetricValue()))).append(",");
             content.append("\"").append(escapeValue(row.getReportPrefix())).append("\"").append(",");
             content.append("\"").append(escapeValue(row.getReportType())).append("\"").append(",");
             content.append("\"").append(escapeValue(row.getReportSource())).append("\"").append("\n");
         }
 
         return content.toString();
+    }
+
+    private static String checkNumeric(final String value) {
+        if (!NUMERIC_PATTERN.matcher(value).matches()) {
+            throw new RuntimeException("Invalid numeric value! Value: " + value);
+        }
+        return value;
+    }
+
+    private static String toDate(final String value) {
+        final Matcher matcher = DATE_PATTERN.matcher(value);
+        if (!matcher.matches()) {
+            throw new RuntimeException("Invalid date value! Value: " + value);
+        }
+        return matcher.group(1) + "-" + matcher.group(2) + "-" + matcher.group(3);
     }
 
     private static String escapeValue(final String value) {
